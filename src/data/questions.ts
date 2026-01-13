@@ -95,20 +95,15 @@ III. O texto dissertativo argumenta sobre um tema específico. Está correto:`,
     subtopic: 'Gramática',
     difficulty: 'medio',
     weight: 2,
-    text: `Julgue V ou F:
-
-A sequência CORRETA é:
-I. 'A gente vai' é uma forma correta de linguagem coloquial.
-II. 'Hão de vir' é uma construção que faz uso do verbo haver no futuro.
-III. 'Mau' e 'mal' têm significados idênticos. A alternativa correta é:`,
+    text: `Sobre as expressões e palavras da língua portuguesa, assinale a alternativa INCORRETA:`,
     options: [
-      { letter: 'A', text: `V, V, F.` },
-      { letter: 'B', text: `F, V, V.` },
-      { letter: 'C', text: `V, F, V.` },
-      { letter: 'D', text: `F, F, V.` }
+      { letter: 'A', text: `'A gente vai' é uma forma aceita na linguagem coloquial.` },
+      { letter: 'B', text: `'Hão de vir' é uma construção com o verbo haver no futuro.` },
+      { letter: 'C', text: `'Mau' e 'mal' têm significados idênticos e podem ser usados de forma intercambiável.` },
+      { letter: 'D', text: `'Mau' é adjetivo (oposto de bom) e 'mal' é advérbio (oposto de bem).` }
     ],
-    correctAnswer: 'A',
-    explanation: `As afirmações I e II são verdadeiras e a afirmação III é falsa, pois 'mau' se refere a algo ruim e 'mal' se refere a algo oposto ao bem.`,
+    correctAnswer: 'C',
+    explanation: `'Mau' e 'mal' NÃO têm significados idênticos: 'mau' é adjetivo (oposto de bom) e 'mal' é advérbio (oposto de bem).`,
   },
   {
     id: 5,
@@ -134,12 +129,17 @@ III. 'Mau' e 'mal' têm significados idênticos. A alternativa correta é:`,
     subtopic: 'Classes de Palavras',
     difficulty: 'medio',
     weight: 2,
-    text: `Associe a 
+    text: `Associe a 2ª coluna com a 1ª conforme o tipo de classe gramatical:
 
-2ª coluna com a 1ª conforme o tipo de classe gramatical: 1. 'rápido' 2. 'correr' 3. 'aquela'. 2.
-(__) Adjetivo ( ) Verbo ( ) Pronome.
+1. 'rápido'
+2. 'correr'
+3. 'aquela'
 
-A sequência correta é:`,
+( ) Adjetivo
+( ) Verbo
+( ) Pronome
+
+A sequência CORRETA é:`,
     options: [
       { letter: 'A', text: `1, 2, 3.` },
       { letter: 'B', text: `2, 1, 3.` },
@@ -292,9 +292,7 @@ III. É importante identificar a ideia central. Está correto:`,
     subject: 'portugues',
     subjectName: 'Língua Portuguesa',
     weight: 2,
-    text: `Associe a 
-
-2ª coluna com a 1ª, relacionando os gêneros textuais às suas características:
+    text: `Associe a 2ª coluna com a 1ª, relacionando os gêneros textuais às suas características:
 I. Crônica
 II. Artigo de opinião
 III. Conto.`,
@@ -430,15 +428,15 @@ III. Nós gostamos de chocolate. Está correto:`,
     subject: 'portugues',
     subjectName: 'Língua Portuguesa',
     weight: 2,
-    text: `Julgue V ou F: 'Homônimos são palavras que possuem a mesma pronúncia, mas significados diferentes.' A sequência CORRETA é:`,
+    text: `Sobre homônimos na língua portuguesa, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `V` },
-      { letter: 'B', text: `F` },
-      { letter: 'C', text: `V e F` },
-      { letter: 'D', text: `Nenhuma das alternativas.` }
+      { letter: 'A', text: `São palavras que possuem a mesma pronúncia ou grafia, mas significados diferentes.` },
+      { letter: 'B', text: `São palavras com significados iguais e grafias diferentes.` },
+      { letter: 'C', text: `São palavras com grafias semelhantes e significados iguais.` },
+      { letter: 'D', text: `São palavras que sempre têm a mesma origem etimológica.` }
     ],
     correctAnswer: 'A',
-    explanation: `A definição de homônimos está correta, pois eles têm a mesma pronúncia e significados distintos.`,
+    explanation: `Homônimos são palavras que possuem a mesma pronúncia (homófonos) ou mesma grafia (homógrafos), mas com significados diferentes.`,
   },
   {
     id: 24,
@@ -460,10 +458,17 @@ III. Nós gostamos de chocolate. Está correto:`,
     subject: 'portugues',
     subjectName: 'Língua Portuguesa',
     weight: 2,
-    text: `Associe a 
+    text: `Associe a 2ª coluna com a 1ª, relacionando os termos:
 
-2ª coluna com a 1ª, relacionando os termos:
-1. Acariciar 2. Amarelo 3. Frio A. Calor B. Carinho C. Cor`,
+1. Acariciar
+2. Amarelo
+3. Frio
+
+A. Calor
+B. Carinho
+C. Cor
+
+A sequência CORRETA é:`,
     options: [
       { letter: 'A', text: `1-B, 2-C, 3-A` },
       { letter: 'B', text: `1-A, 2-B, 3-C` },
@@ -582,15 +587,15 @@ III. 'P implica Q' é equivalente a '¬P ou Q'. Está correto:`,
     subtopic: 'Proposições Condicionais',
     difficulty: 'baixo',
     weight: 2,
-    text: `Julgue V ou F: A proposição 'Se a luz está acesa, então a energia está ligada' é um exemplo de uma implicação lógica.
-
-A sequência CORRETA é:`,
+    text: `Sobre a proposição 'Se a luz está acesa, então a energia está ligada', assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `Verdadeiro.` },
-      { letter: 'B', text: `Falso.` }
+      { letter: 'A', text: `É um exemplo de implicação lógica (condicional).` },
+      { letter: 'B', text: `É um exemplo de conjunção lógica.` },
+      { letter: 'C', text: `É um exemplo de disjunção lógica.` },
+      { letter: 'D', text: `Não é uma proposição lógica válida.` }
     ],
     correctAnswer: 'A',
-    explanation: `A proposição é uma implicação, onde a condição da luz estar acesa depende da energia estar ligada.`,
+    explanation: `A proposição 'Se... então...' é uma implicação lógica (condicional), onde o antecedente implica o consequente.`,
   },
   {
     id: 33,
@@ -616,9 +621,17 @@ A sequência CORRETA é:`,
     subtopic: 'Conectivos Lógicos',
     difficulty: 'medio',
     weight: 2,
-    text: `Associe a 
+    text: `Associe a 2ª coluna com a 1ª:
 
-2ª coluna com a 1ª: A. Conectivo 'E' 1. Implica em um resultado. B. Conectivo 'OU' 2. Aceita uma das variáveis como verdadeira. C. Conectivo 'NÃO' 3. Inverte o valor de verdade.`,
+A. Conectivo 'E'
+B. Conectivo 'OU'
+C. Conectivo 'NÃO'
+
+1. Exige que ambas as variáveis sejam verdadeiras.
+2. Aceita uma das variáveis como verdadeira.
+3. Inverte o valor de verdade.
+
+A sequência CORRETA é:`,
     options: [
       { letter: 'A', text: `A-1, B-2, C-3.` },
       { letter: 'B', text: `A-2, B-3, C-1.` },
@@ -713,24 +726,22 @@ III. A proposição "P implica Q" é equivalente a "¬P ou Q". Está correto:`,
     subject: 'logica',
     subjectName: 'Raciocínio Lógico-Matemático',
     weight: 2,
-    text: `Julgue V ou F: A proposição "Se chove, então a rua está molhada" é verdadeira se chover e a rua não estiver molhada.`,
+    text: `Considere a proposição condicional "Se chove, então a rua está molhada". Em qual situação essa proposição é FALSA?`,
     options: [
-      { letter: 'A', text: `V` },
-      { letter: 'B', text: `F` },
-      { letter: 'C', text: `Não é possível determinar.` },
-      { letter: 'D', text: `A proposição é uma tautologia.` }
+      { letter: 'A', text: `Quando chove e a rua está molhada.` },
+      { letter: 'B', text: `Quando chove e a rua NÃO está molhada.` },
+      { letter: 'C', text: `Quando não chove e a rua está molhada.` },
+      { letter: 'D', text: `Quando não chove e a rua não está molhada.` }
     ],
     correctAnswer: 'B',
-    explanation: `A proposição é falsa se a condição "chove" for verdadeira e a conclusão "a rua está molhada" for falsa.`,
+    explanation: `Uma condicional (Se P, então Q) só é FALSA quando o antecedente é verdadeiro e o consequente é falso. Ou seja, quando chove (V) e a rua NÃO está molhada (F).`,
   },
   {
     id: 41,
     subject: 'logica',
     subjectName: 'Raciocínio Lógico-Matemático',
     weight: 2,
-    text: `Associe a 
-
-2ª coluna com a 1ª, ligando cada proposição a sua tabela-verdade correspondente:`,
+    text: `Associe a 2ª coluna com a 1ª, ligando cada proposição a sua tabela-verdade correspondente:`,
     options: [
       { letter: 'A', text: `1 - (I), 2 - (II), 3 - (III)` },
       { letter: 'B', text: `1 - (III), 2 - (I), 3 - (II)` },
@@ -901,9 +912,7 @@ Sobre suas equivalências lógicas, é CORRETO afirmar que:`,
     subject: 'logica',
     subjectName: 'Raciocínio Lógico-Matemático',
     weight: 2,
-    text: `Associe a 
-
-2ª coluna com a 1ª em relação às operações lógicas:
+    text: `Associe a 2ª coluna com a 1ª em relação às operações lógicas:
 1. Conjunção 2. Disjunção 3. Negação.  A. "A ∧ B"  B. "¬A"  C. "A ∨ B".`,
     options: [
       { letter: 'A', text: `1-A, 2-C, 3-B.` },
@@ -1021,17 +1030,15 @@ III. Os Estados possuem autonomia para criar suas próprias leis, desde que resp
     subject: 'direito',
     subjectName: 'Direito Administrativo e Constitucional',
     weight: 2,
-    text: `Julgue V ou F: O princípio da legalidade na Administração Pública significa que a Administração só pode agir conforme a lei e que os administrados podem fazer tudo o que a lei não proíbe.
-
-A sequência CORRETA é:`,
+    text: `Sobre o princípio da legalidade na Administração Pública, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `V` },
-      { letter: 'B', text: `F` },
-      { letter: 'C', text: `V` },
-      { letter: 'D', text: `F` }
+      { letter: 'A', text: `A Administração só pode agir conforme a lei, enquanto os administrados podem fazer tudo o que a lei não proíbe.` },
+      { letter: 'B', text: `A Administração e os administrados podem fazer tudo o que a lei não proíbe.` },
+      { letter: 'C', text: `A Administração pode agir livremente, desde que não contrarie a lei expressamente.` },
+      { letter: 'D', text: `O princípio da legalidade aplica-se apenas aos administrados, não à Administração Pública.` }
     ],
     correctAnswer: 'A',
-    explanation: `A afirmativa é verdadeira, pois o princípio da legalidade implica que a Administração Pública deve atuar estritamente conforme a lei.`,
+    explanation: `O princípio da legalidade possui duas faces: para a Administração Pública, significa que ela só pode fazer o que a lei autoriza; para os particulares (administrados), significa que podem fazer tudo o que a lei não proíbe.`,
   },
   {
     id: 60,
@@ -1055,22 +1062,15 @@ A sequência CORRETA é:`,
     subject: 'direito',
     subjectName: 'Direito Administrativo e Constitucional',
     weight: 2,
-    text: `Associe a 
-
-2ª coluna com a 1ª, relacionando os princípios da Administração Pública (LIMPE) com suas definições:
-I. Legalidade
-II. Impessoalidade
-III. Moralidade
-IV. Publicidade
-V. Eficiência.`,
+    text: `Sobre o princípio da LEGALIDADE na Administração Pública, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `I - Ato administrativo deve ser praticado dentro da lei.` },
-      { letter: 'B', text: `II - Os atos devem ser motivados e transparentes.` },
-      { letter: 'C', text: `III - A gestão pública deve buscar resultados com qualidade.` },
-      { letter: 'D', text: `IV - A administração deve tratar todos de forma igualitária.` }
+      { letter: 'A', text: `A Administração só pode fazer o que a lei autoriza ou determina.` },
+      { letter: 'B', text: `A Administração pode fazer tudo que a lei não proíbe expressamente.` },
+      { letter: 'C', text: `A legalidade permite ao gestor agir conforme sua conveniência.` },
+      { letter: 'D', text: `O princípio da legalidade aplica-se apenas ao setor privado.` }
     ],
     correctAnswer: 'A',
-    explanation: `A alternativa A relaciona corretamente o princípio da legalidade com a definição de que o ato administrativo deve ser praticado dentro da lei.`,
+    explanation: `O princípio da legalidade para a Administração Pública significa que ela só pode fazer aquilo que a lei expressamente autoriza ou determina, diferente dos particulares que podem fazer tudo que a lei não proíbe.`,
   },
   {
     id: 62,
@@ -1173,17 +1173,15 @@ III. A lei estabelece prazos para resposta aos pedidos de informação. Está co
     subject: 'direito',
     subjectName: 'Direito Administrativo e Constitucional',
     weight: 2,
-    text: `Julgue V ou F: A Constituição Federal de 1988 estabelece que todos têm direito ao acesso à informação, e esse direito pode ser limitado apenas por interesse público.
-
-A sequência CORRETA é:`,
+    text: `Sobre o direito de acesso à informação na Constituição Federal de 1988, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `V, V` },
-      { letter: 'B', text: `F, V` },
-      { letter: 'C', text: `V, F` },
-      { letter: 'D', text: `F, F` }
+      { letter: 'A', text: `Todos têm direito ao acesso à informação, podendo ser limitado por interesse público ou segurança nacional.` },
+      { letter: 'B', text: `O acesso à informação é garantido apenas a servidores públicos.` },
+      { letter: 'C', text: `Não há previsão constitucional sobre acesso à informação.` },
+      { letter: 'D', text: `O direito de acesso à informação não pode sofrer qualquer limitação.` }
     ],
     correctAnswer: 'A',
-    explanation: `A sequência correta é V, V, pois a Constituição garante o acesso à informação e permite limitações apenas por razões de interesse público.`,
+    explanation: `A Constituição garante o direito de acesso à informação (art. 5º, XXXIII), permitindo restrições quando imprescindível à segurança da sociedade e do Estado.`,
   },
   {
     id: 69,
@@ -1205,9 +1203,7 @@ A sequência CORRETA é:`,
     subject: 'direito',
     subjectName: 'Direito Administrativo e Constitucional',
     weight: 2,
-    text: `Associe a 
-
-2ª coluna com a 1ª, relacionando os direitos e garantias fundamentais previstos na Constituição Federal com suas respectivas categorias:
+    text: `Associe a 2ª coluna com a 1ª, relacionando os direitos e garantias fundamentais previstos na Constituição Federal com suas respectivas categorias:
 I. Direitos sociais
 II. Direitos civis
 III. Direitos políticos. A. Liberdade de expressão B. Direito à educação C. Direito de votar.`,
@@ -1318,17 +1314,15 @@ III. A lei prevê a possibilidade de sanções civis além das administrativas. 
     subject: 'direito',
     subjectName: 'Direito Administrativo e Constitucional',
     weight: 2,
-    text: `Julgue V ou F: A Lei de Acesso à Informação (Lei 12.527/2011) estabelece que informações pessoais de cidadãos são sempre públicas.
-
-A sequência CORRETA é:`,
+    text: `Sobre a Lei de Acesso à Informação (Lei 12.527/2011) e as informações pessoais, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `V` },
-      { letter: 'B', text: `F` },
-      { letter: 'C', text: `V` },
-      { letter: 'D', text: `F` }
+      { letter: 'A', text: `Informações pessoais de cidadãos são sempre públicas e de livre acesso.` },
+      { letter: 'B', text: `Informações pessoais têm acesso restrito, independentemente de classificação, pelo prazo máximo de 100 anos.` },
+      { letter: 'C', text: `A lei não trata sobre informações pessoais, apenas documentos públicos.` },
+      { letter: 'D', text: `Qualquer pessoa pode acessar dados pessoais de terceiros sem restrição.` }
     ],
     correctAnswer: 'B',
-    explanation: `A Lei de Acesso à Informação garante a transparência, mas também protege informações pessoais, que não são consideradas públicas em regra. Portanto, a afirmativa é falsa.`,
+    explanation: `A Lei de Acesso à Informação protege informações pessoais, que têm acesso restrito pelo prazo máximo de 100 anos a partir da data de produção, garantindo a privacidade dos cidadãos.`,
   },
   {
     id: 78,
@@ -1350,9 +1344,7 @@ A sequência CORRETA é:`,
     subject: 'direito',
     subjectName: 'Direito Administrativo e Constitucional',
     weight: 2,
-    text: `Associe a 
-
-2ª coluna com a 1ª, relacionando os princípios fundamentais da Constituição Federal com suas definições:
+    text: `Associe a 2ª coluna com a 1ª, relacionando os princípios fundamentais da Constituição Federal com suas definições:
 I. Legalidade
 II. Impessoalidade
 III. Moralidade
@@ -1473,17 +1465,15 @@ III. XP (Extreme Programming) é uma metodologia que enfatiza a programação em
     subtopic: 'Arquitetura de Software',
     difficulty: 'medio',
     weight: 3,
-    text: `Julgue V ou F: A arquitetura de microsserviços permite que sistemas sejam construídos como um conjunto de serviços independentes que se comunicam através de APIs.
-
-A sequência CORRETA é:`,
+    text: `Sobre a arquitetura de microsserviços, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `Verdadeiro.` },
-      { letter: 'B', text: `Falso.` },
-      { letter: 'C', text: `Verdadeiro, mas apenas para sistemas pequenos.` },
-      { letter: 'D', text: `Falso, pois deve ser usada apenas em sistemas monolíticos.` }
+      { letter: 'A', text: `Permite construir sistemas como um conjunto de serviços independentes que se comunicam via APIs.` },
+      { letter: 'B', text: `Exige que todos os serviços compartilhem o mesmo banco de dados.` },
+      { letter: 'C', text: `Só pode ser utilizada em sistemas pequenos e simples.` },
+      { letter: 'D', text: `Não permite deploy independente dos serviços.` }
     ],
     correctAnswer: 'A',
-    explanation: `A afirmação é verdadeira, pois a arquitetura de microsserviços é baseada na independência e comunicação via APIs.`,
+    explanation: `A arquitetura de microsserviços é baseada em serviços independentes, com bancos de dados próprios, comunicação via APIs e deploy independente.`,
   },
   {
     id: 87,
@@ -1509,9 +1499,7 @@ A sequência CORRETA é:`,
     subtopic: 'Arquitetura de Software',
     difficulty: 'medio',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 1ª:
+    text: `Associe a 2ª coluna com a 1ª:
 I. MVC
 II. SOA
 III. REST
@@ -1566,17 +1554,15 @@ IV. API. Para a
     subject: 'especificos_analista',
     subjectName: 'Conhecimentos Específicos - Analista',
     weight: 3,
-    text: `Julgue V ou F: O padrão Singleton é um padrão criacional que garante que uma classe tenha apenas uma instância e fornece um ponto global de acesso a essa instância.
-
-A sequência CORRETA é:`,
+    text: `Sobre o padrão de projeto Singleton, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `Verdadeiro.` },
-      { letter: 'B', text: `Falso.` },
-      { letter: 'C', text: `Verdadeiro, mas somente em contextos específicos.` },
-      { letter: 'D', text: `Falso, pois permite múltiplas instâncias.` }
+      { letter: 'A', text: `Garante que uma classe tenha apenas uma instância e fornece um ponto global de acesso.` },
+      { letter: 'B', text: `Permite criar múltiplas instâncias de uma classe de forma controlada.` },
+      { letter: 'C', text: `É um padrão estrutural que define a composição de objetos.` },
+      { letter: 'D', text: `É usado exclusivamente para criar interfaces de usuário.` }
     ],
     correctAnswer: 'A',
-    explanation: `A afirmação é verdadeira, pois o padrão Singleton realmente garante que uma classe tenha apenas uma instância e um ponto de acesso global.`,
+    explanation: `O padrão Singleton é um padrão criacional que garante que uma classe tenha apenas uma instância e fornece um ponto de acesso global a ela.`,
   },
   {
     id: 92,
@@ -1631,17 +1617,15 @@ III. A LGPD não se aplica a dados coletados para fins acadêmicos. Está corret
     subject: 'especificos_analista',
     subjectName: 'Conhecimentos Específicos - Analista',
     weight: 3,
-    text: `Julgue V ou F: O Protocolo TCP é responsável por garantir a entrega confiável dos pacotes na comunicação de redes de computadores.
-
-A sequência CORRETA é:`,
+    text: `Sobre o protocolo TCP (Transmission Control Protocol) em redes de computadores, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `V; V` },
-      { letter: 'B', text: `F; V` },
-      { letter: 'C', text: `V; F` },
-      { letter: 'D', text: `F; F` }
+      { letter: 'A', text: `É responsável por garantir a entrega confiável dos pacotes, com controle de ordem e erros.` },
+      { letter: 'B', text: `Não garante a entrega dos pacotes, sendo um protocolo não orientado à conexão.` },
+      { letter: 'C', text: `É utilizado apenas para transmissão de vídeo em tempo real.` },
+      { letter: 'D', text: `Opera na camada física do modelo OSI.` }
     ],
     correctAnswer: 'A',
-    explanation: `A afirmação é verdadeira, pois o TCP oferece um serviço confiável de entrega de dados, garantindo que os pacotes sejam entregues na ordem correta e sem erros.`,
+    explanation: `O TCP é um protocolo da camada de transporte que oferece entrega confiável de dados, garantindo que os pacotes sejam entregues na ordem correta, sem erros e com confirmação de recebimento.`,
   },
   {
     id: 96,
@@ -1663,9 +1647,7 @@ A sequência CORRETA é:`,
     subject: 'especificos_analista',
     subjectName: 'Conhecimentos Específicos - Analista',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 1ª referente aos tipos de serviços de Cloud Computing:
+    text: `Associe a 2ª coluna com a 1ª referente aos tipos de serviços de Cloud Computing:
 I. IaaS
 II. PaaS
 III. SaaS A) Serviços de Infraestrutura B) Serviços de Plataforma C) Serviços de Aplicação.
@@ -1819,9 +1801,7 @@ III. O diagrama de atividades é utilizado para modelar o comportamento dinâmic
     subject: 'especificos_analista',
     subjectName: 'Conhecimentos Específicos - Analista',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 1ª:
+    text: `Associe a 2ª coluna com a 1ª:
 1. CI/CD - A. Containers;
 2. Docker - B. Integração e Entrega Contínua;
 3. Kubernetes - C. Orquestração de containers.`,
@@ -1963,9 +1943,7 @@ A sequência CORRETA é:`,
     subject: 'especificos_analista',
     subjectName: 'Conhecimentos Específicos - Analista',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 1ª em relação a linguagens de programação.`,
+    text: `Associe a 2ª coluna com a 1ª em relação a linguagens de programação.`,
     options: [
       { letter: 'A', text: `Java - Orientação a objetos e uso em aplicações empresariais.` },
       { letter: 'B', text: `Python - Somente para scripts simples.` },
@@ -2076,20 +2054,15 @@ III. A LGPD se aplica somente a dados pessoais armazenados em bancos de dados re
     subject: 'especificos_analista',
     subjectName: 'Conhecimentos Específicos - Analista',
     weight: 3,
-    text: `Julgue V ou F...
-
-A sequência CORRETA é:
-I. O protocolo TCP garante entrega de dados sem erros.
-II. O protocolo IP é responsável pela conexão entre redes.
-III. O protocolo UDP garante entrega de dados com confirmação. Está correto:`,
+    text: `Sobre os protocolos de rede TCP, IP e UDP, assinale a alternativa INCORRETA:`,
     options: [
-      { letter: 'A', text: `V, V, F.` },
-      { letter: 'B', text: `F, V, V.` },
-      { letter: 'C', text: `V, F, V.` },
-      { letter: 'D', text: `V, V, V.` }
+      { letter: 'A', text: `O TCP garante entrega de dados sem erros e na ordem correta.` },
+      { letter: 'B', text: `O IP é responsável pelo endereçamento e roteamento entre redes.` },
+      { letter: 'C', text: `O UDP garante entrega de dados com confirmação de recebimento.` },
+      { letter: 'D', text: `O UDP é mais rápido que o TCP por não ter controle de erros.` }
     ],
-    correctAnswer: 'A',
-    explanation: `A afirmação III é falsa, pois o UDP não garante entrega de dados com confirmação, ao contrário do TCP.`,
+    correctAnswer: 'C',
+    explanation: `O UDP NÃO garante entrega de dados com confirmação - é um protocolo não orientado à conexão. O TCP é que oferece essa garantia.`,
   },
   {
     id: 122,
@@ -2111,9 +2084,7 @@ III. O protocolo UDP garante entrega de dados com confirmação. Está correto:`
     subject: 'especificos_analista',
     subjectName: 'Conhecimentos Específicos - Analista',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 1ª:
+    text: `Associe a 2ª coluna com a 1ª:
 I. IaaS
 II. PaaS
 III. SaaS A. Plataforma para desenvolvimento B. Infraestrutura como serviço C. Software como serviço`,
@@ -2224,17 +2195,15 @@ III. O diagrama de atividades é utilizado exclusivamente para descrever a arqui
     subject: 'especificos_analista',
     subjectName: 'Conhecimentos Específicos - Analista',
     weight: 3,
-    text: `Julgue V ou F: O padrão de projeto Singleton garante que uma classe tenha apenas uma instância e fornece um ponto de acesso global a ela.
-
-A sequência CORRETA é:`,
+    text: `Qual das alternativas descreve CORRETAMENTE o padrão de projeto Singleton?`,
     options: [
-      { letter: 'A', text: `V, F` },
-      { letter: 'B', text: `F, V` },
-      { letter: 'C', text: `V, V` },
-      { letter: 'D', text: `F, F` }
+      { letter: 'A', text: `Cria famílias de objetos relacionados sem especificar suas classes concretas.` },
+      { letter: 'B', text: `Garante que uma classe tenha apenas uma instância com ponto de acesso global.` },
+      { letter: 'C', text: `Define uma interface para criar objetos, deixando as subclasses decidirem.` },
+      { letter: 'D', text: `Separa a construção de um objeto complexo da sua representação.` }
     ],
-    correctAnswer: 'C',
-    explanation: `A afirmação é verdadeira, pois o padrão Singleton realmente garante que apenas uma instância da classe seja criada e fornece acesso global a ela.`,
+    correctAnswer: 'B',
+    explanation: `O Singleton garante instância única e ponto de acesso global. A é Abstract Factory, C é Factory Method, D é Builder.`,
   },
   {
     id: 131,
@@ -2256,9 +2225,7 @@ A sequência CORRETA é:`,
     subject: 'especificos_analista',
     subjectName: 'Conhecimentos Específicos - Analista',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 1ª conforme os padrões de projeto (GoF):
+    text: `Associe a 2ª coluna com a 1ª conforme os padrões de projeto (GoF):
 I. Factory Method
 II. Observer
 III. Composite. Associe: A. Criacional B. Estrutural C. Comportamental.`,
@@ -2369,20 +2336,15 @@ III. BPMN é exclusivamente utilizado para processos de manufatura. Está corret
     subject: 'especificos_analista',
     subjectName: 'Conhecimentos Específicos - Analista',
     weight: 3,
-    text: `Julgue V ou F as afirmativas sobre testes de software:
-I. Testes unitários são realizados para verificar se componentes individuais funcionam corretamente.
-II. Testes de integração focam na interação entre módulos ou sistemas.
-III. O TDD (Test-Driven Development) prioriza a escrita de testes após o desenvolvimento do código.
-
-A sequência CORRETA é:`,
+    text: `Sobre testes de software e TDD, assinale a alternativa INCORRETA:`,
     options: [
-      { letter: 'A', text: `V, V, F.` },
-      { letter: 'B', text: `F, V, V.` },
-      { letter: 'C', text: `V, F, V.` },
-      { letter: 'D', text: `V, V, V.` }
+      { letter: 'A', text: `Testes unitários verificam se componentes individuais funcionam corretamente.` },
+      { letter: 'B', text: `Testes de integração focam na interação entre módulos ou sistemas.` },
+      { letter: 'C', text: `No TDD os testes são escritos APÓS o desenvolvimento do código.` },
+      { letter: 'D', text: `Testes de regressão garantem que novas alterações não quebrem funcionalidades existentes.` }
     ],
-    correctAnswer: 'A',
-    explanation: `A afirmativa I é verdadeira, pois testes unitários validam componentes individuais. A afirmativa II é verdadeira, pois testes de integração testam a interação entre módulos. A afirmativa III é falsa, pois no TDD os testes são escritos antes do desenvolvimento do código.`,
+    correctAnswer: 'C',
+    explanation: `No TDD (Test-Driven Development) os testes são escritos ANTES do código, não depois. O ciclo é: Red (escrever teste que falha) → Green (escrever código mínimo) → Refactor.`,
   },
   {
     id: 140,
@@ -2404,9 +2366,7 @@ A sequência CORRETA é:`,
     subject: 'especificos_analista',
     subjectName: 'Conhecimentos Específicos - Analista',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 1ª em relação ao ITIL 4:
+    text: `Associe a 2ª coluna com a 1ª em relação ao ITIL 4:
 I. Gerenciamento de Mudanças.
 II. Gerenciamento de Incidentes.
 III. Gerenciamento de Problemas. A. Minimizar o impacto dos incidentes. B. Controlar mudanças em serviços de TI. C. Identificar e remover causas de incidentes.`,
@@ -2502,20 +2462,15 @@ III. A LGPD não se aplica a dados pessoais anônimos. Está correto:`,
     subject: 'especificos_analista',
     subjectName: 'Conhecimentos Específicos - Analista',
     weight: 3,
-    text: `Julgue V ou F sobre os principais conceitos de Cloud Computing.
-
-A sequência CORRETA é:
-I. IaaS refere-se a infraestrutura como serviço e permite a gestão total de servidores;
-II. PaaS é uma plataforma que permite a criação e desenvolvimento de aplicativos;
-III. SaaS é um modelo que oferece software como um serviço pela internet.`,
+    text: `Sobre os modelos de serviço em Cloud Computing, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `V, V, V.` },
-      { letter: 'B', text: `V, F, V.` },
-      { letter: 'C', text: `F, V, F.` },
-      { letter: 'D', text: `F, F, V.` }
+      { letter: 'A', text: `IaaS oferece infraestrutura, PaaS oferece plataforma de desenvolvimento, SaaS oferece software pela internet.` },
+      { letter: 'B', text: `IaaS e PaaS são a mesma coisa, apenas com nomes diferentes.` },
+      { letter: 'C', text: `SaaS exige que o usuário gerencie toda a infraestrutura de servidores.` },
+      { letter: 'D', text: `PaaS é usado exclusivamente para armazenamento de arquivos.` }
     ],
     correctAnswer: 'A',
-    explanation: `Todas as afirmações estão corretas quanto aos conceitos de IaaS, PaaS e SaaS.`,
+    explanation: `IaaS (Infrastructure as a Service) fornece infraestrutura, PaaS (Platform as a Service) fornece plataforma para desenvolvimento, e SaaS (Software as a Service) oferece software pronto pela internet.`,
   },
   {
     id: 148,
@@ -2552,9 +2507,7 @@ III. SaaS é um modelo que oferece software como um serviço pela internet.`,
     subject: 'especificos_analista',
     subjectName: 'Conhecimentos Específicos - Analista',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 1ª:
+    text: `Associe a 2ª coluna com a 1ª:
 I. IaaS
 II. PaaS
 III. SaaS  A. Oferece infraestrutura de TI como servidores e armazenamento. B. Fornece uma plataforma para desenvolvimento de aplicações. C. Permite acesso a aplicações através da internet.`,
@@ -3268,7 +3221,499 @@ Estão CORRETAS:`,
     explanation: `COALESCE retorna o primeiro valor não nulo da lista de argumentos. Exemplo: COALESCE(coluna1, coluna2, 'valor_padrao') retorna o primeiro não nulo.`,
     tags: ['SQL', 'COALESCE', 'funções'],
     source: 'Elaborada - Padrão IBDO'
-  }
+  },
+
+  // ================================================================
+  // QUESTÕES INTEGRADAS - 2026-01-13
+  // Total: 15 questões
+  // ================================================================
+  {
+    id: 184,
+    subject: 'portugues',
+    subjectName: 'Língua Portuguesa',
+    subtopic: 'Interpretação de Texto',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Leia o trecho: 'A digitalização dos serviços públicos, embora promova eficiência e transparência, pode inadvertidamente excluir parcelas da população sem acesso à tecnologia, criando um paradoxo entre modernização e democratização.' Com base no texto, assinale a alternativa que apresenta uma INFERÊNCIA VÁLIDA:`,
+    options: [
+      { letter: 'A', text: `A digitalização é intrinsecamente excludente e deve ser evitada.` },
+      { letter: 'B', text: `Políticas de inclusão digital são necessárias para que a modernização não comprometa a democratização.` },
+      { letter: 'C', text: `A eficiência administrativa é mais importante que a acessibilidade.` },
+      { letter: 'D', text: `A transparência só é possível em ambientes digitais.` }
+    ],
+    correctAnswer: 'B',
+    explanation: `O texto apresenta um paradoxo entre modernização e democratização. A inferência válida é que políticas de inclusão digital são necessárias para equilibrar esses aspectos, não que a digitalização deva ser evitada.`,
+    tags: ['interpretacao_texto', 'inferencia'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 185,
+    subject: 'portugues',
+    subjectName: 'Língua Portuguesa',
+    subtopic: 'Coesão e Coerência',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Analise: 'O servidor público deve agir com probidade. Entretanto, casos de improbidade são frequentes. Isso ocorre porque a fiscalização é insuficiente. Portanto, fortalecer os mecanismos de controle é essencial.' A sequência de conectivos (Entretanto, porque, Portanto) estabelece, respectivamente, relações de:`,
+    options: [
+      { letter: 'A', text: `Adição, causa, conclusão.` },
+      { letter: 'B', text: `Oposição, explicação, conclusão.` },
+      { letter: 'C', text: `Oposição, consequência, explicação.` },
+      { letter: 'D', text: `Concessão, finalidade, conclusão.` }
+    ],
+    correctAnswer: 'B',
+    explanation: `'Entretanto' indica oposição/contraste; 'porque' indica explicação/causa; 'Portanto' indica conclusão. A sequência correta é: oposição, explicação, conclusão.`,
+    tags: ['coesao', 'conectivos'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 186,
+    subject: 'logica',
+    subjectName: 'Raciocínio Lógico-Matemático',
+    subtopic: 'Equivalências Lógicas',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Considere a proposição: 'Se o servidor é eficiente, então o serviço é de qualidade.' Qual das alternativas apresenta uma proposição LOGICAMENTE EQUIVALENTE?`,
+    options: [
+      { letter: 'A', text: `Se o serviço não é de qualidade, então o servidor não é eficiente.` },
+      { letter: 'B', text: `Se o serviço é de qualidade, então o servidor é eficiente.` },
+      { letter: 'C', text: `O servidor é eficiente se, e somente se, o serviço é de qualidade.` },
+      { letter: 'D', text: `O servidor não é eficiente ou o serviço não é de qualidade.` }
+    ],
+    correctAnswer: 'A',
+    explanation: `A contrapositiva de 'Se P, então Q' é 'Se não Q, então não P', que é logicamente equivalente. A alternativa A é a contrapositiva da proposição original.`,
+    tags: ['equivalencia', 'contrapositiva'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 187,
+    subject: 'logica',
+    subjectName: 'Raciocínio Lógico-Matemático',
+    subtopic: 'Argumentação',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Analise o argumento: 'Todo sistema seguro usa criptografia. Alguns sistemas governamentais são seguros. Logo, alguns sistemas governamentais usam criptografia.' Este argumento é:`,
+    options: [
+      { letter: 'A', text: `Inválido, pois a conclusão não decorre das premissas.` },
+      { letter: 'B', text: `Válido, pois segue a estrutura do silogismo categórico.` },
+      { letter: 'C', text: `Inválido, pois comete a falácia da afirmação do consequente.` },
+      { letter: 'D', text: `Válido apenas se todos os sistemas governamentais forem seguros.` }
+    ],
+    correctAnswer: 'B',
+    explanation: `O argumento é um silogismo válido: Todo A é B; Algum C é A; Logo, algum C é B. As premissas garantem a conclusão pela lógica dos quantificadores.`,
+    tags: ['silogismo', 'argumentacao'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 188,
+    subject: 'direito',
+    subjectName: 'Direito Administrativo e Constitucional',
+    subtopic: 'Atos Administrativos',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Um servidor público praticou ato administrativo com desvio de finalidade, beneficiando terceiro em processo licitatório. Posteriormente, a Administração constatou o vício. Nesse caso, o ato deve ser:`,
+    options: [
+      { letter: 'A', text: `Revogado, por conveniência e oportunidade.` },
+      { letter: 'B', text: `Anulado, por vício de legalidade insanável.` },
+      { letter: 'C', text: `Convalidado, desde que não haja prejuízo a terceiros.` },
+      { letter: 'D', text: `Mantido, pois já produziu efeitos jurídicos.` }
+    ],
+    correctAnswer: 'B',
+    explanation: `O desvio de finalidade é vício de legalidade insanável que atinge o elemento finalidade do ato administrativo. Atos com vícios insanáveis devem ser ANULADOS, não revogados ou convalidados.`,
+    tags: ['ato_administrativo', 'anulacao'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 189,
+    subject: 'direito',
+    subjectName: 'Direito Administrativo e Constitucional',
+    subtopic: 'LGPD',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Uma autarquia estadual pretende compartilhar dados pessoais de cidadãos com empresa privada para fins de análise estatística. Segundo a LGPD (Lei 13.709/2018), essa operação:`,
+    options: [
+      { letter: 'A', text: `É permitida sem restrições, pois se trata de interesse público.` },
+      { letter: 'B', text: `Exige consentimento específico do titular ou deve atender a uma das bases legais previstas.` },
+      { letter: 'C', text: `É proibida em qualquer hipótese entre órgãos públicos e empresas privadas.` },
+      { letter: 'D', text: `Depende apenas de autorização do órgão controlador interno.` }
+    ],
+    correctAnswer: 'B',
+    explanation: `A LGPD exige base legal para tratamento de dados pessoais. O compartilhamento com empresa privada requer consentimento específico do titular ou enquadramento em outra base legal (art. 7º), mesmo quando envolve órgão público.`,
+    tags: ['lgpd', 'dados_pessoais'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 190,
+    subject: 'especificos_analista',
+    subjectName: 'Conhecimentos Específicos - Analista',
+    subtopic: 'Arquitetura de Software',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Em uma arquitetura de microsserviços, um serviço de pedidos precisa consultar dados de clientes e produtos de outros serviços. Qual padrão arquitetural é MAIS adequado para evitar acoplamento forte e garantir resiliência?`,
+    options: [
+      { letter: 'A', text: `Chamadas síncronas diretas via REST entre os serviços.` },
+      { letter: 'B', text: `Banco de dados compartilhado entre todos os microsserviços.` },
+      { letter: 'C', text: `Event Sourcing com CQRS e comunicação assíncrona via mensageria.` },
+      { letter: 'D', text: `Replicação dos dados de clientes e produtos no serviço de pedidos.` }
+    ],
+    correctAnswer: 'C',
+    explanation: `Event Sourcing com CQRS e comunicação assíncrona via mensageria (ex: Kafka, RabbitMQ) reduz acoplamento, melhora resiliência e permite que cada serviço opere independentemente. Chamadas síncronas criam dependência direta e pontos únicos de falha.`,
+    tags: ['microsservicos', 'event_sourcing', 'cqrs'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 191,
+    subject: 'especificos_analista',
+    subjectName: 'Conhecimentos Específicos - Analista',
+    subtopic: 'SQL',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Considere as tabelas: FUNCIONARIO(id, nome, depto_id) e DEPARTAMENTO(id, nome). Qual consulta retorna os departamentos que NÃO possuem funcionários?`,
+    options: [
+      { letter: 'A', text: `SELECT d.nome FROM DEPARTAMENTO d INNER JOIN FUNCIONARIO f ON d.id = f.depto_id WHERE f.id IS NULL` },
+      { letter: 'B', text: `SELECT d.nome FROM DEPARTAMENTO d LEFT JOIN FUNCIONARIO f ON d.id = f.depto_id WHERE f.id IS NULL` },
+      { letter: 'C', text: `SELECT d.nome FROM DEPARTAMENTO d WHERE d.id IN (SELECT depto_id FROM FUNCIONARIO)` },
+      { letter: 'D', text: `SELECT d.nome FROM DEPARTAMENTO d RIGHT JOIN FUNCIONARIO f ON d.id = f.depto_id WHERE d.id IS NULL` }
+    ],
+    correctAnswer: 'B',
+    explanation: `LEFT JOIN retorna todos os registros da tabela da esquerda (DEPARTAMENTO), mesmo sem correspondência na direita. Com WHERE f.id IS NULL, filtramos apenas os departamentos sem funcionários. INNER JOIN não funciona pois exclui registros sem correspondência.`,
+    tags: ['sql', 'join', 'subconsulta'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 192,
+    subject: 'especificos_analista',
+    subjectName: 'Conhecimentos Específicos - Analista',
+    subtopic: 'UML',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Em um diagrama de sequência UML, qual é a representação correta para indicar que uma mensagem é enviada de forma ASSÍNCRONA e o objeto remetente NÃO aguarda resposta?`,
+    options: [
+      { letter: 'A', text: `Seta com linha contínua e ponta preenchida.` },
+      { letter: 'B', text: `Seta com linha tracejada e ponta preenchida.` },
+      { letter: 'C', text: `Seta com linha contínua e ponta aberta (não preenchida).` },
+      { letter: 'D', text: `Seta com linha tracejada e ponta aberta.` }
+    ],
+    correctAnswer: 'C',
+    explanation: `Em UML 2.x, mensagens assíncronas são representadas por setas com linha contínua e ponta ABERTA (não preenchida). Setas com ponta preenchida indicam mensagens síncronas. Linhas tracejadas são usadas para mensagens de retorno.`,
+    tags: ['uml', 'diagrama_sequencia'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 193,
+    subject: 'especificos_analista',
+    subjectName: 'Conhecimentos Específicos - Analista',
+    subtopic: 'BPMN',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Em BPMN 2.0, um processo de aprovação de documento tem a seguinte regra: 'Se o valor for maior que R$ 10.000, é necessária aprovação do diretor E do gerente financeiro; caso contrário, apenas o gerente.' Qual combinação de gateways modela CORRETAMENTE esta regra?`,
+    options: [
+      { letter: 'A', text: `Gateway Exclusivo (XOR) para a decisão de valor, seguido de Gateway Paralelo (AND) para múltiplas aprovações.` },
+      { letter: 'B', text: `Gateway Inclusivo (OR) para ambas as situações.` },
+      { letter: 'C', text: `Apenas Gateway Exclusivo (XOR) para todas as decisões.` },
+      { letter: 'D', text: `Gateway Paralelo (AND) para a decisão de valor, seguido de Gateway Exclusivo (XOR) para aprovações.` }
+    ],
+    correctAnswer: 'A',
+    explanation: `O Gateway Exclusivo (XOR) modela a decisão do valor (ou/ou). Quando > R$ 10.000, o Gateway Paralelo (AND) garante que AMBAS as aprovações (diretor E gerente) ocorram antes de prosseguir.`,
+    tags: ['bpmn', 'gateway'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 194,
+    subject: 'especificos_analista',
+    subjectName: 'Conhecimentos Específicos - Analista',
+    subtopic: 'DevOps',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Em um pipeline CI/CD, a equipe precisa garantir que vulnerabilidades de segurança sejam detectadas antes do deploy em produção. Qual prática DevSecOps é MAIS adequada para integrar no pipeline?`,
+    options: [
+      { letter: 'A', text: `Testes manuais de penetração após cada deploy.` },
+      { letter: 'B', text: `SAST (Static Application Security Testing) e SCA (Software Composition Analysis) automatizados no pipeline.` },
+      { letter: 'C', text: `Revisão de código manual por especialista em segurança.` },
+      { letter: 'D', text: `Monitoramento de logs em produção para detectar ataques.` }
+    ],
+    correctAnswer: 'B',
+    explanation: `SAST analisa código fonte para vulnerabilidades e SCA verifica dependências de terceiros. Ambos são automatizáveis no pipeline CI/CD, detectando problemas ANTES do deploy. Testes manuais e revisões não escalam; monitoramento é reativo, não preventivo.`,
+    tags: ['devsecops', 'cicd', 'seguranca'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 195,
+    subject: 'especificos_analista',
+    subjectName: 'Conhecimentos Específicos - Analista',
+    subtopic: 'Padrões de Projeto',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Um sistema legado possui uma classe com interface incompatível com o novo módulo que está sendo desenvolvido. Qual padrão de projeto GoF resolve este problema SEM modificar a classe original?`,
+    options: [
+      { letter: 'A', text: `Decorator - adiciona responsabilidades dinamicamente.` },
+      { letter: 'B', text: `Adapter - converte a interface da classe para a interface esperada.` },
+      { letter: 'C', text: `Facade - simplifica a interface de um subsistema.` },
+      { letter: 'D', text: `Proxy - controla o acesso ao objeto original.` }
+    ],
+    correctAnswer: 'B',
+    explanation: `O padrão Adapter (também conhecido como Wrapper) converte a interface de uma classe em outra interface esperada pelo cliente, permitindo que classes com interfaces incompatíveis trabalhem juntas SEM modificar o código original.`,
+    tags: ['design_patterns', 'adapter'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 196,
+    subject: 'especificos_analista',
+    subjectName: 'Conhecimentos Específicos - Analista',
+    subtopic: 'Cloud Computing',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Uma aplicação governamental requer alta disponibilidade (99,99%) e recuperação de desastres com RPO de 15 minutos e RTO de 1 hora. Qual estratégia de arquitetura em nuvem é MAIS adequada?`,
+    options: [
+      { letter: 'A', text: `Single-region com backup diário em storage externo.` },
+      { letter: 'B', text: `Multi-region Active-Passive com replicação assíncrona e failover automatizado.` },
+      { letter: 'C', text: `Multi-region Active-Active com replicação síncrona e load balancer global.` },
+      { letter: 'D', text: `Single-region com múltiplas Availability Zones e snapshots horários.` }
+    ],
+    correctAnswer: 'B',
+    explanation: `Para RPO de 15min e RTO de 1h, Multi-region Active-Passive com replicação assíncrona atende aos requisitos. Active-Active seria over-engineering para esse RTO. Single-region não garante DR adequado. Replicação síncrona multi-region tem latência e custo elevados.`,
+    tags: ['cloud', 'disaster_recovery', 'alta_disponibilidade'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 197,
+    subject: 'especificos_analista',
+    subjectName: 'Conhecimentos Específicos - Analista',
+    subtopic: 'Segurança da Informação',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Em um sistema de autenticação, qual combinação de fatores representa autenticação multifator (MFA) CORRETA segundo as categorias de autenticação?`,
+    options: [
+      { letter: 'A', text: `Senha + PIN (dois fatores de conhecimento).` },
+      { letter: 'B', text: `Senha + Token OTP + Biometria (conhecimento + posse + inerência).` },
+      { letter: 'C', text: `Cartão magnético + Token físico (dois fatores de posse).` },
+      { letter: 'D', text: `Reconhecimento facial + Impressão digital (dois fatores de inerência).` }
+    ],
+    correctAnswer: 'B',
+    explanation: `MFA verdadeiro requer fatores de CATEGORIAS diferentes: conhecimento (algo que você sabe), posse (algo que você tem) e inerência (algo que você é). A alternativa B combina as três categorias. As demais usam fatores da mesma categoria.`,
+    tags: ['seguranca', 'autenticacao', 'mfa'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 198,
+    subject: 'especificos_analista',
+    subjectName: 'Conhecimentos Específicos - Analista',
+    subtopic: 'Banco de Dados',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Em um banco de dados relacional com alto volume de consultas analíticas, a equipe identificou que uma consulta específica está lenta. A consulta usa WHERE em uma coluna de data e JOIN com outra tabela. Qual estratégia de otimização deve ser priorizada?`,
+    options: [
+      { letter: 'A', text: `Criar índice composto na coluna de data e na coluna de JOIN, e analisar o plano de execução.` },
+      { letter: 'B', text: `Aumentar a memória RAM do servidor de banco de dados.` },
+      { letter: 'C', text: `Normalizar ainda mais as tabelas para reduzir redundância.` },
+      { letter: 'D', text: `Migrar para um banco de dados NoSQL.` }
+    ],
+    correctAnswer: 'A',
+    explanation: `A primeira abordagem para otimização de consultas é analisar o plano de execução e criar índices apropriados. Um índice composto nas colunas usadas em WHERE e JOIN pode melhorar drasticamente a performance. Aumentar RAM ou migrar para NoSQL são medidas drásticas sem análise prévia.`,
+    tags: ['banco_dados', 'otimizacao', 'indices'],
+    source: 'questoes_dificeis',
+  },
+
+
+  // ================================================================
+  // QUESTÕES INTEGRADAS - 2026-01-13
+  // Total: 5 questões
+  // ================================================================
+  {
+    id: 199,
+    subject: 'portugues',
+    subjectName: 'Língua Portuguesa',
+    subtopic: 'Interpretação de texto e inferências',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Leia o trecho a seguir: "A equipe de desenvolvimento __ de que o sistema estaria pronto em três meses, entretanto, __ o prazo estipulado, houve necessidade de ajustes no cronograma." Assinale a alternativa que preenche corretamente as lacunas, considerando a regência verbal e a concordância nominal.`,
+    options: [
+      { letter: 'A', text: `assegurou - ao término de` },
+      { letter: 'B', text: `assegurou - à término de` },
+      { letter: 'C', text: `asseguraram - ao término de` },
+      { letter: 'D', text: `asseguraram - à término de` }
+    ],
+    correctAnswer: 'A',
+    explanation: `A concordância correta é 'a equipe assegurou', pois 'equipe' é um substantivo coletivo singular. Quanto à regência, usa-se 'ao término', pois o termo 'término' é masculino, portanto, não se usa crase. As alternativas C e D estão erradas devido à concordância verbal e ao uso indevido de crase.`,
+    tags: ['portugues', 'alto'],
+    source: 'OpenAI-GPT4',
+  },
+  {
+    id: 200,
+    subject: 'portugues',
+    subjectName: 'Língua Portuguesa',
+    subtopic: 'Gramática: concordância verbal e nominal',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Em relação à pontuação, analise a frase: "Os desenvolvedores, que participaram do projeto, estavam presentes na reunião." Assinale a opção que explica corretamente o uso das vírgulas.`,
+    options: [
+      { letter: 'A', text: `As vírgulas separam um aposto explicativo.` },
+      { letter: 'B', text: `As vírgulas indicam uma oração subordinada adjetiva explicativa.` },
+      { letter: 'C', text: `As vírgulas indicam uma elipse de sujeito.` },
+      { letter: 'D', text: `As vírgulas separam uma oração coordenada sindética.` }
+    ],
+    correctAnswer: 'B',
+    explanation: `As vírgulas estão separando uma oração subordinada adjetiva explicativa, que fornece uma informação adicional sobre 'os desenvolvedores'. A opção A está incorreta, pois o trecho entre vírgulas não é um aposto. A opção C está errada porque não há elipse de sujeito. A opção D se refere a orações coordenadas, o que não é o caso.`,
+    tags: ['portugues', 'alto'],
+    source: 'OpenAI-GPT4',
+  },
+  {
+    id: 201,
+    subject: 'portugues',
+    subjectName: 'Língua Portuguesa',
+    subtopic: 'Regência verbal e nominal, crase',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Considere a frase: "O analista é responsável por todos os sistemas e, conforme a necessidade, ele __ as atualizações." Assinale a alternativa que completa corretamente a frase, considerando a concordância verbal.`,
+    options: [
+      { letter: 'A', text: `realizarão` },
+      { letter: 'B', text: `realizará` },
+      { letter: 'C', text: `realizará-o` },
+      { letter: 'D', text: `realizarão-no` }
+    ],
+    correctAnswer: 'B',
+    explanation: `O sujeito 'ele' é singular, portanto, o verbo deve concordar no singular: 'realizará'. As opções A e D estão erradas pela concordância verbal no plural, enquanto a opção C erra ao usar indevidamente o pronome oblíquo 'o' para um verbo que não é transitivo direto.`,
+    tags: ['portugues', 'alto'],
+    source: 'OpenAI-GPT4',
+  },
+  {
+    id: 202,
+    subject: 'portugues',
+    subjectName: 'Língua Portuguesa',
+    subtopic: 'Pontuação e ortografia oficial',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Assinale a alternativa que apresenta erro de ortografia:`,
+    options: [
+      { letter: 'A', text: `Acesse o portal para mais informações.` },
+      { letter: 'B', text: `A reunião foi adiada por motivos técnicos.` },
+      { letter: 'C', text: `O sistema está operando normalmente.` },
+      { letter: 'D', text: `Deve-se evitar a proliferação de erros.` }
+    ],
+    correctAnswer: 'D',
+    explanation: `A palavra 'proliferação' está escrita incorretamente. A forma correta é 'proliferação', com 'l' após o prefixo 'pro'. As outras alternativas estão corretas ortograficamente.`,
+    tags: ['portugues', 'alto'],
+    source: 'OpenAI-GPT4',
+  },
+  {
+    id: 203,
+    subject: 'portugues',
+    subjectName: 'Língua Portuguesa',
+    subtopic: 'Coesão e coerência textual',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Assinale a alternativa em que há erro de crase:`,
+    options: [
+      { letter: 'A', text: `Assisti à palestra sobre segurança de dados.` },
+      { letter: 'B', text: `Referiu-se à empresa de tecnologia.` },
+      { letter: 'C', text: `Foi à reunião com os gestores.` },
+      { letter: 'D', text: `A atualização será feita à partir de amanhã.` }
+    ],
+    correctAnswer: 'D',
+    explanation: `A expressão 'a partir de' não exige crase, pois 'a' é uma preposição sem artigo definido. Portanto, 'à partir de' está incorreto. As demais alternativas fazem uso correto da crase, pois envolvem a fusão da preposição 'a' com o artigo 'a'.`,
+    tags: ['portugues', 'alto'],
+    source: 'OpenAI-GPT4',
+  },
+
+
+  // ================================================================
+  // QUESTÕES INTEGRADAS - 2026-01-13
+  // Total: 5 questões
+  // ================================================================
+  {
+    id: 204,
+    subject: 'especificos_analista',
+    subjectName: 'Conhecimentos Específicos - Analista',
+    subtopic: 'UML 2.x: diagramas de casos de uso, classes, sequência, atividades',
+    difficulty: 'alto',
+    weight: 3,
+    text: `No contexto de um sistema de gerenciamento de biblioteca, utilizando UML 2.x, qual diagrama seria mais apropriado para representar a interação dinâmica entre um usuário que realiza a busca de um livro e o sistema que processa essa solicitação?`,
+    options: [
+      { letter: 'A', text: `Diagrama de classes` },
+      { letter: 'B', text: `Diagrama de sequência` },
+      { letter: 'C', text: `Diagrama de casos de uso` },
+      { letter: 'D', text: `Diagrama de atividades` }
+    ],
+    correctAnswer: 'B',
+    explanation: `O diagrama de sequência é utilizado para representar a interação entre objetos ao longo do tempo. Ele é ideal para ilustrar como um usuário interage com o sistema para realizar a busca de um livro, mostrando as mensagens trocadas entre o usuário e o sistema.`,
+    tags: ['especificos_analista', 'alto'],
+    source: 'OpenAI-GPT4',
+  },
+  {
+    id: 205,
+    subject: 'especificos_analista',
+    subjectName: 'Conhecimentos Específicos - Analista',
+    subtopic: 'BPMN 2.0: eventos, gateways, atividades, pools, lanes',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Em um processo modelado com BPMN 2.0, qual elemento é utilizado para representar uma decisão baseada em condições, que direciona o fluxo do processo para um dos vários caminhos possíveis?`,
+    options: [
+      { letter: 'A', text: `Evento de início` },
+      { letter: 'B', text: `Atividade` },
+      { letter: 'C', text: `Gateway` },
+      { letter: 'D', text: `Pool` }
+    ],
+    correctAnswer: 'C',
+    explanation: `Um gateway em BPMN 2.0 é utilizado para controlar a divergência e convergência de fluxos de processo, frequentemente representando uma decisão que direciona o processo para diferentes caminhos com base em condições.`,
+    tags: ['especificos_analista', 'alto'],
+    source: 'OpenAI-GPT4',
+  },
+  {
+    id: 206,
+    subject: 'especificos_analista',
+    subjectName: 'Conhecimentos Específicos - Analista',
+    subtopic: 'Padrões de projeto GoF: criacionais, estruturais, comportamentais',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Considere uma arquitetura de software que requer escalabilidade e independência de componentes. Qual padrão arquitetural é mais apropriado para dividir uma aplicação em serviços independentes que podem ser desenvolvidos, implantados e escalados de forma autônoma?`,
+    options: [
+      { letter: 'A', text: `Arquitetura em camadas` },
+      { letter: 'B', text: `Arquitetura de microsserviços` },
+      { letter: 'C', text: `Modelo-Vista-Controlador (MVC)` },
+      { letter: 'D', text: `Arquitetura monolítica` }
+    ],
+    correctAnswer: 'B',
+    explanation: `A arquitetura de microsserviços é ideal para aplicações que requerem escalabilidade e independência de componentes, pois divide a aplicação em serviços menores e independentes que podem ser desenvolvidos, testados, implantados e escalados de forma autônoma.`,
+    tags: ['especificos_analista', 'alto'],
+    source: 'OpenAI-GPT4',
+  },
+  {
+    id: 207,
+    subject: 'especificos_analista',
+    subjectName: 'Conhecimentos Específicos - Analista',
+    subtopic: 'Arquitetura de software: MVC, microsserviços, SOA, clean architecture',
+    difficulty: 'alto',
+    weight: 3,
+    text: `No contexto de segurança de software, qual prática é essencial para prevenir injeções SQL em uma aplicação web?`,
+    options: [
+      { letter: 'A', text: `Utilização de autenticação OAuth` },
+      { letter: 'B', text: `Validação de entrada e uso de consultas preparadas` },
+      { letter: 'C', text: `Criação de índices nos bancos de dados` },
+      { letter: 'D', text: `Implementação de autenticação JWT` }
+    ],
+    correctAnswer: 'B',
+    explanation: `Para prevenir injeções SQL, é essencial validar todas as entradas dos usuários e utilizar consultas preparadas (ou statements parametrizados), que separam o código SQL da entrada dos dados fornecida pelo usuário, evitando a execução de comandos maliciosos.`,
+    tags: ['especificos_analista', 'alto'],
+    source: 'OpenAI-GPT4',
+  },
+  {
+    id: 208,
+    subject: 'especificos_analista',
+    subjectName: 'Conhecimentos Específicos - Analista',
+    subtopic: 'DevOps e CI/CD: Docker, Kubernetes, pipelines',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Em um ambiente DevOps, qual ferramenta é comumente utilizada para orquestrar contêineres e gerenciar a escala de aplicações em produção?`,
+    options: [
+      { letter: 'A', text: `Git` },
+      { letter: 'B', text: `Jenkins` },
+      { letter: 'C', text: `Kubernetes` },
+      { letter: 'D', text: `Docker Compose` }
+    ],
+    correctAnswer: 'C',
+    explanation: `Kubernetes é uma plataforma de orquestração de contêineres amplamente utilizada em ambientes DevOps para gerenciar o ciclo de vida de aplicações em contêineres, permitindo a escalabilidade automática e a recuperação automática de falhas.`,
+    tags: ['especificos_analista', 'alto'],
+    source: 'OpenAI-GPT4',
+  },
 ];
 
 export const getQuestionsBySubject = (subjectId: string): Question[] => {

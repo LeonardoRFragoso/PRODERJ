@@ -86,19 +86,56 @@ const clearActiveQuiz = (): void => {
   localStorage.removeItem(ACTIVE_QUIZ_KEY);
 };
 
+// Função para embaralhar array (Fisher-Yates shuffle)
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
+
+// Seleciona N questões aleatórias de um array
+const selectRandomQuestions = (questionPool: Question[], count: number): Question[] => {
+  const shuffled = shuffleArray(questionPool);
+  return shuffled.slice(0, count);
+};
+
 // Combina questões comuns (português, lógica, direito) com as específicas de cada cargo
 // Seleciona a quantidade correta conforme o edital: 10 PT + 10 LOG + 10 DIR + 30 ESP = 60 questões
+// As questões são selecionadas ALEATORIAMENTE a cada execução da prova
 const getQuestionsForCareer = (careerId: string): Question[] => {
-  const portugues = questions.filter(q => q.subject === 'portugues').slice(0, 10);
-  const logica = questions.filter(q => q.subject === 'logica').slice(0, 10);
-  const direito = questions.filter(q => q.subject === 'direito').slice(0, 10);
-  
   if (careerId === 'analista') {
-    const especificos = questions.filter(q => q.subject === 'especificos_analista').slice(0, 30);
-    return [...portugues, ...logica, ...direito, ...especificos];
+    // Seleciona questões aleatórias de cada matéria
+    const portugues = selectRandomQuestions(questions.filter(q => q.subject === 'portugues'), 10);
+    const logica = selectRandomQuestions(questions.filter(q => q.subject === 'logica'), 10);
+    const direito = selectRandomQuestions(questions.filter(q => q.subject === 'direito'), 10);
+    const especificos = selectRandomQuestions(questions.filter(q => q.subject === 'especificos_analista'), 30);
+    
+    // Embaralha também a ordem dentro de cada bloco de matéria
+    const allQuestions = [
+      ...shuffleArray(portugues),
+      ...shuffleArray(logica),
+      ...shuffleArray(direito),
+      ...shuffleArray(especificos)
+    ];
+    return allQuestions;
   } else if (careerId === 'tecnico') {
-    const especificos = questionsTecnico.slice(0, 30);
-    return [...portugues, ...logica, ...direito, ...especificos];
+    // Para Técnico, usa as questões do arquivo questionsTecnico para TODAS as matérias
+    const portuguesTecnico = selectRandomQuestions(questionsTecnico.filter(q => q.subject === 'portugues'), 10);
+    const logicaTecnico = selectRandomQuestions(questionsTecnico.filter(q => q.subject === 'logica'), 10);
+    const direitoTecnico = selectRandomQuestions(questionsTecnico.filter(q => q.subject === 'direito'), 10);
+    const especificosTecnico = selectRandomQuestions(questionsTecnico.filter(q => q.subject === 'especificos_tecnico'), 30);
+    
+    // Embaralha também a ordem dentro de cada bloco de matéria
+    const allQuestions = [
+      ...shuffleArray(portuguesTecnico),
+      ...shuffleArray(logicaTecnico),
+      ...shuffleArray(direitoTecnico),
+      ...shuffleArray(especificosTecnico)
+    ];
+    return allQuestions;
   }
   
   return questions;

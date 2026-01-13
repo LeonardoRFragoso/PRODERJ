@@ -1,0 +1,287 @@
+[
+  {
+    "id": 2000,
+    "subject": "portugues",
+    "subjectName": "Língua Portuguesa",
+    "subtopic": "Interpretação de Texto",
+    "difficulty": "alto",
+    "weight": 2,
+    "text": "Leia: 'A automação de processos administrativos, conquanto reduza custos operacionais, demanda investimento inicial significativo e reciclagem profissional dos servidores.' O conectivo 'conquanto' pode ser substituído, sem alteração de sentido, por:",
+    "options": [
+      { "letter": "A", "text": "Porque" },
+      { "letter": "B", "text": "Embora" },
+      { "letter": "C", "text": "Portanto" },
+      { "letter": "D", "text": "Conforme" }
+    ],
+    "correctAnswer": "B",
+    "explanation": "'Conquanto' é uma conjunção concessiva, equivalente a 'embora', 'ainda que', 'mesmo que'. Indica que a redução de custos ocorre APESAR das demandas mencionadas.",
+    "tags": ["conectivos", "concessao"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 2001,
+    "subject": "portugues",
+    "subjectName": "Língua Portuguesa",
+    "subtopic": "Regência",
+    "difficulty": "alto",
+    "weight": 2,
+    "text": "Assinale a alternativa em que a regência verbal está de acordo com a norma culta:",
+    "options": [
+      { "letter": "A", "text": "O técnico assistiu o vídeo de treinamento com atenção." },
+      { "letter": "B", "text": "Os funcionários aspiram o cargo de chefia." },
+      { "letter": "C", "text": "O sistema visa à segurança dos dados." },
+      { "letter": "D", "text": "O chefe implicou com o funcionário novo." }
+    ],
+    "correctAnswer": "C",
+    "explanation": "'Visar' no sentido de 'ter como objetivo' é transitivo indireto (visa A algo). 'Assistir' (ver) é transitivo indireto (assistiu AO vídeo). 'Aspirar' (desejar) é transitivo indireto (aspiram AO cargo). 'Implicar' (ter implicância) não usa 'com'.",
+    "tags": ["regencia_verbal"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 2002,
+    "subject": "logica",
+    "subjectName": "Raciocínio Lógico-Matemático",
+    "subtopic": "Negação de Proposições",
+    "difficulty": "alto",
+    "weight": 2,
+    "text": "Qual é a negação CORRETA da proposição: 'Se o backup foi realizado, então nenhum dado foi perdido'?",
+    "options": [
+      { "letter": "A", "text": "O backup foi realizado e algum dado foi perdido." },
+      { "letter": "B", "text": "Se o backup não foi realizado, então algum dado foi perdido." },
+      { "letter": "C", "text": "O backup não foi realizado ou nenhum dado foi perdido." },
+      { "letter": "D", "text": "Se algum dado foi perdido, então o backup não foi realizado." }
+    ],
+    "correctAnswer": "A",
+    "explanation": "A negação de 'Se P, então Q' é 'P e não Q'. Negando 'nenhum dado foi perdido' obtemos 'algum dado foi perdido'. Portanto: 'O backup foi realizado E algum dado foi perdido'.",
+    "tags": ["negacao", "condicional"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 2003,
+    "subject": "logica",
+    "subjectName": "Raciocínio Lógico-Matemático",
+    "subtopic": "Raciocínio Analítico",
+    "difficulty": "alto",
+    "weight": 2,
+    "text": "Cinco técnicos (Ana, Bruno, Carlos, Diana, Eduardo) trabalham em dias diferentes da semana (segunda a sexta). Sabe-se que: Ana trabalha antes de Bruno; Carlos não trabalha na segunda nem na sexta; Diana trabalha imediatamente após Carlos; Eduardo trabalha na sexta. Em que dia Ana trabalha?",
+    "options": [
+      { "letter": "A", "text": "Segunda-feira" },
+      { "letter": "B", "text": "Terça-feira" },
+      { "letter": "C", "text": "Quarta-feira" },
+      { "letter": "D", "text": "Pode ser segunda ou terça" }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Eduardo = sexta. Carlos não trabalha seg/sex, Diana vem logo após Carlos. Se Carlos = terça, Diana = quarta. Se Carlos = quarta, Diana = quinta. Como Ana vem antes de Bruno e precisamos encaixar todos, Ana = segunda, Bruno = um dia após Ana mas antes de Carlos/Diana.",
+    "tags": ["raciocinio_analitico", "logica"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 2004,
+    "subject": "direito",
+    "subjectName": "Direito Administrativo e Constitucional",
+    "subtopic": "Responsabilidade Civil",
+    "difficulty": "alto",
+    "weight": 2,
+    "text": "Um servidor público, no exercício de suas funções, causou dano a particular por negligência. Quanto à responsabilidade civil, é CORRETO afirmar:",
+    "options": [
+      { "letter": "A", "text": "O particular deve acionar diretamente o servidor, que responde objetivamente." },
+      { "letter": "B", "text": "O Estado responde objetivamente perante o particular e pode exercer direito de regresso contra o servidor, que responde subjetivamente." },
+      { "letter": "C", "text": "O Estado e o servidor respondem solidariamente de forma objetiva." },
+      { "letter": "D", "text": "A responsabilidade é exclusiva do servidor, pois agiu com culpa." }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Conforme art. 37, §6º da CF/88, o Estado responde OBJETIVAMENTE pelos danos causados por seus agentes. Porém, ao exercer o direito de regresso contra o servidor, este responde SUBJETIVAMENTE (apenas se houver dolo ou culpa comprovados).",
+    "tags": ["responsabilidade_civil", "regresso"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 2005,
+    "subject": "direito",
+    "subjectName": "Direito Administrativo e Constitucional",
+    "subtopic": "Lei de Acesso à Informação",
+    "difficulty": "alto",
+    "weight": 2,
+    "text": "Segundo a Lei de Acesso à Informação (Lei 12.527/2011), informações classificadas como ULTRASSECRETA podem ter seu sigilo mantido por, no máximo:",
+    "options": [
+      { "letter": "A", "text": "5 anos, prorrogáveis por igual período." },
+      { "letter": "B", "text": "15 anos, sem possibilidade de prorrogação." },
+      { "letter": "C", "text": "25 anos, prorrogáveis uma única vez por igual período." },
+      { "letter": "D", "text": "25 anos, sem possibilidade de prorrogação." }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Conforme art. 24 da LAI: Ultrassecreta = 25 anos (prorrogável uma vez); Secreta = 15 anos (não prorrogável); Reservada = 5 anos (não prorrogável). Portanto, ultrassecreta pode chegar a 50 anos no total.",
+    "tags": ["lai", "sigilo"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 2006,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "subtopic": "Windows Server",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Em um ambiente Windows Server com Active Directory, um administrador precisa aplicar uma política de grupo (GPO) que afete APENAS os computadores do departamento financeiro, sem afetar os usuários. Qual é a configuração CORRETA?",
+    "options": [
+      { "letter": "A", "text": "Vincular a GPO à OU de usuários do financeiro e configurar apenas 'Configurações do Computador'." },
+      { "letter": "B", "text": "Vincular a GPO à OU de computadores do financeiro e habilitar 'Configurações do Computador', desabilitando 'Configurações do Usuário'." },
+      { "letter": "C", "text": "Aplicar a GPO no domínio inteiro e usar filtro de segurança baseado em usuários." },
+      { "letter": "D", "text": "Criar a GPO e aplicar via script de logon dos usuários." }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Para aplicar GPO apenas em computadores específicos: vincule à OU onde estão os objetos de computador, use 'Configurações do Computador' e desabilite 'Configurações do Usuário' para otimizar o processamento.",
+    "tags": ["gpo", "active_directory"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 2007,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "subtopic": "Redes",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Um técnico precisa configurar uma VLAN para isolar o tráfego do departamento de RH. Para que computadores em VLANs diferentes possam se comunicar, é necessário:",
+    "options": [
+      { "letter": "A", "text": "Configurar todos os computadores na mesma sub-rede IP." },
+      { "letter": "B", "text": "Utilizar um roteador ou switch Layer 3 para fazer o roteamento inter-VLAN." },
+      { "letter": "C", "text": "Conectar um hub entre os switches das VLANs." },
+      { "letter": "D", "text": "Configurar o modo trunk em todas as portas de acesso." }
+    ],
+    "correctAnswer": "B",
+    "explanation": "VLANs isolam o tráfego em camada 2. Para comunicação entre VLANs diferentes, é necessário roteamento (camada 3), que pode ser feito por um roteador dedicado ou um switch Layer 3 com capacidade de roteamento inter-VLAN.",
+    "tags": ["vlan", "roteamento"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 2008,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "subtopic": "Hardware",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Um servidor apresenta travamentos frequentes após upgrade de memória RAM. A memória instalada é DDR4 2666MHz, mas o processador suporta até DDR4 2400MHz. Qual é a causa mais provável e a solução?",
+    "options": [
+      { "letter": "A", "text": "Incompatibilidade total; substituir por memória DDR3." },
+      { "letter": "B", "text": "A memória funcionará em velocidade reduzida (2400MHz) automaticamente; verificar outras causas como temperatura ou BIOS." },
+      { "letter": "C", "text": "É necessário fazer overclock do processador para suportar 2666MHz." },
+      { "letter": "D", "text": "Memórias mais rápidas nunca funcionam em sistemas mais lentos." }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Memórias DDR4 são retrocompatíveis em velocidade - uma memória 2666MHz funcionará a 2400MHz se o controlador não suportar mais. Os travamentos provavelmente têm outra causa: temperatura, configuração de BIOS, módulos defeituosos ou incompatibilidade de fabricante.",
+    "tags": ["hardware", "memoria_ram"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 2009,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "subtopic": "Backup",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Uma política de backup utiliza a estratégia 'Avô-Pai-Filho' (GFS - Grandfather-Father-Son) com backup completo aos domingos, incremental nos demais dias, e retenção mensal. Para restaurar dados de quarta-feira da semana anterior, quantos conjuntos de backup são necessários?",
+    "options": [
+      { "letter": "A", "text": "Apenas o backup de quarta-feira." },
+      { "letter": "B", "text": "O backup completo de domingo + incrementais de segunda, terça e quarta." },
+      { "letter": "C", "text": "Todos os backups da semana (domingo a sábado)." },
+      { "letter": "D", "text": "O backup completo de domingo + apenas o incremental de quarta." }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Backup incremental armazena apenas alterações desde o último backup (completo ou incremental). Para restaurar quarta: precisa do completo (domingo) + todos os incrementais em sequência (segunda, terça, quarta) para reconstruir o estado completo.",
+    "tags": ["backup", "gfs"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 2010,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "subtopic": "Segurança",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Um usuário relata que recebeu email aparentemente do banco solicitando atualização de dados via link. O email possui o logotipo oficial e endereço semelhante ao real (banc0.com.br em vez de banco.com.br). Qual tipo de ataque e a orientação correta?",
+    "options": [
+      { "letter": "A", "text": "Ransomware; desconectar o computador da rede imediatamente." },
+      { "letter": "B", "text": "Phishing; não clicar no link, verificar o remetente real e reportar ao setor de segurança." },
+      { "letter": "C", "text": "DDoS; aguardar o ataque cessar." },
+      { "letter": "D", "text": "Vírus; executar antivírus no anexo do email." }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Phishing usa engenharia social para enganar usuários com páginas/emails falsos que imitam instituições legítimas. Características: URLs semelhantes mas falsas, urgência, solicitação de dados. A orientação é NÃO clicar, verificar e reportar.",
+    "tags": ["phishing", "engenharia_social"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 2011,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "subtopic": "Virtualização",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Em um ambiente Hyper-V, qual tipo de disco virtual oferece MELHOR performance para um servidor de banco de dados em produção?",
+    "options": [
+      { "letter": "A", "text": "Disco Dinâmico (Dynamic) - cresce conforme necessidade." },
+      { "letter": "B", "text": "Disco de Diferenciação (Differencing) - economiza espaço." },
+      { "letter": "C", "text": "Disco Fixo (Fixed) - espaço pré-alocado." },
+      { "letter": "D", "text": "Disco Pass-through - acesso direto ao disco físico." }
+    ],
+    "correctAnswer": "D",
+    "explanation": "Para máxima performance, o disco Pass-through oferece acesso direto ao disco físico, eliminando a camada de virtualização do storage. Disco Fixo é a segunda melhor opção. Dinâmico e Diferenciação têm overhead por gerenciar alocação em tempo real.",
+    "tags": ["hyperv", "virtualizacao"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 2012,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "subtopic": "Help Desk",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Segundo as práticas ITIL, qual é a diferença fundamental entre Gerenciamento de Incidentes e Gerenciamento de Problemas?",
+    "options": [
+      { "letter": "A", "text": "Incidentes são mais graves que problemas." },
+      { "letter": "B", "text": "Incidentes focam em restaurar o serviço rapidamente; Problemas focam em identificar e eliminar a causa raiz." },
+      { "letter": "C", "text": "Problemas são resolvidos pelo nível 1; Incidentes pelo nível 3." },
+      { "letter": "D", "text": "Não há diferença; são termos intercambiáveis." }
+    ],
+    "correctAnswer": "B",
+    "explanation": "ITIL distingue: Gerenciamento de INCIDENTES = restaurar o serviço o mais rápido possível (foco reativo). Gerenciamento de PROBLEMAS = investigar causa raiz para prevenir recorrência (foco proativo). São processos complementares mas distintos.",
+    "tags": ["itil", "incidente", "problema"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 2013,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "subtopic": "Cabeamento Estruturado",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Em uma instalação de cabeamento estruturado Cat6, qual é a distância máxima permitida entre o patch panel e a tomada de rede (horizontal cabling), segundo a norma TIA/EIA-568?",
+    "options": [
+      { "letter": "A", "text": "50 metros" },
+      { "letter": "B", "text": "90 metros" },
+      { "letter": "C", "text": "100 metros (incluindo patch cords)" },
+      { "letter": "D", "text": "150 metros" }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A norma TIA/EIA-568 especifica: cabeamento horizontal (permanent link) = máximo 90m. Os 10m restantes (até 100m total do canal) são reservados para patch cords nas extremidades (5m em cada ponta).",
+    "tags": ["cabeamento", "normas"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 2014,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "subtopic": "LibreOffice",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "No LibreOffice Calc, qual fórmula retorna o valor da célula B2 se A2 contiver 'Aprovado', o valor de C2 se A2 contiver 'Pendente', e 0 (zero) em qualquer outro caso?",
+    "options": [
+      { "letter": "A", "text": "=SE(A2=\"Aprovado\";B2;SE(A2=\"Pendente\";C2;0))" },
+      { "letter": "B", "text": "=ESCOLHER(A2;B2;C2;0)" },
+      { "letter": "C", "text": "=PROCV(A2;B2:C2;2;0)" },
+      { "letter": "D", "text": "=SEERRO(A2;B2;C2)" }
+    ],
+    "correctAnswer": "A",
+    "explanation": "A função SE aninhada é a solução correta: SE(condição1; valor_se_verdadeiro; SE(condição2; valor_se_verdadeiro; valor_se_falso)). ESCOLHER requer índice numérico; PROCV busca em tabela; SEERRO trata erros.",
+    "tags": ["calc", "formulas"],
+    "source": "questoes_dificeis"
+  }
+]

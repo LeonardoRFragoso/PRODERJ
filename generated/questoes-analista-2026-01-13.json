@@ -1,0 +1,172 @@
+[
+  {
+    "id": 204,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - Analista",
+    "subtopic": "UML 2.x: diagramas de casos de uso, classes, sequência, atividades",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "No contexto de um sistema de gerenciamento de biblioteca, utilizando UML 2.x, qual diagrama seria mais apropriado para representar a interação dinâmica entre um usuário que realiza a busca de um livro e o sistema que processa essa solicitação?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Diagrama de classes"
+      },
+      {
+        "letter": "B",
+        "text": "Diagrama de sequência"
+      },
+      {
+        "letter": "C",
+        "text": "Diagrama de casos de uso"
+      },
+      {
+        "letter": "D",
+        "text": "Diagrama de atividades"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O diagrama de sequência é utilizado para representar a interação entre objetos ao longo do tempo. Ele é ideal para ilustrar como um usuário interage com o sistema para realizar a busca de um livro, mostrando as mensagens trocadas entre o usuário e o sistema.",
+    "tags": [
+      "especificos_analista",
+      "alto"
+    ],
+    "source": "OpenAI-GPT4"
+  },
+  {
+    "id": 205,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - Analista",
+    "subtopic": "BPMN 2.0: eventos, gateways, atividades, pools, lanes",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Em um processo modelado com BPMN 2.0, qual elemento é utilizado para representar uma decisão baseada em condições, que direciona o fluxo do processo para um dos vários caminhos possíveis?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Evento de início"
+      },
+      {
+        "letter": "B",
+        "text": "Atividade"
+      },
+      {
+        "letter": "C",
+        "text": "Gateway"
+      },
+      {
+        "letter": "D",
+        "text": "Pool"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Um gateway em BPMN 2.0 é utilizado para controlar a divergência e convergência de fluxos de processo, frequentemente representando uma decisão que direciona o processo para diferentes caminhos com base em condições.",
+    "tags": [
+      "especificos_analista",
+      "alto"
+    ],
+    "source": "OpenAI-GPT4"
+  },
+  {
+    "id": 206,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - Analista",
+    "subtopic": "Padrões de projeto GoF: criacionais, estruturais, comportamentais",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Considere uma arquitetura de software que requer escalabilidade e independência de componentes. Qual padrão arquitetural é mais apropriado para dividir uma aplicação em serviços independentes que podem ser desenvolvidos, implantados e escalados de forma autônoma?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Arquitetura em camadas"
+      },
+      {
+        "letter": "B",
+        "text": "Arquitetura de microsserviços"
+      },
+      {
+        "letter": "C",
+        "text": "Modelo-Vista-Controlador (MVC)"
+      },
+      {
+        "letter": "D",
+        "text": "Arquitetura monolítica"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A arquitetura de microsserviços é ideal para aplicações que requerem escalabilidade e independência de componentes, pois divide a aplicação em serviços menores e independentes que podem ser desenvolvidos, testados, implantados e escalados de forma autônoma.",
+    "tags": [
+      "especificos_analista",
+      "alto"
+    ],
+    "source": "OpenAI-GPT4"
+  },
+  {
+    "id": 207,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - Analista",
+    "subtopic": "Arquitetura de software: MVC, microsserviços, SOA, clean architecture",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "No contexto de segurança de software, qual prática é essencial para prevenir injeções SQL em uma aplicação web?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Utilização de autenticação OAuth"
+      },
+      {
+        "letter": "B",
+        "text": "Validação de entrada e uso de consultas preparadas"
+      },
+      {
+        "letter": "C",
+        "text": "Criação de índices nos bancos de dados"
+      },
+      {
+        "letter": "D",
+        "text": "Implementação de autenticação JWT"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Para prevenir injeções SQL, é essencial validar todas as entradas dos usuários e utilizar consultas preparadas (ou statements parametrizados), que separam o código SQL da entrada dos dados fornecida pelo usuário, evitando a execução de comandos maliciosos.",
+    "tags": [
+      "especificos_analista",
+      "alto"
+    ],
+    "source": "OpenAI-GPT4"
+  },
+  {
+    "id": 208,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - Analista",
+    "subtopic": "DevOps e CI/CD: Docker, Kubernetes, pipelines",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Em um ambiente DevOps, qual ferramenta é comumente utilizada para orquestrar contêineres e gerenciar a escala de aplicações em produção?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Git"
+      },
+      {
+        "letter": "B",
+        "text": "Jenkins"
+      },
+      {
+        "letter": "C",
+        "text": "Kubernetes"
+      },
+      {
+        "letter": "D",
+        "text": "Docker Compose"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Kubernetes é uma plataforma de orquestração de contêineres amplamente utilizada em ambientes DevOps para gerenciar o ciclo de vida de aplicações em contêineres, permitindo a escalabilidade automática e a recuperação automática de falhas.",
+    "tags": [
+      "especificos_analista",
+      "alto"
+    ],
+    "source": "OpenAI-GPT4"
+  }
+]

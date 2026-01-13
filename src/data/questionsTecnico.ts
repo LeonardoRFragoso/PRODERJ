@@ -61,18 +61,15 @@ III. O texto descritivo é aquele que tem por finalidade convencer o leitor. Est
     subject: 'portugues',
     subjectName: 'Língua Portuguesa',
     weight: 2,
-    text: `Julgue V ou F:
-
-A sequência CORRETA é:
-I. 'A gente vamos ao cinema.' II. 'Ele trouxe duas maçãs.' III. 'Nós vamos a festa.'`,
+    text: `Assinale a alternativa que contém ERRO de concordância ou crase:`,
     options: [
-      { letter: 'A', text: `V, V, F.` },
-      { letter: 'B', text: `F, V, V.` },
-      { letter: 'C', text: `F, F, V.` },
-      { letter: 'D', text: `V, F, F.` }
+      { letter: 'A', text: `'A gente vamos ao cinema.' - erro de concordância verbal.` },
+      { letter: 'B', text: `'Ele trouxe duas maçãs.' - frase correta.` },
+      { letter: 'C', text: `'Nós vamos à festa.' - uso correto da crase.` },
+      { letter: 'D', text: `'Eles foram ao mercado.' - frase correta.` }
     ],
     correctAnswer: 'A',
-    explanation: `A alternativa A está correta; a primeira frase é falsa devido à concordância verbal, a segunda é verdadeira e a terceira é falsa por falta da preposição 'à'.`,
+    explanation: `'A gente' pede verbo no singular: 'A gente vai ao cinema'. A frase 'Nós vamos a festa' também está errada por faltar a crase ('à festa').`,
   },
   {
     id: 1005,
@@ -94,9 +91,7 @@ I. 'A gente vamos ao cinema.' II. 'Ele trouxe duas maçãs.' III. 'Nós vamos a 
     subject: 'portugues',
     subjectName: 'Língua Portuguesa',
     weight: 2,
-    text: `Associe a 
-
-2ª coluna com a 1ª de acordo com o uso das classes de palavras:`,
+    text: `Associe a 2ª coluna com a 1ª de acordo com o uso das classes de palavras:`,
     options: [
       { letter: 'A', text: `1 - Artigo, 2 - Substantivo.` },
       { letter: 'B', text: `1 - Advérbio, 2 - Adjetivo.` },
@@ -222,20 +217,15 @@ III. A compreensão de texto é sempre linear e sequencial. Está correto:`,
     subject: 'portugues',
     subjectName: 'Língua Portuguesa',
     weight: 2,
-    text: `Julgue V ou F sobre a tipologia textual:
-
-A sequência CORRETA é:
-I. O texto narrativo apresenta uma história.
-II. O texto expositivo tem como objetivo informar.
-III. O texto publicitário é sempre persuasivo.`,
+    text: `Sobre tipologia textual, assinale a alternativa INCORRETA:`,
     options: [
-      { letter: 'A', text: `V, V, V.` },
-      { letter: 'B', text: `V, F, V.` },
-      { letter: 'C', text: `V, V, F.` },
-      { letter: 'D', text: `F, V, V.` }
+      { letter: 'A', text: `O texto narrativo apresenta uma história com personagens e enredo.` },
+      { letter: 'B', text: `O texto expositivo tem como objetivo informar sobre um assunto.` },
+      { letter: 'C', text: `Todo texto publicitário é SEMPRE persuasivo, sem exceções.` },
+      { letter: 'D', text: `O texto descritivo caracteriza pessoas, lugares ou objetos.` }
     ],
     correctAnswer: 'C',
-    explanation: `As afirmativas I e II estão corretas, mas a III é falsa, pois nem todo texto publicitário é persuasivo, embora essa seja uma característica comum.`,
+    explanation: `Nem todo texto publicitário é necessariamente persuasivo - alguns são informativos. A persuasão é comum, mas não obrigatória.`,
   },
   {
     id: 1015,
@@ -257,9 +247,7 @@ III. O texto publicitário é sempre persuasivo.`,
     subject: 'portugues',
     subjectName: 'Língua Portuguesa',
     weight: 2,
-    text: `Associe a 
-
-2ª coluna com a 1ª, relacionando os tipos de palavras com suas definições:
+    text: `Associe a 2ª coluna com a 1ª, relacionando os tipos de palavras com suas definições:
 I. Substantivo
 II. Verbo
 III. Adjetivo. A. Ação ou estado B. Qualidade ou característica C. Nome de seres ou objetos.`,
@@ -382,15 +370,15 @@ III. Adjetivo. A. Ação ou estado B. Qualidade ou característica C. Nome de se
     subject: 'portugues',
     subjectName: 'Língua Portuguesa',
     weight: 2,
-    text: `Julgue V ou F a afirmação: 'O termo 'cabo' pode significar tanto um fio elétrico quanto um posto militar.' A sequência CORRETA é:`,
+    text: `A palavra 'cabo' pode ter diferentes significados. Assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `V e V.` },
-      { letter: 'B', text: `F e F.` },
-      { letter: 'C', text: `V e F.` },
-      { letter: 'D', text: `F e V.` }
+      { letter: 'A', text: `'Cabo' pode significar fio elétrico, posto militar e extremidade geográfica.` },
+      { letter: 'B', text: `'Cabo' só possui um único significado na língua portuguesa.` },
+      { letter: 'C', text: `'Cabo' nunca pode ser usado como substância verbal.` },
+      { letter: 'D', text: `'Cabo' é uma palavra estrangeira sem uso no português.` }
     ],
     correctAnswer: 'A',
-    explanation: `Ambos os significados estão corretos para o termo 'cabo', portanto a resposta é verdadeira.`,
+    explanation: `'Cabo' é uma palavra políssema: pode ser fio elétrico, posto militar (cabo do exército), extremidade geográfica (Cabo Frio), entre outros significados.`,
   },
   {
     id: 1025,
@@ -412,9 +400,7 @@ III. Adjetivo. A. Ação ou estado B. Qualidade ou característica C. Nome de se
     subject: 'portugues',
     subjectName: 'Língua Portuguesa',
     weight: 2,
-    text: `Associe a 
-
-2ª coluna com a 1ª, considerando os verbos e suas regências:
+    text: `Associe a 2ª coluna com a 1ª, considerando os verbos e suas regências:
 I. 'Assistir' II. 'Agradecer' III. 'Referir'. 1. a alguém 2. a 3. a algo.`,
     options: [
       { letter: 'A', text: `I-3, II-1, III-2.` },
@@ -506,18 +492,15 @@ I. 'Me empresta o seu livro.' II. 'Ele se feriu com a faca.' III. 'Nos ajude a r
     subject: 'logica',
     subjectName: 'Raciocínio Lógico-Matemático',
     weight: 2,
-    text: `Julgue V ou F sobre a validade dos argumentos:
-I. Se chove, a rua está molhada.
-II. A rua não está molhada.
-III. Portanto, não chove. Está correto:`,
+    text: `Considere o argumento: 'Se chove, a rua está molhada. A rua não está molhada. Portanto, não chove.' Esse argumento é:`,
     options: [
-      { letter: 'A', text: `V, F, V` },
-      { letter: 'B', text: `F, V, F` },
-      { letter: 'C', text: `V, V, V` },
-      { letter: 'D', text: `F, F, V` }
+      { letter: 'A', text: `Válido - é uma aplicação do Modus Tollens.` },
+      { letter: 'B', text: `Inválido - a conclusão não decorre das premissas.` },
+      { letter: 'C', text: `Válido - é uma aplicação do Modus Ponens.` },
+      { letter: 'D', text: `Inválido - faltam premissas para a conclusão.` }
     ],
     correctAnswer: 'A',
-    explanation: `O argumento é válido, pois se a rua não está molhada, realmente não choveu, o que torna a afirmação I verdadeira e a III verdadeira.`,
+    explanation: `Esse é o Modus Tollens: Se P→Q e ¬Q, então ¬P. Se a rua não está molhada (¬Q), então não choveu (¬P).`,
   },
   {
     id: 1033,
@@ -572,15 +555,15 @@ III. Um argumento válido pode ter premissas falsas. Está correto:`,
     subject: 'logica',
     subjectName: 'Raciocínio Lógico-Matemático',
     weight: 2,
-    text: `Julgue V ou F sobre a proposição: 'Se a temperatura é superior a 30°C, então é verão'. Para a proposição ser verdadeira, deve ser:`,
+    text: `A proposição 'Se a temperatura é superior a 30°C, então é verão' é FALSA quando:`,
     options: [
-      { letter: 'A', text: `V, se a temperatura é realmente superior a 30°C.` },
-      { letter: 'B', text: `F, se a temperatura é 30°C ou inferior.` },
-      { letter: 'C', text: `V, se é inverno e a temperatura é superior a 30°C.` },
-      { letter: 'D', text: `F, porque a temperatura não garante a estação do ano.` }
+      { letter: 'A', text: `A temperatura é superior a 30°C e é verão.` },
+      { letter: 'B', text: `A temperatura é inferior a 30°C e é inverno.` },
+      { letter: 'C', text: `A temperatura é superior a 30°C e NÃO é verão.` },
+      { letter: 'D', text: `A temperatura é inferior a 30°C e é verão.` }
     ],
-    correctAnswer: 'D',
-    explanation: `A proposição pode ser falsa, pois uma temperatura superior a 30°C não necessariamente indica que é verão, podendo ser um erro lógico.`,
+    correctAnswer: 'C',
+    explanation: `Uma condicional (Se P, então Q) só é FALSA quando o antecedente é verdadeiro (temp > 30°C) e o consequente é falso (não é verão).`,
   },
   {
     id: 1037,
@@ -617,15 +600,15 @@ III. Um argumento válido pode ter premissas falsas. Está correto:`,
     subject: 'logica',
     subjectName: 'Raciocínio Lógico-Matemático',
     weight: 2,
-    text: `Julgue V ou F sobre a proposição 'Se não chove, então vamos ao parque'. Para que a proposição seja verdadeira, é necessário que:`,
+    text: `A proposição 'Se não chove, então vamos ao parque' é FALSA em qual situação?`,
     options: [
-      { letter: 'A', text: `Chova, pois isso garante que o parque estará fechado.` },
-      { letter: 'B', text: `Não chova, pois assim iremos ao parque.` },
-      { letter: 'C', text: `Chova, pois isso não interfere na visita ao parque.` },
-      { letter: 'D', text: `Não chova ou não vamos ao parque.` }
+      { letter: 'A', text: `Quando chove e vamos ao parque.` },
+      { letter: 'B', text: `Quando não chove e NÃO vamos ao parque.` },
+      { letter: 'C', text: `Quando chove e não vamos ao parque.` },
+      { letter: 'D', text: `Quando não chove e vamos ao parque.` }
     ],
     correctAnswer: 'B',
-    explanation: `A proposição é verdadeira se a condição de não chover se realiza, permitindo assim que o plano de ir ao parque seja cumprido.`,
+    explanation: `A condicional é FALSA quando o antecedente é verdadeiro (não chove) e o consequente é falso (não vamos ao parque).`,
   },
   {
     id: 1040,
@@ -680,17 +663,15 @@ III. A proposição "não (P e Q)" é equivalente a "não P ou não Q". Está co
     subject: 'logica',
     subjectName: 'Raciocínio Lógico-Matemático',
     weight: 2,
-    text: `Julgue V ou F: Se P é verdadeira e Q é falsa, então a proposição "P ou Q" é verdadeira.
-
-A sequência CORRETA é:`,
+    text: `Se P é VERDADEIRA e Q é FALSA, qual é o valor lógico da proposição "P ou Q"?`,
     options: [
-      { letter: 'A', text: `Verdadeiro.` },
-      { letter: 'B', text: `Falso.` },
-      { letter: 'C', text: `Verdadeiro e Falso, dependendo do contexto.` },
-      { letter: 'D', text: `Não é possível determinar.` }
+      { letter: 'A', text: `Verdadeiro, pois basta uma ser verdadeira na disjunção.` },
+      { letter: 'B', text: `Falso, pois Q é falsa.` },
+      { letter: 'C', text: `Indeterminado, pois depende do contexto.` },
+      { letter: 'D', text: `Falso, pois ambas precisam ser verdadeiras.` }
     ],
     correctAnswer: 'A',
-    explanation: `"P ou Q" é verdadeiro se pelo menos uma das proposições é verdadeira, o que ocorre quando P é verdadeira.`,
+    explanation: `Na disjunção (P ou Q), basta uma das proposições ser verdadeira para o resultado ser verdadeiro. Como P é V, então P∨Q é V.`,
   },
   {
     id: 1044,
@@ -712,9 +693,7 @@ A sequência CORRETA é:`,
     subject: 'logica',
     subjectName: 'Raciocínio Lógico-Matemático',
     weight: 2,
-    text: `Associe a 
-
-2ª coluna com a 1ª na relação entre proposições e suas negações:
+    text: `Associe a 2ª coluna com a 1ª na relação entre proposições e suas negações:
 I. P.
 II. Q.
 III. R. | A. Não P. B. Não Q. C. Não R.`,
@@ -825,17 +804,15 @@ III. A negação de uma tautologia é uma contradição. Está correto:`,
     subject: 'logica',
     subjectName: 'Raciocínio Lógico-Matemático',
     weight: 2,
-    text: `Julgue V ou F: Todas as proposições lógicas podem ser representadas em uma tabela-verdade.
-
-A sequência CORRETA é:`,
+    text: `Sobre tabelas-verdade na lógica proposicional, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `Verdadeiro.` },
-      { letter: 'B', text: `Falso.` },
-      { letter: 'C', text: `Indeterminado.` },
-      { letter: 'D', text: `Depende do contexto.` }
+      { letter: 'A', text: `Todas as proposições lógicas podem ser representadas em uma tabela-verdade.` },
+      { letter: 'B', text: `Apenas proposições simples podem ter tabela-verdade.` },
+      { letter: 'C', text: `Tabelas-verdade só funcionam para no máximo 2 variáveis.` },
+      { letter: 'D', text: `Proposições compostas não podem ser representadas em tabelas-verdade.` }
     ],
     correctAnswer: 'A',
-    explanation: `É verdadeiro que todas as proposições lógicas podem ser representadas em uma tabela-verdade, pois a tabela-verdade é uma ferramenta que expressa todas as combinações de valores de verdade das proposições.`,
+    explanation: `Todas as proposições lógicas, simples ou compostas, podem ser representadas em tabelas-verdade, independente do número de variáveis.`,
   },
   {
     id: 1053,
@@ -857,9 +834,7 @@ A sequência CORRETA é:`,
     subject: 'logica',
     subjectName: 'Raciocínio Lógico-Matemático',
     weight: 2,
-    text: `Associe a 
-
-2ª coluna com a 1ª referente a diagramas lógicos:
+    text: `Associe a 2ª coluna com a 1ª referente a diagramas lógicos:
 1. Tautologia. 2. Contradição. 3. Contingência. A. É sempre verdadeira. B. É sempre falsa. C. Pode ser verdadeira ou falsa.`,
     options: [
       { letter: 'A', text: `1-A, 2-B, 3-C.` },
@@ -971,17 +946,15 @@ III. O Estado brasileiro é unitário, centralizando todas as decisões na Uniã
     subject: 'direito',
     subjectName: 'Direito Administrativo e Constitucional',
     weight: 2,
-    text: `Julgue V ou F: A Administração Pública deve atuar em conformidade com os princípios da legalidade, impessoalidade, moralidade, publicidade e eficiência.
-
-A sequência CORRETA é:`,
+    text: `Sobre os princípios constitucionais da Administração Pública, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `V` },
-      { letter: 'B', text: `F` },
-      { letter: 'C', text: `V` },
-      { letter: 'D', text: `F` }
+      { letter: 'A', text: `A Administração Pública deve atuar conforme os princípios da legalidade, impessoalidade, moralidade, publicidade e eficiência (LIMPE).` },
+      { letter: 'B', text: `Os princípios da Administração Pública são apenas três: legalidade, moralidade e publicidade.` },
+      { letter: 'C', text: `O princípio da eficiência não está previsto na Constituição Federal.` },
+      { letter: 'D', text: `A impessoalidade permite tratamento diferenciado conforme conveniência do gestor.` }
     ],
     correctAnswer: 'A',
-    explanation: `A afirmativa é verdadeira, pois esses princípios estão expressamente previstos no caput do artigo 37 da Constituição Federal.`,
+    explanation: `Os cinco princípios da Administração Pública (LIMPE) estão expressamente previstos no caput do artigo 37 da Constituição Federal.`,
   },
   {
     id: 1062,
@@ -1003,9 +976,7 @@ A sequência CORRETA é:`,
     subject: 'direito',
     subjectName: 'Direito Administrativo e Constitucional',
     weight: 2,
-    text: `Associe a 
-
-2ª coluna com a 1ª sobre os princípios da Administração Pública:
+    text: `Associe a 2ª coluna com a 1ª sobre os princípios da Administração Pública:
 I. Legalidade
 II. Impessoalidade
 III. Moralidade
@@ -1118,17 +1089,15 @@ III. A cidadania é um princípio que garante a todos os brasileiros direitos po
     subject: 'direito',
     subjectName: 'Direito Administrativo e Constitucional',
     weight: 2,
-    text: `Julgue V ou F: A Constituição Federal assegura a todos os cidadãos o direito ao sigilo de suas comunicações telegráficas e telefônicas.
-
-A sequência CORRETA é:`,
+    text: `Sobre o sigilo das comunicações na Constituição Federal, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `V - F` },
-      { letter: 'B', text: `F - V` },
-      { letter: 'C', text: `V - V` },
-      { letter: 'D', text: `F - F` }
+      { letter: 'A', text: `O sigilo das comunicações telegráficas e telefônicas é inviolável, salvo ordem judicial.` },
+      { letter: 'B', text: `Não há garantia constitucional sobre sigilo de comunicações.` },
+      { letter: 'C', text: `O sigilo pode ser quebrado por qualquer autoridade policial.` },
+      { letter: 'D', text: `Apenas comunicações telefônicas têm proteção constitucional.` }
     ],
     correctAnswer: 'A',
-    explanation: `A Constituição assegura o direito ao sigilo das comunicações, portanto a afirmação é verdadeira, enquanto a sequência apresentada é falsa.`,
+    explanation: `A CF/88 (art. 5º, XII) assegura a inviolabilidade do sigilo das comunicações, permitindo quebra apenas por ordem judicial para fins de investigação criminal ou instrução processual penal.`,
   },
   {
     id: 1071,
@@ -1150,9 +1119,7 @@ A sequência CORRETA é:`,
     subject: 'direito',
     subjectName: 'Direito Administrativo e Constitucional',
     weight: 2,
-    text: `Associe a 
-
-2ª coluna com a 1ª, relacionando os princípios da administração pública com suas definições:
+    text: `Associe a 2ª coluna com a 1ª, relacionando os princípios da administração pública com suas definições:
 I. Legalidade A. Atuar sempre visando o interesse público
 II. Impessoalidade B. Respeitar as normas e leis vigentes
 III. Moralidade C. Agir com ética e honestidade`,
@@ -1266,17 +1233,15 @@ III. A improbidade administrativa se restringe apenas a servidores públicos. Es
     subject: 'direito',
     subjectName: 'Direito Administrativo e Constitucional',
     weight: 2,
-    text: `Julgue V ou F. A Lei de Acesso à Informação garante que qualquer cidadão pode solicitar informações sobre atos da Administração Pública, e as respostas devem ser fornecidas em até 10 dias.
-
-A sequência CORRETA é:`,
+    text: `Sobre a Lei de Acesso à Informação (Lei 12.527/2011), assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `V` },
-      { letter: 'B', text: `F` },
-      { letter: 'C', text: `V` },
-      { letter: 'D', text: `F` }
+      { letter: 'A', text: `Qualquer cidadão pode solicitar informações sobre atos da Administração Pública, com prazo de resposta de até 20 dias, prorrogável por mais 10.` },
+      { letter: 'B', text: `Apenas servidores públicos podem solicitar informações governamentais.` },
+      { letter: 'C', text: `O prazo para resposta é de 60 dias úteis.` },
+      { letter: 'D', text: `A lei não se aplica aos municípios, apenas à União e Estados.` }
     ],
     correctAnswer: 'A',
-    explanation: `A afirmação é verdadeira, pois a Lei de Acesso à Informação realmente prevê que qualquer cidadão pode solicitar informações, devendo a Administração Pública respondê-las em até 10 dias.`,
+    explanation: `A Lei de Acesso à Informação garante a qualquer cidadão o direito de solicitar informações, com prazo de 20 dias para resposta, prorrogável por mais 10 dias mediante justificativa.`,
   },
   {
     id: 1080,
@@ -1298,9 +1263,7 @@ A sequência CORRETA é:`,
     subject: 'direito',
     subjectName: 'Direito Administrativo e Constitucional',
     weight: 2,
-    text: `Associe a 
-
-2ª coluna com a 1ª:
+    text: `Associe a 2ª coluna com a 1ª:
 I. Responsabilidade Civil do Estado 1. Controle social.
 II. Controle da Administração Pública 2. Ato ilícito do agente.
 III. Improbidade Administrativa 3. Ação de cidadãos. Está correto:`,
@@ -1411,15 +1374,15 @@ III. SAN é uma rede dedicada a armazenamento de dados, proporcionando alta perf
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Julgue V ou F: O Windows Server permite a configuração de Active Directory, que é um serviço de gerenciamento de diretórios.
-
-A sequência CORRETA é:`,
+    text: `Sobre o Active Directory no Windows Server, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `Verdadeiro` },
-      { letter: 'B', text: `Falso` }
+      { letter: 'A', text: `É um serviço de gerenciamento de diretórios para administração centralizada de usuários e recursos.` },
+      { letter: 'B', text: `É um antivírus integrado ao Windows Server.` },
+      { letter: 'C', text: `É um servidor web para hospedagem de sites.` },
+      { letter: 'D', text: `É um sistema de arquivos exclusivo do Linux.` }
     ],
     correctAnswer: 'A',
-    explanation: `O Active Directory é um serviço que permite a administração centralizada de usuários e recursos em uma rede, sendo uma característica fundamental do Windows Server.`,
+    explanation: `O Active Directory é um serviço de diretório que permite administração centralizada de usuários, computadores, grupos e recursos em redes Windows.`,
   },
   {
     id: 1089,
@@ -1441,9 +1404,7 @@ A sequência CORRETA é:`,
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 
+    text: `Associe a 2ª coluna com a 
 
 1ª coluna sobre as versões do Windows e suas características:`,
     options: [
@@ -1556,30 +1517,22 @@ III. O ITIL melhora a qualidade dos serviços de TI. Está correto:`,
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Julgue V ou F:
-
-A sequência CORRETA é:
-I. O Hyper-V é uma plataforma de virtualização desenvolvida pela Microsoft.
-II. O VirtualBox é uma ferramenta que suporta múltiplas plataformas, incluindo Windows e Linux.
-III. A virtualização permite otimizar o uso de hardware.
-IV. VPN é um tipo de software que garante a segurança da rede local em casa.`,
+    text: `Sobre tecnologias de virtualização, assinale a alternativa INCORRETA:`,
     options: [
-      { letter: 'A', text: `V, V, V, F` },
-      { letter: 'B', text: `F, V, V, V` },
-      { letter: 'C', text: `V, F, V, V` },
-      { letter: 'D', text: `V, V, F, V` }
+      { letter: 'A', text: `O Hyper-V é uma plataforma de virtualização desenvolvida pela Microsoft.` },
+      { letter: 'B', text: `O VirtualBox suporta múltiplas plataformas, incluindo Windows e Linux.` },
+      { letter: 'C', text: `A virtualização permite otimizar o uso de hardware físico.` },
+      { letter: 'D', text: `VPN é um software que garante segurança apenas em redes locais domésticas.` }
     ],
-    correctAnswer: 'A',
-    explanation: `As afirmações I, II e III são verdadeiras. A IV é falsa, pois uma VPN (Rede Privada Virtual) não é apenas um software, mas sim uma tecnologia que cria um túnel seguro na internet.`,
+    correctAnswer: 'D',
+    explanation: `VPN (Virtual Private Network) não se limita a redes domésticas - é uma tecnologia que cria túneis seguros pela internet, usada em ambientes corporativos e pessoais.`,
   },
   {
     id: 1098,
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 1ª sobre conceitos de VPN:
+    text: `Associe a 2ª coluna com a 1ª sobre conceitos de VPN:
 I. Túnel seguro.
 II. Criptografia.
 III. Autenticação. Está correto:`,
@@ -1690,15 +1643,15 @@ III. A camada de enlace de dados é responsável por endereçar dados entre disp
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Julgue V ou F: O protocolo SSH é utilizado principalmente para transferências de arquivos e a sequência CORRETA é:`,
+    text: `Sobre o protocolo SSH (Secure Shell), assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `V, F.` },
-      { letter: 'B', text: `F, V.` },
-      { letter: 'C', text: `V, V.` },
-      { letter: 'D', text: `F, F.` }
+      { letter: 'A', text: `É utilizado principalmente para acesso remoto seguro a servidores.` },
+      { letter: 'B', text: `É um protocolo exclusivo para transferência de arquivos.` },
+      { letter: 'C', text: `Não utiliza criptografia na comunicação.` },
+      { letter: 'D', text: `Só funciona em redes locais, não pela internet.` }
     ],
-    correctAnswer: 'D',
-    explanation: `O protocolo SSH (Secure Shell) é utilizado para acesso remoto seguro, não para transferências de arquivos, que são geralmente realizadas pelo SFTP (Secure File Transfer Protocol).`,
+    correctAnswer: 'A',
+    explanation: `O SSH (Secure Shell) é um protocolo para acesso remoto seguro. Para transferência de arquivos, utiliza-se SFTP ou SCP, que são protocolos baseados no SSH.`,
   },
   {
     id: 1106,
@@ -1735,9 +1688,7 @@ III. A camada de enlace de dados é responsável por endereçar dados entre disp
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 1ª:
+    text: `Associe a 2ª coluna com a 1ª:
 I. DNS
 II. DHCP
 III. FTP A. Protocolo de transferência de arquivos. B. Protocolo que atribui endereços IP dinamicamente. C. Protocolo de resolução de nomes.`,
@@ -1851,20 +1802,15 @@ III. A manutenção preventiva é mais cara que a corretiva. Está correto:`,
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Julgue V ou F as afirmativas sobre o sistema operacional Windows Server:
-I. O Windows Server pode atuar como controlador de domínio.
-II. O Windows Server não suporta Active Directory.
-III. As GPOs (Group Policy Objects) controlam configurações de segurança e usuário.
-
-A sequência CORRETA é:`,
+    text: `Sobre o Windows Server, assinale a alternativa INCORRETA:`,
     options: [
-      { letter: 'A', text: `V, V, V.` },
-      { letter: 'B', text: `V, F, V.` },
-      { letter: 'C', text: `F, V, F.` },
-      { letter: 'D', text: `F, F, V.` }
+      { letter: 'A', text: `Pode atuar como controlador de domínio em uma rede corporativa.` },
+      { letter: 'B', text: `Não suporta Active Directory para gerenciamento de usuários.` },
+      { letter: 'C', text: `Permite o uso de GPOs para controle de configurações de segurança.` },
+      { letter: 'D', text: `Pode hospedar serviços como DNS, DHCP e arquivos.` }
     ],
     correctAnswer: 'B',
-    explanation: `As afirmativas I e III são verdadeiras, enquanto a afirmativa II é falsa, pois o Windows Server suporta Active Directory, que é uma de suas principais funcionalidades.`,
+    explanation: `O Windows Server SUPORTA Active Directory - essa é uma de suas principais funcionalidades para gerenciamento centralizado de usuários e recursos.`,
   },
   {
     id: 1116,
@@ -1886,9 +1832,7 @@ A sequência CORRETA é:`,
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 1ª conforme a relação de funções de cada componente do hardware:`,
+    text: `Associe a 2ª coluna com a 1ª conforme a relação de funções de cada componente do hardware:`,
     options: [
       { letter: 'A', text: `1 - Processador, 2 - Execução de instruções.` },
       { letter: 'B', text: `1 - Memória RAM, 2 - Armazenamento permanente.` },
@@ -1996,20 +1940,15 @@ III. VPN não oferece segurança nas transmissões de dados. Está correto:`,
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Julgue V ou F:
-
-A sequência CORRETA é:
-I. VMware é uma plataforma de virtualização amplamente utilizada em ambientes corporativos.
-II. Hyper-V é a solução de virtualização da Microsoft.
-III. VirtualBox é um software de virtualização destinado exclusivamente para servidores.`,
+    text: `Sobre plataformas de virtualização, assinale a alternativa INCORRETA:`,
     options: [
-      { letter: 'A', text: `V, V, F.` },
-      { letter: 'B', text: `F, V, V.` },
-      { letter: 'C', text: `V, F, V.` },
-      { letter: 'D', text: `F, F, V.` }
+      { letter: 'A', text: `VMware é amplamente utilizado em ambientes corporativos.` },
+      { letter: 'B', text: `Hyper-V é a solução de virtualização da Microsoft.` },
+      { letter: 'C', text: `VirtualBox é destinado exclusivamente para servidores.` },
+      { letter: 'D', text: `Todas as plataformas permitem criar máquinas virtuais.` }
     ],
-    correctAnswer: 'A',
-    explanation: `As afirmações I e II são verdadeiras, enquanto a III é falsa, já que o VirtualBox é para desktops e não apenas para servidores.`,
+    correctAnswer: 'C',
+    explanation: `VirtualBox é um software de virtualização para desktops, não exclusivamente para servidores. É gratuito e roda em Windows, Linux e macOS.`,
   },
   {
     id: 1125,
@@ -2031,9 +1970,7 @@ III. VirtualBox é um software de virtualização destinado exclusivamente para 
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 1ª, relacionando os tipos de impressoras com suas características. 1. Impressora a jato de tinta 2. Impressora a laser 3. Impressora matricial. A. Gera impressão de alta qualidade para fotos. B. Utiliza toner e é mais rápida em impressões em grandes volumes. C. É utilizada principalmente para impressão de formulários e documentos simples.`,
+    text: `Associe a 2ª coluna com a 1ª, relacionando os tipos de impressoras com suas características. 1. Impressora a jato de tinta 2. Impressora a laser 3. Impressora matricial. A. Gera impressão de alta qualidade para fotos. B. Utiliza toner e é mais rápida em impressões em grandes volumes. C. É utilizada principalmente para impressão de formulários e documentos simples.`,
     options: [
       { letter: 'A', text: `1 - A, 2 - B, 3 - C.` },
       { letter: 'B', text: `1 - B, 2 - A, 3 - C.` },
@@ -2078,15 +2015,15 @@ III. VirtualBox é um software de virtualização destinado exclusivamente para 
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Julgue V ou F: O conceito de ITIL refere-se a um conjunto de práticas voltadas para a gestão de serviços de TI, visando alinhar os serviços de tecnologia com as necessidades do negócio.`,
+    text: `Sobre o conceito de ITIL, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `V.` },
-      { letter: 'B', text: `F.` },
-      { letter: 'C', text: `V, mas somente para empresas de grande porte.` },
-      { letter: 'D', text: `F, pois ITIL é um software específico de gestão.` }
+      { letter: 'A', text: `É um conjunto de boas práticas para gestão de serviços de TI, alinhando tecnologia às necessidades do negócio.` },
+      { letter: 'B', text: `É um software específico de gestão de projetos.` },
+      { letter: 'C', text: `É aplicado apenas em empresas de grande porte.` },
+      { letter: 'D', text: `É uma linguagem de programação para automação.` }
     ],
     correctAnswer: 'A',
-    explanation: `A afirmação é verdadeira, pois ITIL realmente se refere a práticas de gestão de serviços de TI para alinhar a tecnologia às necessidades do negócio.`,
+    explanation: `ITIL (Information Technology Infrastructure Library) é um framework de boas práticas para gestão de serviços de TI, aplicável a empresas de qualquer porte.`,
   },
   {
     id: 1130,
@@ -2159,17 +2096,15 @@ III. A classe A de endereços IP suporta até 16 milhões de hosts por rede. Est
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Julgue V ou F: O protocolo DHCP é utilizado para a atribuição dinâmica de endereços IP a dispositivos em uma rede.
-
-A sequência CORRETA é:`,
+    text: `Sobre o protocolo DHCP, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `V` },
-      { letter: 'B', text: `F` },
-      { letter: 'C', text: `V e depois F` },
-      { letter: 'D', text: `F e depois V` }
+      { letter: 'A', text: `É utilizado para atribuição dinâmica de endereços IP a dispositivos em uma rede.` },
+      { letter: 'B', text: `É um protocolo exclusivo para transferência de arquivos.` },
+      { letter: 'C', text: `Atribui endereços IP de forma permanente aos dispositivos.` },
+      { letter: 'D', text: `É usado apenas em redes sem fio.` }
     ],
     correctAnswer: 'A',
-    explanation: `O protocolo DHCP (Dynamic Host Configuration Protocol) é realmente utilizado para a atribuição dinâmica de endereços IP a dispositivos em uma rede, portanto a afirmativa é verdadeira.`,
+    explanation: `O DHCP (Dynamic Host Configuration Protocol) atribui automaticamente endereços IP, máscara de sub-rede, gateway e DNS aos dispositivos de uma rede.`,
   },
   {
     id: 1135,
@@ -2191,9 +2126,7 @@ A sequência CORRETA é:`,
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 1ª referente aos tipos de cabeamento estruturado:`,
+    text: `Associe a 2ª coluna com a 1ª referente aos tipos de cabeamento estruturado:`,
     options: [
       { letter: 'A', text: `Categoria 5e - Conector RJ-45` },
       { letter: 'B', text: `Categoria 6 - Fibra óptica` },
@@ -2304,17 +2237,15 @@ III. SAN é uma tecnologia que permite acesso a dispositivos de armazenamento de
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Julgue V ou F a seguinte afirmação: 'O processador é o principal componente responsável por armazenar dados em um computador.
-
-A sequência CORRETA é:`,
+    text: `Qual componente é o principal responsável por ARMAZENAR dados em um computador?`,
     options: [
-      { letter: 'A', text: `V, F` },
-      { letter: 'B', text: `F, V` },
-      { letter: 'C', text: `V, V` },
-      { letter: 'D', text: `F, F` }
+      { letter: 'A', text: `Processador (CPU).` },
+      { letter: 'B', text: `Disco rígido (HD) ou SSD.` },
+      { letter: 'C', text: `Placa de vídeo.` },
+      { letter: 'D', text: `Fonte de alimentação.` }
     ],
-    correctAnswer: 'A',
-    explanation: `A afirmação é falsa, pois o processador executa operações e cálculos, enquanto a memória e os sistemas de armazenamento são responsáveis por armazenar dados.`,
+    correctAnswer: 'B',
+    explanation: `O disco rígido (HD) ou SSD é o componente responsável por armazenar dados permanentemente. O processador executa cálculos e operações, não armazena dados.`,
   },
   {
     id: 1144,
@@ -2336,9 +2267,7 @@ A sequência CORRETA é:`,
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 1ª conforme as funções dos componentes de um computador:
+    text: `Associe a 2ª coluna com a 1ª conforme as funções dos componentes de um computador:
 I. CPU
 II. Memória RAM
 III. Disco Rígido. A. Armazenar dados permanentemente B. Executar instruções de programas C. Armazenar dados temporariamente.`,
@@ -2419,17 +2348,15 @@ III. RAID 5 combina distribuição de dados e paridade. Está correto:`,
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Julgue V ou F: A ferramenta ITIL é utilizada para melhorar a gestão de serviços de TI.
-
-A sequência CORRETA é:`,
+    text: `Sobre o ITIL (Information Technology Infrastructure Library), assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `V` },
-      { letter: 'B', text: `F` },
-      { letter: 'C', text: `V` },
-      { letter: 'D', text: `F` }
+      { letter: 'A', text: `É um conjunto de boas práticas para gestão de serviços de TI, amplamente adotado mundialmente.` },
+      { letter: 'B', text: `É uma linguagem de programação para desenvolvimento de sistemas.` },
+      { letter: 'C', text: `É um sistema operacional voltado para servidores.` },
+      { letter: 'D', text: `É um protocolo de comunicação de redes.` }
     ],
     correctAnswer: 'A',
-    explanation: `A afirmação é verdadeira, uma vez que ITIL (Information Technology Infrastructure Library) é um conjunto de boas práticas para a gestão de serviços de TI.`,
+    explanation: `ITIL (Information Technology Infrastructure Library) é um conjunto de boas práticas para a gestão de serviços de TI, sendo um framework amplamente adotado.`,
   },
   {
     id: 1151,
@@ -2484,9 +2411,7 @@ III. Não há diferença entre help desk e service desk. Está correto:`,
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 
+    text: `Associe a 2ª coluna com a 
 
 1ª coluna sobre ferramentas de escritório:`,
     options: [
@@ -2518,17 +2443,15 @@ III. Não há diferença entre help desk e service desk. Está correto:`,
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Julgue V ou F: O LibreOffice é uma suíte de escritório de código aberto que oferece funcionalidades semelhantes às do Microsoft Office.
-
-A sequência CORRETA é:`,
+    text: `Sobre o LibreOffice, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `V` },
-      { letter: 'B', text: `F` },
-      { letter: 'C', text: `V` },
-      { letter: 'D', text: `F` }
+      { letter: 'A', text: `É uma suíte de escritório de código aberto com funcionalidades semelhantes ao Microsoft Office.` },
+      { letter: 'B', text: `É um software proprietário que requer licença paga.` },
+      { letter: 'C', text: `Não possui editor de texto, apenas planilhas.` },
+      { letter: 'D', text: `Só funciona em sistemas operacionais Linux.` }
     ],
     correctAnswer: 'A',
-    explanation: `A afirmação é verdadeira, pois o LibreOffice é uma alternativa de código aberto ao Microsoft Office, oferecendo funcionalidades semelhantes.`,
+    explanation: `O LibreOffice é uma suíte de escritório de código aberto e gratuita, oferecendo Writer (texto), Calc (planilhas), Impress (apresentações) e outros, compatível com Windows, Linux e macOS.`,
   },
   {
     id: 1157,
@@ -2598,17 +2521,15 @@ III. O 'yum' é um gerenciador de pacotes que não possui suporte para repositó
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Julgue V ou F: O protocolo HTTPS é uma versão segura do HTTP, que utiliza o SSL/TLS para criptografar dados trocados entre cliente e servidor.
-
-A sequência CORRETA é:`,
+    text: `Sobre o protocolo HTTPS, assinale a alternativa CORRETA:`,
     options: [
-      { letter: 'A', text: `V` },
-      { letter: 'B', text: `F` },
-      { letter: 'C', text: `V e F` },
-      { letter: 'D', text: `F e V` }
+      { letter: 'A', text: `É uma versão segura do HTTP que utiliza SSL/TLS para criptografar dados.` },
+      { letter: 'B', text: `Não utiliza nenhum tipo de criptografia.` },
+      { letter: 'C', text: `É mais lento que o HTTP e por isso não deve ser usado.` },
+      { letter: 'D', text: `Só funciona em navegadores específicos.` }
     ],
     correctAnswer: 'A',
-    explanation: `A afirmação é verdadeira, pois o HTTPS realmente utiliza SSL/TLS para garantir a segurança na transferência de dados.`,
+    explanation: `HTTPS (HTTP Secure) utiliza SSL/TLS para criptografar a comunicação entre cliente e servidor, garantindo confidencialidade e integridade dos dados.`,
   },
   {
     id: 1162,
@@ -2630,9 +2551,7 @@ A sequência CORRETA é:`,
     subject: 'especificos_tecnico',
     subjectName: 'Conhecimentos Específicos - Técnico',
     weight: 3,
-    text: `Associe a 
-
-2ª coluna com a 1ª sobre cabeamento estruturado:
+    text: `Associe a 2ª coluna com a 1ª sobre cabeamento estruturado:
 1. Categoria 5e 2. Conector RJ-45 3. Certificação ANSI/TIA 568.
 
 A sequência correta é:`,
@@ -2689,7 +2608,297 @@ A sequência correta é:`,
     ],
     correctAnswer: 'C',
     explanation: `O endereço IP versão 4 (IPv4) é composto por quatro octetos, cada um variando de 0 a 255, portanto a alternativa C é a correta.`,
-  }
+  },
+
+  // ================================================================
+  // QUESTÕES INTEGRADAS - 2026-01-13
+  // Total: 15 questões
+  // ================================================================
+  {
+    id: 1167,
+    subject: 'portugues',
+    subjectName: 'Língua Portuguesa',
+    subtopic: 'Interpretação de Texto',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Leia: 'A automação de processos administrativos, conquanto reduza custos operacionais, demanda investimento inicial significativo e reciclagem profissional dos servidores.' O conectivo 'conquanto' pode ser substituído, sem alteração de sentido, por:`,
+    options: [
+      { letter: 'A', text: `Porque` },
+      { letter: 'B', text: `Embora` },
+      { letter: 'C', text: `Portanto` },
+      { letter: 'D', text: `Conforme` }
+    ],
+    correctAnswer: 'B',
+    explanation: `'Conquanto' é uma conjunção concessiva, equivalente a 'embora', 'ainda que', 'mesmo que'. Indica que a redução de custos ocorre APESAR das demandas mencionadas.`,
+    tags: ['conectivos', 'concessao'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 1168,
+    subject: 'portugues',
+    subjectName: 'Língua Portuguesa',
+    subtopic: 'Regência',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Assinale a alternativa em que a regência verbal está de acordo com a norma culta:`,
+    options: [
+      { letter: 'A', text: `O técnico assistiu o vídeo de treinamento com atenção.` },
+      { letter: 'B', text: `Os funcionários aspiram o cargo de chefia.` },
+      { letter: 'C', text: `O sistema visa à segurança dos dados.` },
+      { letter: 'D', text: `O chefe implicou com o funcionário novo.` }
+    ],
+    correctAnswer: 'C',
+    explanation: `'Visar' no sentido de 'ter como objetivo' é transitivo indireto (visa A algo). 'Assistir' (ver) é transitivo indireto (assistiu AO vídeo). 'Aspirar' (desejar) é transitivo indireto (aspiram AO cargo). 'Implicar' (ter implicância) não usa 'com'.`,
+    tags: ['regencia_verbal'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 1169,
+    subject: 'logica',
+    subjectName: 'Raciocínio Lógico-Matemático',
+    subtopic: 'Negação de Proposições',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Qual é a negação CORRETA da proposição: 'Se o backup foi realizado, então nenhum dado foi perdido'?`,
+    options: [
+      { letter: 'A', text: `O backup foi realizado e algum dado foi perdido.` },
+      { letter: 'B', text: `Se o backup não foi realizado, então algum dado foi perdido.` },
+      { letter: 'C', text: `O backup não foi realizado ou nenhum dado foi perdido.` },
+      { letter: 'D', text: `Se algum dado foi perdido, então o backup não foi realizado.` }
+    ],
+    correctAnswer: 'A',
+    explanation: `A negação de 'Se P, então Q' é 'P e não Q'. Negando 'nenhum dado foi perdido' obtemos 'algum dado foi perdido'. Portanto: 'O backup foi realizado E algum dado foi perdido'.`,
+    tags: ['negacao', 'condicional'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 1170,
+    subject: 'logica',
+    subjectName: 'Raciocínio Lógico-Matemático',
+    subtopic: 'Raciocínio Analítico',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Cinco técnicos (Ana, Bruno, Carlos, Diana, Eduardo) trabalham em dias diferentes da semana (segunda a sexta). Sabe-se que: Ana trabalha antes de Bruno; Carlos não trabalha na segunda nem na sexta; Diana trabalha imediatamente após Carlos; Eduardo trabalha na sexta. Em que dia Ana trabalha?`,
+    options: [
+      { letter: 'A', text: `Segunda-feira` },
+      { letter: 'B', text: `Terça-feira` },
+      { letter: 'C', text: `Quarta-feira` },
+      { letter: 'D', text: `Pode ser segunda ou terça` }
+    ],
+    correctAnswer: 'A',
+    explanation: `Eduardo = sexta. Carlos não trabalha seg/sex, Diana vem logo após Carlos. Se Carlos = terça, Diana = quarta. Se Carlos = quarta, Diana = quinta. Como Ana vem antes de Bruno e precisamos encaixar todos, Ana = segunda, Bruno = um dia após Ana mas antes de Carlos/Diana.`,
+    tags: ['raciocinio_analitico', 'logica'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 1171,
+    subject: 'direito',
+    subjectName: 'Direito Administrativo e Constitucional',
+    subtopic: 'Responsabilidade Civil',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Um servidor público, no exercício de suas funções, causou dano a particular por negligência. Quanto à responsabilidade civil, é CORRETO afirmar:`,
+    options: [
+      { letter: 'A', text: `O particular deve acionar diretamente o servidor, que responde objetivamente.` },
+      { letter: 'B', text: `O Estado responde objetivamente perante o particular e pode exercer direito de regresso contra o servidor, que responde subjetivamente.` },
+      { letter: 'C', text: `O Estado e o servidor respondem solidariamente de forma objetiva.` },
+      { letter: 'D', text: `A responsabilidade é exclusiva do servidor, pois agiu com culpa.` }
+    ],
+    correctAnswer: 'B',
+    explanation: `Conforme art. 37, §6º da CF/88, o Estado responde OBJETIVAMENTE pelos danos causados por seus agentes. Porém, ao exercer o direito de regresso contra o servidor, este responde SUBJETIVAMENTE (apenas se houver dolo ou culpa comprovados).`,
+    tags: ['responsabilidade_civil', 'regresso'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 1172,
+    subject: 'direito',
+    subjectName: 'Direito Administrativo e Constitucional',
+    subtopic: 'Lei de Acesso à Informação',
+    difficulty: 'alto',
+    weight: 2,
+    text: `Segundo a Lei de Acesso à Informação (Lei 12.527/2011), informações classificadas como ULTRASSECRETA podem ter seu sigilo mantido por, no máximo:`,
+    options: [
+      { letter: 'A', text: `5 anos, prorrogáveis por igual período.` },
+      { letter: 'B', text: `15 anos, sem possibilidade de prorrogação.` },
+      { letter: 'C', text: `25 anos, prorrogáveis uma única vez por igual período.` },
+      { letter: 'D', text: `25 anos, sem possibilidade de prorrogação.` }
+    ],
+    correctAnswer: 'C',
+    explanation: `Conforme art. 24 da LAI: Ultrassecreta = 25 anos (prorrogável uma vez); Secreta = 15 anos (não prorrogável); Reservada = 5 anos (não prorrogável). Portanto, ultrassecreta pode chegar a 50 anos no total.`,
+    tags: ['lai', 'sigilo'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 1173,
+    subject: 'especificos_tecnico',
+    subjectName: 'Conhecimentos Específicos - Técnico',
+    subtopic: 'Windows Server',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Em um ambiente Windows Server com Active Directory, um administrador precisa aplicar uma política de grupo (GPO) que afete APENAS os computadores do departamento financeiro, sem afetar os usuários. Qual é a configuração CORRETA?`,
+    options: [
+      { letter: 'A', text: `Vincular a GPO à OU de usuários do financeiro e configurar apenas 'Configurações do Computador'.` },
+      { letter: 'B', text: `Vincular a GPO à OU de computadores do financeiro e habilitar 'Configurações do Computador', desabilitando 'Configurações do Usuário'.` },
+      { letter: 'C', text: `Aplicar a GPO no domínio inteiro e usar filtro de segurança baseado em usuários.` },
+      { letter: 'D', text: `Criar a GPO e aplicar via script de logon dos usuários.` }
+    ],
+    correctAnswer: 'B',
+    explanation: `Para aplicar GPO apenas em computadores específicos: vincule à OU onde estão os objetos de computador, use 'Configurações do Computador' e desabilite 'Configurações do Usuário' para otimizar o processamento.`,
+    tags: ['gpo', 'active_directory'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 1174,
+    subject: 'especificos_tecnico',
+    subjectName: 'Conhecimentos Específicos - Técnico',
+    subtopic: 'Redes',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Um técnico precisa configurar uma VLAN para isolar o tráfego do departamento de RH. Para que computadores em VLANs diferentes possam se comunicar, é necessário:`,
+    options: [
+      { letter: 'A', text: `Configurar todos os computadores na mesma sub-rede IP.` },
+      { letter: 'B', text: `Utilizar um roteador ou switch Layer 3 para fazer o roteamento inter-VLAN.` },
+      { letter: 'C', text: `Conectar um hub entre os switches das VLANs.` },
+      { letter: 'D', text: `Configurar o modo trunk em todas as portas de acesso.` }
+    ],
+    correctAnswer: 'B',
+    explanation: `VLANs isolam o tráfego em camada 2. Para comunicação entre VLANs diferentes, é necessário roteamento (camada 3), que pode ser feito por um roteador dedicado ou um switch Layer 3 com capacidade de roteamento inter-VLAN.`,
+    tags: ['vlan', 'roteamento'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 1175,
+    subject: 'especificos_tecnico',
+    subjectName: 'Conhecimentos Específicos - Técnico',
+    subtopic: 'Hardware',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Um servidor apresenta travamentos frequentes após upgrade de memória RAM. A memória instalada é DDR4 2666MHz, mas o processador suporta até DDR4 2400MHz. Qual é a causa mais provável e a solução?`,
+    options: [
+      { letter: 'A', text: `Incompatibilidade total; substituir por memória DDR3.` },
+      { letter: 'B', text: `A memória funcionará em velocidade reduzida (2400MHz) automaticamente; verificar outras causas como temperatura ou BIOS.` },
+      { letter: 'C', text: `É necessário fazer overclock do processador para suportar 2666MHz.` },
+      { letter: 'D', text: `Memórias mais rápidas nunca funcionam em sistemas mais lentos.` }
+    ],
+    correctAnswer: 'B',
+    explanation: `Memórias DDR4 são retrocompatíveis em velocidade - uma memória 2666MHz funcionará a 2400MHz se o controlador não suportar mais. Os travamentos provavelmente têm outra causa: temperatura, configuração de BIOS, módulos defeituosos ou incompatibilidade de fabricante.`,
+    tags: ['hardware', 'memoria_ram'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 1176,
+    subject: 'especificos_tecnico',
+    subjectName: 'Conhecimentos Específicos - Técnico',
+    subtopic: 'Backup',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Uma política de backup utiliza a estratégia 'Avô-Pai-Filho' (GFS - Grandfather-Father-Son) com backup completo aos domingos, incremental nos demais dias, e retenção mensal. Para restaurar dados de quarta-feira da semana anterior, quantos conjuntos de backup são necessários?`,
+    options: [
+      { letter: 'A', text: `Apenas o backup de quarta-feira.` },
+      { letter: 'B', text: `O backup completo de domingo + incrementais de segunda, terça e quarta.` },
+      { letter: 'C', text: `Todos os backups da semana (domingo a sábado).` },
+      { letter: 'D', text: `O backup completo de domingo + apenas o incremental de quarta.` }
+    ],
+    correctAnswer: 'B',
+    explanation: `Backup incremental armazena apenas alterações desde o último backup (completo ou incremental). Para restaurar quarta: precisa do completo (domingo) + todos os incrementais em sequência (segunda, terça, quarta) para reconstruir o estado completo.`,
+    tags: ['backup', 'gfs'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 1177,
+    subject: 'especificos_tecnico',
+    subjectName: 'Conhecimentos Específicos - Técnico',
+    subtopic: 'Segurança',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Um usuário relata que recebeu email aparentemente do banco solicitando atualização de dados via link. O email possui o logotipo oficial e endereço semelhante ao real (banc0.com.br em vez de banco.com.br). Qual tipo de ataque e a orientação correta?`,
+    options: [
+      { letter: 'A', text: `Ransomware; desconectar o computador da rede imediatamente.` },
+      { letter: 'B', text: `Phishing; não clicar no link, verificar o remetente real e reportar ao setor de segurança.` },
+      { letter: 'C', text: `DDoS; aguardar o ataque cessar.` },
+      { letter: 'D', text: `Vírus; executar antivírus no anexo do email.` }
+    ],
+    correctAnswer: 'B',
+    explanation: `Phishing usa engenharia social para enganar usuários com páginas/emails falsos que imitam instituições legítimas. Características: URLs semelhantes mas falsas, urgência, solicitação de dados. A orientação é NÃO clicar, verificar e reportar.`,
+    tags: ['phishing', 'engenharia_social'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 1178,
+    subject: 'especificos_tecnico',
+    subjectName: 'Conhecimentos Específicos - Técnico',
+    subtopic: 'Virtualização',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Em um ambiente Hyper-V, qual tipo de disco virtual oferece MELHOR performance para um servidor de banco de dados em produção?`,
+    options: [
+      { letter: 'A', text: `Disco Dinâmico (Dynamic) - cresce conforme necessidade.` },
+      { letter: 'B', text: `Disco de Diferenciação (Differencing) - economiza espaço.` },
+      { letter: 'C', text: `Disco Fixo (Fixed) - espaço pré-alocado.` },
+      { letter: 'D', text: `Disco Pass-through - acesso direto ao disco físico.` }
+    ],
+    correctAnswer: 'D',
+    explanation: `Para máxima performance, o disco Pass-through oferece acesso direto ao disco físico, eliminando a camada de virtualização do storage. Disco Fixo é a segunda melhor opção. Dinâmico e Diferenciação têm overhead por gerenciar alocação em tempo real.`,
+    tags: ['hyperv', 'virtualizacao'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 1179,
+    subject: 'especificos_tecnico',
+    subjectName: 'Conhecimentos Específicos - Técnico',
+    subtopic: 'Help Desk',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Segundo as práticas ITIL, qual é a diferença fundamental entre Gerenciamento de Incidentes e Gerenciamento de Problemas?`,
+    options: [
+      { letter: 'A', text: `Incidentes são mais graves que problemas.` },
+      { letter: 'B', text: `Incidentes focam em restaurar o serviço rapidamente; Problemas focam em identificar e eliminar a causa raiz.` },
+      { letter: 'C', text: `Problemas são resolvidos pelo nível 1; Incidentes pelo nível 3.` },
+      { letter: 'D', text: `Não há diferença; são termos intercambiáveis.` }
+    ],
+    correctAnswer: 'B',
+    explanation: `ITIL distingue: Gerenciamento de INCIDENTES = restaurar o serviço o mais rápido possível (foco reativo). Gerenciamento de PROBLEMAS = investigar causa raiz para prevenir recorrência (foco proativo). São processos complementares mas distintos.`,
+    tags: ['itil', 'incidente', 'problema'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 1180,
+    subject: 'especificos_tecnico',
+    subjectName: 'Conhecimentos Específicos - Técnico',
+    subtopic: 'Cabeamento Estruturado',
+    difficulty: 'alto',
+    weight: 3,
+    text: `Em uma instalação de cabeamento estruturado Cat6, qual é a distância máxima permitida entre o patch panel e a tomada de rede (horizontal cabling), segundo a norma TIA/EIA-568?`,
+    options: [
+      { letter: 'A', text: `50 metros` },
+      { letter: 'B', text: `90 metros` },
+      { letter: 'C', text: `100 metros (incluindo patch cords)` },
+      { letter: 'D', text: `150 metros` }
+    ],
+    correctAnswer: 'B',
+    explanation: `A norma TIA/EIA-568 especifica: cabeamento horizontal (permanent link) = máximo 90m. Os 10m restantes (até 100m total do canal) são reservados para patch cords nas extremidades (5m em cada ponta).`,
+    tags: ['cabeamento', 'normas'],
+    source: 'questoes_dificeis',
+  },
+  {
+    id: 1181,
+    subject: 'especificos_tecnico',
+    subjectName: 'Conhecimentos Específicos - Técnico',
+    subtopic: 'LibreOffice',
+    difficulty: 'alto',
+    weight: 3,
+    text: `No LibreOffice Calc, qual fórmula retorna o valor da célula B2 se A2 contiver 'Aprovado', o valor de C2 se A2 contiver 'Pendente', e 0 (zero) em qualquer outro caso?`,
+    options: [
+      { letter: 'A', text: `=SE(A2="Aprovado";B2;SE(A2="Pendente";C2;0))` },
+      { letter: 'B', text: `=ESCOLHER(A2;B2;C2;0)` },
+      { letter: 'C', text: `=PROCV(A2;B2:C2;2;0)` },
+      { letter: 'D', text: `=SEERRO(A2;B2;C2)` }
+    ],
+    correctAnswer: 'A',
+    explanation: `A função SE aninhada é a solução correta: SE(condição1; valor_se_verdadeiro; SE(condição2; valor_se_verdadeiro; valor_se_falso)). ESCOLHER requer índice numérico; PROCV busca em tabela; SEERRO trata erros.`,
+    tags: ['calc', 'formulas'],
+    source: 'questoes_dificeis',
+  },
 ];
 
 export const getQuestionsBySubjectTecnico = (subjectId: string): Question[] => {

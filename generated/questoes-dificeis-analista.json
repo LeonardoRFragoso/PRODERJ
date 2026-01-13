@@ -1,0 +1,287 @@
+[
+  {
+    "id": 200,
+    "subject": "portugues",
+    "subjectName": "Língua Portuguesa",
+    "subtopic": "Interpretação de Texto",
+    "difficulty": "alto",
+    "weight": 2,
+    "text": "Leia o trecho: 'A digitalização dos serviços públicos, embora promova eficiência e transparência, pode inadvertidamente excluir parcelas da população sem acesso à tecnologia, criando um paradoxo entre modernização e democratização.' Com base no texto, assinale a alternativa que apresenta uma INFERÊNCIA VÁLIDA:",
+    "options": [
+      { "letter": "A", "text": "A digitalização é intrinsecamente excludente e deve ser evitada." },
+      { "letter": "B", "text": "Políticas de inclusão digital são necessárias para que a modernização não comprometa a democratização." },
+      { "letter": "C", "text": "A eficiência administrativa é mais importante que a acessibilidade." },
+      { "letter": "D", "text": "A transparência só é possível em ambientes digitais." }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O texto apresenta um paradoxo entre modernização e democratização. A inferência válida é que políticas de inclusão digital são necessárias para equilibrar esses aspectos, não que a digitalização deva ser evitada.",
+    "tags": ["interpretacao_texto", "inferencia"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 201,
+    "subject": "portugues",
+    "subjectName": "Língua Portuguesa",
+    "subtopic": "Coesão e Coerência",
+    "difficulty": "alto",
+    "weight": 2,
+    "text": "Analise: 'O servidor público deve agir com probidade. Entretanto, casos de improbidade são frequentes. Isso ocorre porque a fiscalização é insuficiente. Portanto, fortalecer os mecanismos de controle é essencial.' A sequência de conectivos (Entretanto, porque, Portanto) estabelece, respectivamente, relações de:",
+    "options": [
+      { "letter": "A", "text": "Adição, causa, conclusão." },
+      { "letter": "B", "text": "Oposição, explicação, conclusão." },
+      { "letter": "C", "text": "Oposição, consequência, explicação." },
+      { "letter": "D", "text": "Concessão, finalidade, conclusão." }
+    ],
+    "correctAnswer": "B",
+    "explanation": "'Entretanto' indica oposição/contraste; 'porque' indica explicação/causa; 'Portanto' indica conclusão. A sequência correta é: oposição, explicação, conclusão.",
+    "tags": ["coesao", "conectivos"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 202,
+    "subject": "logica",
+    "subjectName": "Raciocínio Lógico-Matemático",
+    "subtopic": "Equivalências Lógicas",
+    "difficulty": "alto",
+    "weight": 2,
+    "text": "Considere a proposição: 'Se o servidor é eficiente, então o serviço é de qualidade.' Qual das alternativas apresenta uma proposição LOGICAMENTE EQUIVALENTE?",
+    "options": [
+      { "letter": "A", "text": "Se o serviço não é de qualidade, então o servidor não é eficiente." },
+      { "letter": "B", "text": "Se o serviço é de qualidade, então o servidor é eficiente." },
+      { "letter": "C", "text": "O servidor é eficiente se, e somente se, o serviço é de qualidade." },
+      { "letter": "D", "text": "O servidor não é eficiente ou o serviço não é de qualidade." }
+    ],
+    "correctAnswer": "A",
+    "explanation": "A contrapositiva de 'Se P, então Q' é 'Se não Q, então não P', que é logicamente equivalente. A alternativa A é a contrapositiva da proposição original.",
+    "tags": ["equivalencia", "contrapositiva"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 203,
+    "subject": "logica",
+    "subjectName": "Raciocínio Lógico-Matemático",
+    "subtopic": "Argumentação",
+    "difficulty": "alto",
+    "weight": 2,
+    "text": "Analise o argumento: 'Todo sistema seguro usa criptografia. Alguns sistemas governamentais são seguros. Logo, alguns sistemas governamentais usam criptografia.' Este argumento é:",
+    "options": [
+      { "letter": "A", "text": "Inválido, pois a conclusão não decorre das premissas." },
+      { "letter": "B", "text": "Válido, pois segue a estrutura do silogismo categórico." },
+      { "letter": "C", "text": "Inválido, pois comete a falácia da afirmação do consequente." },
+      { "letter": "D", "text": "Válido apenas se todos os sistemas governamentais forem seguros." }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O argumento é um silogismo válido: Todo A é B; Algum C é A; Logo, algum C é B. As premissas garantem a conclusão pela lógica dos quantificadores.",
+    "tags": ["silogismo", "argumentacao"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 204,
+    "subject": "direito",
+    "subjectName": "Direito Administrativo e Constitucional",
+    "subtopic": "Atos Administrativos",
+    "difficulty": "alto",
+    "weight": 2,
+    "text": "Um servidor público praticou ato administrativo com desvio de finalidade, beneficiando terceiro em processo licitatório. Posteriormente, a Administração constatou o vício. Nesse caso, o ato deve ser:",
+    "options": [
+      { "letter": "A", "text": "Revogado, por conveniência e oportunidade." },
+      { "letter": "B", "text": "Anulado, por vício de legalidade insanável." },
+      { "letter": "C", "text": "Convalidado, desde que não haja prejuízo a terceiros." },
+      { "letter": "D", "text": "Mantido, pois já produziu efeitos jurídicos." }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O desvio de finalidade é vício de legalidade insanável que atinge o elemento finalidade do ato administrativo. Atos com vícios insanáveis devem ser ANULADOS, não revogados ou convalidados.",
+    "tags": ["ato_administrativo", "anulacao"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 205,
+    "subject": "direito",
+    "subjectName": "Direito Administrativo e Constitucional",
+    "subtopic": "LGPD",
+    "difficulty": "alto",
+    "weight": 2,
+    "text": "Uma autarquia estadual pretende compartilhar dados pessoais de cidadãos com empresa privada para fins de análise estatística. Segundo a LGPD (Lei 13.709/2018), essa operação:",
+    "options": [
+      { "letter": "A", "text": "É permitida sem restrições, pois se trata de interesse público." },
+      { "letter": "B", "text": "Exige consentimento específico do titular ou deve atender a uma das bases legais previstas." },
+      { "letter": "C", "text": "É proibida em qualquer hipótese entre órgãos públicos e empresas privadas." },
+      { "letter": "D", "text": "Depende apenas de autorização do órgão controlador interno." }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A LGPD exige base legal para tratamento de dados pessoais. O compartilhamento com empresa privada requer consentimento específico do titular ou enquadramento em outra base legal (art. 7º), mesmo quando envolve órgão público.",
+    "tags": ["lgpd", "dados_pessoais"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 206,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - Analista",
+    "subtopic": "Arquitetura de Software",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Em uma arquitetura de microsserviços, um serviço de pedidos precisa consultar dados de clientes e produtos de outros serviços. Qual padrão arquitetural é MAIS adequado para evitar acoplamento forte e garantir resiliência?",
+    "options": [
+      { "letter": "A", "text": "Chamadas síncronas diretas via REST entre os serviços." },
+      { "letter": "B", "text": "Banco de dados compartilhado entre todos os microsserviços." },
+      { "letter": "C", "text": "Event Sourcing com CQRS e comunicação assíncrona via mensageria." },
+      { "letter": "D", "text": "Replicação dos dados de clientes e produtos no serviço de pedidos." }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Event Sourcing com CQRS e comunicação assíncrona via mensageria (ex: Kafka, RabbitMQ) reduz acoplamento, melhora resiliência e permite que cada serviço opere independentemente. Chamadas síncronas criam dependência direta e pontos únicos de falha.",
+    "tags": ["microsservicos", "event_sourcing", "cqrs"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 207,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - Analista",
+    "subtopic": "SQL",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Considere as tabelas: FUNCIONARIO(id, nome, depto_id) e DEPARTAMENTO(id, nome). Qual consulta retorna os departamentos que NÃO possuem funcionários?",
+    "options": [
+      { "letter": "A", "text": "SELECT d.nome FROM DEPARTAMENTO d INNER JOIN FUNCIONARIO f ON d.id = f.depto_id WHERE f.id IS NULL" },
+      { "letter": "B", "text": "SELECT d.nome FROM DEPARTAMENTO d LEFT JOIN FUNCIONARIO f ON d.id = f.depto_id WHERE f.id IS NULL" },
+      { "letter": "C", "text": "SELECT d.nome FROM DEPARTAMENTO d WHERE d.id IN (SELECT depto_id FROM FUNCIONARIO)" },
+      { "letter": "D", "text": "SELECT d.nome FROM DEPARTAMENTO d RIGHT JOIN FUNCIONARIO f ON d.id = f.depto_id WHERE d.id IS NULL" }
+    ],
+    "correctAnswer": "B",
+    "explanation": "LEFT JOIN retorna todos os registros da tabela da esquerda (DEPARTAMENTO), mesmo sem correspondência na direita. Com WHERE f.id IS NULL, filtramos apenas os departamentos sem funcionários. INNER JOIN não funciona pois exclui registros sem correspondência.",
+    "tags": ["sql", "join", "subconsulta"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 208,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - Analista",
+    "subtopic": "UML",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Em um diagrama de sequência UML, qual é a representação correta para indicar que uma mensagem é enviada de forma ASSÍNCRONA e o objeto remetente NÃO aguarda resposta?",
+    "options": [
+      { "letter": "A", "text": "Seta com linha contínua e ponta preenchida." },
+      { "letter": "B", "text": "Seta com linha tracejada e ponta preenchida." },
+      { "letter": "C", "text": "Seta com linha contínua e ponta aberta (não preenchida)." },
+      { "letter": "D", "text": "Seta com linha tracejada e ponta aberta." }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Em UML 2.x, mensagens assíncronas são representadas por setas com linha contínua e ponta ABERTA (não preenchida). Setas com ponta preenchida indicam mensagens síncronas. Linhas tracejadas são usadas para mensagens de retorno.",
+    "tags": ["uml", "diagrama_sequencia"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 209,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - Analista",
+    "subtopic": "BPMN",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Em BPMN 2.0, um processo de aprovação de documento tem a seguinte regra: 'Se o valor for maior que R$ 10.000, é necessária aprovação do diretor E do gerente financeiro; caso contrário, apenas o gerente.' Qual combinação de gateways modela CORRETAMENTE esta regra?",
+    "options": [
+      { "letter": "A", "text": "Gateway Exclusivo (XOR) para a decisão de valor, seguido de Gateway Paralelo (AND) para múltiplas aprovações." },
+      { "letter": "B", "text": "Gateway Inclusivo (OR) para ambas as situações." },
+      { "letter": "C", "text": "Apenas Gateway Exclusivo (XOR) para todas as decisões." },
+      { "letter": "D", "text": "Gateway Paralelo (AND) para a decisão de valor, seguido de Gateway Exclusivo (XOR) para aprovações." }
+    ],
+    "correctAnswer": "A",
+    "explanation": "O Gateway Exclusivo (XOR) modela a decisão do valor (ou/ou). Quando > R$ 10.000, o Gateway Paralelo (AND) garante que AMBAS as aprovações (diretor E gerente) ocorram antes de prosseguir.",
+    "tags": ["bpmn", "gateway"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 210,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - Analista",
+    "subtopic": "DevOps",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Em um pipeline CI/CD, a equipe precisa garantir que vulnerabilidades de segurança sejam detectadas antes do deploy em produção. Qual prática DevSecOps é MAIS adequada para integrar no pipeline?",
+    "options": [
+      { "letter": "A", "text": "Testes manuais de penetração após cada deploy." },
+      { "letter": "B", "text": "SAST (Static Application Security Testing) e SCA (Software Composition Analysis) automatizados no pipeline." },
+      { "letter": "C", "text": "Revisão de código manual por especialista em segurança." },
+      { "letter": "D", "text": "Monitoramento de logs em produção para detectar ataques." }
+    ],
+    "correctAnswer": "B",
+    "explanation": "SAST analisa código fonte para vulnerabilidades e SCA verifica dependências de terceiros. Ambos são automatizáveis no pipeline CI/CD, detectando problemas ANTES do deploy. Testes manuais e revisões não escalam; monitoramento é reativo, não preventivo.",
+    "tags": ["devsecops", "cicd", "seguranca"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 211,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - Analista",
+    "subtopic": "Padrões de Projeto",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Um sistema legado possui uma classe com interface incompatível com o novo módulo que está sendo desenvolvido. Qual padrão de projeto GoF resolve este problema SEM modificar a classe original?",
+    "options": [
+      { "letter": "A", "text": "Decorator - adiciona responsabilidades dinamicamente." },
+      { "letter": "B", "text": "Adapter - converte a interface da classe para a interface esperada." },
+      { "letter": "C", "text": "Facade - simplifica a interface de um subsistema." },
+      { "letter": "D", "text": "Proxy - controla o acesso ao objeto original." }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O padrão Adapter (também conhecido como Wrapper) converte a interface de uma classe em outra interface esperada pelo cliente, permitindo que classes com interfaces incompatíveis trabalhem juntas SEM modificar o código original.",
+    "tags": ["design_patterns", "adapter"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 212,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - Analista",
+    "subtopic": "Cloud Computing",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Uma aplicação governamental requer alta disponibilidade (99,99%) e recuperação de desastres com RPO de 15 minutos e RTO de 1 hora. Qual estratégia de arquitetura em nuvem é MAIS adequada?",
+    "options": [
+      { "letter": "A", "text": "Single-region com backup diário em storage externo." },
+      { "letter": "B", "text": "Multi-region Active-Passive com replicação assíncrona e failover automatizado." },
+      { "letter": "C", "text": "Multi-region Active-Active com replicação síncrona e load balancer global." },
+      { "letter": "D", "text": "Single-region com múltiplas Availability Zones e snapshots horários." }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Para RPO de 15min e RTO de 1h, Multi-region Active-Passive com replicação assíncrona atende aos requisitos. Active-Active seria over-engineering para esse RTO. Single-region não garante DR adequado. Replicação síncrona multi-region tem latência e custo elevados.",
+    "tags": ["cloud", "disaster_recovery", "alta_disponibilidade"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 213,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - Analista",
+    "subtopic": "Segurança da Informação",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Em um sistema de autenticação, qual combinação de fatores representa autenticação multifator (MFA) CORRETA segundo as categorias de autenticação?",
+    "options": [
+      { "letter": "A", "text": "Senha + PIN (dois fatores de conhecimento)." },
+      { "letter": "B", "text": "Senha + Token OTP + Biometria (conhecimento + posse + inerência)." },
+      { "letter": "C", "text": "Cartão magnético + Token físico (dois fatores de posse)." },
+      { "letter": "D", "text": "Reconhecimento facial + Impressão digital (dois fatores de inerência)." }
+    ],
+    "correctAnswer": "B",
+    "explanation": "MFA verdadeiro requer fatores de CATEGORIAS diferentes: conhecimento (algo que você sabe), posse (algo que você tem) e inerência (algo que você é). A alternativa B combina as três categorias. As demais usam fatores da mesma categoria.",
+    "tags": ["seguranca", "autenticacao", "mfa"],
+    "source": "questoes_dificeis"
+  },
+  {
+    "id": 214,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - Analista",
+    "subtopic": "Banco de Dados",
+    "difficulty": "alto",
+    "weight": 3,
+    "text": "Em um banco de dados relacional com alto volume de consultas analíticas, a equipe identificou que uma consulta específica está lenta. A consulta usa WHERE em uma coluna de data e JOIN com outra tabela. Qual estratégia de otimização deve ser priorizada?",
+    "options": [
+      { "letter": "A", "text": "Criar índice composto na coluna de data e na coluna de JOIN, e analisar o plano de execução." },
+      { "letter": "B", "text": "Aumentar a memória RAM do servidor de banco de dados." },
+      { "letter": "C", "text": "Normalizar ainda mais as tabelas para reduzir redundância." },
+      { "letter": "D", "text": "Migrar para um banco de dados NoSQL." }
+    ],
+    "correctAnswer": "A",
+    "explanation": "A primeira abordagem para otimização de consultas é analisar o plano de execução e criar índices apropriados. Um índice composto nas colunas usadas em WHERE e JOIN pode melhorar drasticamente a performance. Aumentar RAM ou migrar para NoSQL são medidas drásticas sem análise prévia.",
+    "tags": ["banco_dados", "otimizacao", "indices"],
+    "source": "questoes_dificeis"
+  }
+]
