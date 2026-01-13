@@ -1,0 +1,812 @@
+[
+  {
+    "id": 200,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Em um projeto de desenvolvimento de software utilizando a metodologia ágil, o time decidiu aplicar a técnica de refatoração de código. Qual dos seguintes benefícios é obtido ao realizar a refatoração contínua em um ambiente ágil?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Aumenta a quantidade de funcionalidades entregues em cada sprint."
+      },
+      {
+        "letter": "B",
+        "text": "Melhora a legibilidade e a manutenibilidade do código, facilitando adaptações rápidas."
+      },
+      {
+        "letter": "C",
+        "text": "Reduz a necessidade de testes de integração devido à estabilidade do sistema."
+      },
+      {
+        "letter": "D",
+        "text": "Elimina a necessidade de documentar o código, pois o código refatorado é autoexplicativo."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A refatoração contínua melhora a legibilidade e a manutenibilidade do código, permitindo que o time faça adaptações rápidas e seguras, um benefício essencial em ambientes ágeis. As outras opções não refletem corretamente os benefícios principais da refatoração."
+  },
+  {
+    "id": 201,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Ao modelar um sistema utilizando UML 2.5, um analista de sistemas precisa representar o fluxo de atividades em um processo de negócio. Qual dos seguintes diagramas UML é mais apropriado para este propósito?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Diagrama de Classes"
+      },
+      {
+        "letter": "B",
+        "text": "Diagrama de Sequência"
+      },
+      {
+        "letter": "C",
+        "text": "Diagrama de Atividades"
+      },
+      {
+        "letter": "D",
+        "text": "Diagrama de Estados"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "O Diagrama de Atividades é utilizado para representar fluxos de trabalho e processos de negócio, mostrando o fluxo de controle entre atividades. É o mais adequado para modelar o fluxo de atividades. Os outros diagramas têm finalidades diferentes."
+  },
+  {
+    "id": 202,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Um desenvolvedor está implementando um sistema seguindo a arquitetura de microsserviços. Qual é uma vantagem significativa desta arquitetura em comparação com um sistema monolítico?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Maior facilidade na implementação de transações distribuídas."
+      },
+      {
+        "letter": "B",
+        "text": "Facilita a escalabilidade horizontal, permitindo que cada serviço seja escalado independentemente."
+      },
+      {
+        "letter": "C",
+        "text": "Reduz a complexidade de comunicação entre os componentes do sistema."
+      },
+      {
+        "letter": "D",
+        "text": "Elimina a necessidade de um sistema de monitoramento centralizado."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A arquitetura de microsserviços permite que cada serviço seja escalado de forma independente, o que facilita a escalabilidade horizontal. As outras opções não representam vantagens principais dos microsserviços."
+  },
+  {
+    "id": 203,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "No contexto de DevOps, a implementação de um pipeline de CI/CD traz diversos benefícios. Qual das alternativas abaixo descreve corretamente uma dessas vantagens?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Garante que todas as mudanças no código sejam revisadas manualmente antes de serem integradas."
+      },
+      {
+        "letter": "B",
+        "text": "Automatiza o processo de integração e entrega, reduzindo o tempo de lançamento de novas funcionalidades."
+      },
+      {
+        "letter": "C",
+        "text": "Substitui a necessidade de realizar testes de qualidade no software."
+      },
+      {
+        "letter": "D",
+        "text": "Elimina a necessidade de ambientes de desenvolvimento separados."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Um pipeline de CI/CD automatiza o processo de integração e entrega, o que reduz o tempo necessário para lançar novas funcionalidades. As outras opções não descrevem corretamente as vantagens do CI/CD."
+  },
+  {
+    "id": 204,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Ao seguir o processo de Desenvolvimento Guiado por Comportamento (BDD), qual das seguintes práticas é essencial para garantir que os casos de teste sejam eficazes?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Escrever casos de teste diretamente em linguagem de programação."
+      },
+      {
+        "letter": "B",
+        "text": "Desenvolver casos de teste com base em histórias de usuário, utilizando uma linguagem comum compreensível por todos os stakeholders."
+      },
+      {
+        "letter": "C",
+        "text": "Criar casos de teste apenas após o desenvolvimento completo do sistema."
+      },
+      {
+        "letter": "D",
+        "text": "Focar exclusivamente na cobertura de código ao escrever casos de teste."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "No BDD, é essencial desenvolver casos de teste com base em histórias de usuário, utilizando uma linguagem compreensível por todos os stakeholders, garantindo que os testes reflitam as necessidades do negócio. As outras práticas não são adequadas para BDD."
+  },
+  {
+    "id": 205,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Um analista está revisando os requisitos de um sistema e precisa garantir que eles incluam características como desempenho e confiabilidade. Sob qual categoria esses requisitos devem ser classificados?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Requisitos Funcionais"
+      },
+      {
+        "letter": "B",
+        "text": "Requisitos Não-Funcionais"
+      },
+      {
+        "letter": "C",
+        "text": "Requisitos de Implementação"
+      },
+      {
+        "letter": "D",
+        "text": "Requisitos de Interface"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Os requisitos de desempenho e confiabilidade são considerados Requisitos Não-Funcionais, que descrevem como o sistema deve se comportar. Os requisitos funcionais descrevem o que o sistema deve fazer."
+  },
+  {
+    "id": 206,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Considere um cenário onde uma tabela de vendas possui colunas para data da venda, ID do produto, quantidade vendida e valor total. Qual das opções abaixo representa a forma normal mais alta que essa tabela pode atingir, considerando que a quantidade vendida depende apenas do ID do produto?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "1FN"
+      },
+      {
+        "letter": "B",
+        "text": "2FN"
+      },
+      {
+        "letter": "C",
+        "text": "3FN"
+      },
+      {
+        "letter": "D",
+        "text": "BCNF"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A tabela está na 2FN porque a quantidade vendida depende apenas do ID do produto, não havendo dependência parcial. Não atinge 3FN ou BCNF pois não foi especificada a ausência de dependências transitivas."
+  },
+  {
+    "id": 207,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Em uma consulta SQL complexa, deseja-se calcular a soma das vendas por mês e por região. Qual das seguintes opções é a mais adequada para uma execução eficiente desta consulta?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Usar uma subquery com GROUP BY"
+      },
+      {
+        "letter": "B",
+        "text": "Aplicar uma window function como SUM() OVER (PARTITION BY mês, região)"
+      },
+      {
+        "letter": "C",
+        "text": "Criar um índice composto em mês e região"
+      },
+      {
+        "letter": "D",
+        "text": "Utilizar uma CTE para pré-selecionar os dados"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A opção B é a mais eficiente para calcular somas agregadas por múltiplas colunas usando window functions, que são otimizadas para esse tipo de operação. As outras opções podem funcionar, mas não são tão diretas ou eficientes."
+  },
+  {
+    "id": 208,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Durante o planejamento de uma transação no banco de dados, qual nível de isolamento deve ser utilizado para evitar leituras sujas, mas permitir leituras repetidas?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Read Uncommitted"
+      },
+      {
+        "letter": "B",
+        "text": "Read Committed"
+      },
+      {
+        "letter": "C",
+        "text": "Repeatable Read"
+      },
+      {
+        "letter": "D",
+        "text": "Serializable"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Read Committed previne leituras sujas, mas permite leituras não repetidas, o que significa que os dados podem ser modificados entre as leituras. Repeatable Read evitaria isto, mas não é o caso pedido."
+  },
+  {
+    "id": 209,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Um analista está otimizando uma query que faz múltiplos JOINs entre grandes tabelas. Qual técnica é mais adequada para identificar gargalos de desempenho?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Analisar o plano de execução da query"
+      },
+      {
+        "letter": "B",
+        "text": "Adicionar índices em todas as colunas das tabelas"
+      },
+      {
+        "letter": "C",
+        "text": "Reescrever a query para usar subqueries ao invés de JOINs"
+      },
+      {
+        "letter": "D",
+        "text": "Eliminar a utilização de JOINs e usar apenas CTEs"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Analisar o plano de execução permitirá ao analista entender como o banco está processando a query e identificar gargalos específicos. Adicionar índices em todas as colunas pode ser ineficiente e contraproducente."
+  },
+  {
+    "id": 210,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Em um sistema distribuído que utiliza o MongoDB, qual dos seguintes conceitos do teorema CAP é garantido, caso haja uma falha na rede?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Consistência"
+      },
+      {
+        "letter": "B",
+        "text": "Disponibilidade"
+      },
+      {
+        "letter": "C",
+        "text": "Particionamento Tolerante"
+      },
+      {
+        "letter": "D",
+        "text": "Nenhum dos anteriores"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "De acordo com o teorema CAP, em caso de falha na rede, sistemas como o MongoDB podem garantir a tolerância a partições (Partition Tolerance), mas não podem garantir simultaneamente consistência e disponibilidade."
+  },
+  {
+    "id": 211,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Para um projeto de data warehouse, é necessário definir as tabelas de dimensão e fato. Qual das seguintes opções descreve corretamente a relação entre elas?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "As tabelas de dimensão armazenam dados factuais e quantitativos, enquanto a tabela fato armazena dados descritivos"
+      },
+      {
+        "letter": "B",
+        "text": "As tabelas fato contêm chaves estrangeiras que referenciam as tabelas de dimensão"
+      },
+      {
+        "letter": "C",
+        "text": "As tabelas de dimensão são atualizadas com frequência, ao contrário das tabelas fato"
+      },
+      {
+        "letter": "D",
+        "text": "A tabela fato é sempre maior e mais complexa que qualquer tabela de dimensão associada"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A tabela fato contém chaves estrangeiras que referenciam as tabelas de dimensão, que armazenam dados descritivos, enquanto a tabela fato armazena dados factuais e quantitativos. As outras opções descrevem incorretamente as relações."
+  },
+  {
+    "id": 212,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Durante o desenvolvimento de uma aplicação web, um analista de sistemas precisa assegurar que as senhas dos usuários sejam armazenadas de forma segura. Qual das opções abaixo representa a melhor prática para alcançar esse objetivo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Armazenar as senhas em texto plano no banco de dados."
+      },
+      {
+        "letter": "B",
+        "text": "Utilizar um algoritmo de hashing seguro, como bcrypt, para armazenar as senhas."
+      },
+      {
+        "letter": "C",
+        "text": "Criptografar as senhas usando AES antes de armazená-las."
+      },
+      {
+        "letter": "D",
+        "text": "Armazenar apenas a primeira metade da senha no banco de dados."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A opção B é a correta porque o uso de algoritmos de hashing como bcrypt é uma prática recomendada para armazenar senhas de forma segura. Eles são projetados para serem lentos e resistentes a ataques de força bruta. A opção A é insegura, a opção C não é ideal já que a criptografia simétrica não é apropriada para senhas, e a opção D não garante segurança."
+  },
+  {
+    "id": 213,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Em um ambiente de TI que utiliza uma Public Key Infrastructure (PKI), qual é a principal função de um certificado digital?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Autenticar usuários por meio de senhas."
+      },
+      {
+        "letter": "B",
+        "text": "Garantir a integridade e a autenticidade de uma comunicação digital."
+      },
+      {
+        "letter": "C",
+        "text": "Fornecer criptografia simétrica para dados em trânsito."
+      },
+      {
+        "letter": "D",
+        "text": "Armazenar dados confidenciais de forma segura."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A principal função de um certificado digital é garantir a integridade e a autenticidade de uma comunicação digital, como indicado na opção B. Ele associa uma chave pública a uma identidade específica, permitindo autenticação e criptografia de dados. As outras opções não refletem o propósito central de um certificado digital."
+  },
+  {
+    "id": 214,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Uma aplicação web foi comprometida por um ataque de Cross-Site Scripting (XSS). Qual medida é mais eficaz para prevenir esse tipo de vulnerabilidade?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Utilizar tokens de autenticação para proteger sessões de usuários."
+      },
+      {
+        "letter": "B",
+        "text": "Implementar validação e escape de dados de entrada do usuário."
+      },
+      {
+        "letter": "C",
+        "text": "Configurar firewalls para bloquear endereços IP suspeitos."
+      },
+      {
+        "letter": "D",
+        "text": "Forçar a troca de senhas regularmente."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A prevenção de XSS é efetivamente alcançada através da validação e escape de dados de entrada, como na opção B, para impedir que scripts maliciosos sejam inseridos e executados na aplicação. As outras opções não são específicas para mitigar ataques XSS."
+  },
+  {
+    "id": 215,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Considerando a Lei Geral de Proteção de Dados (LGPD), qual dos princípios a seguir é fundamental para o tratamento de dados pessoais?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Transparência, garantindo que os titulares saibam como seus dados são usados."
+      },
+      {
+        "letter": "B",
+        "text": "Armazenar dados por tempo indeterminado para consultas futuras."
+      },
+      {
+        "letter": "C",
+        "text": "Compartilhar dados pessoais com terceiros sem consentimento."
+      },
+      {
+        "letter": "D",
+        "text": "Utilizar dados pessoais para qualquer finalidade sem restrições."
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "O princípio da transparência, conforme a opção A, é fundamental na LGPD, garantindo que os titulares saibam como seus dados são usados. As opções B, C e D violam princípios da LGPD, que exige consentimento e propósitos específicos e claros para o uso de dados pessoais."
+  },
+  {
+    "id": 216,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "No contexto da ISO 27001, qual é o propósito principal de uma Avaliação de Risco?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Eliminar todos os riscos associados à segurança da informação."
+      },
+      {
+        "letter": "B",
+        "text": "Identificar, analisar e avaliar os riscos para aplicar controles adequados."
+      },
+      {
+        "letter": "C",
+        "text": "Implementar controles de segurança sem considerar os riscos."
+      },
+      {
+        "letter": "D",
+        "text": "Garantir que todos os dados estejam criptografados."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A avaliação de risco na ISO 27001 visa identificar, analisar e avaliar os riscos para aplicar controles adequados, conforme a opção B. Não é possível eliminar todos os riscos (A), nem implementar controles sem avaliação (C). Criptografar dados (D) é uma medida, não o propósito de uma avaliação de risco."
+  },
+  {
+    "id": 217,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Qual tecnologia de autenticação é utilizada para permitir que os usuários acessem recursos em uma rede sem fornecer diretamente suas credenciais?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "OAuth 2.0"
+      },
+      {
+        "letter": "B",
+        "text": "MD5"
+      },
+      {
+        "letter": "C",
+        "text": "AES"
+      },
+      {
+        "letter": "D",
+        "text": "SSL"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "OAuth 2.0, conforme a opção A, permite que os usuários acessem recursos sem fornecer suas credenciais diretamente, através de um token de acesso. MD5 é um algoritmo de hashing (B), AES é um algoritmo de criptografia simétrica (C), e SSL é um protocolo de segurança para comunicação (D)."
+  },
+  {
+    "id": 218,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "No modelo OSI, qual é a camada responsável por estabelecer, gerenciar e encerrar conexões entre dois dispositivos de rede?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Camada de Aplicação"
+      },
+      {
+        "letter": "B",
+        "text": "Camada de Sessão"
+      },
+      {
+        "letter": "C",
+        "text": "Camada de Transporte"
+      },
+      {
+        "letter": "D",
+        "text": "Camada de Enlace"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A camada de Sessão é responsável por estabelecer, gerenciar e encerrar conexões entre dois dispositivos de rede. Ela coordena a troca de dados entre sistemas de aplicação. A camada de Transporte foca na entrega dos dados, a de Aplicação lida com interfaces de usuários e a de Enlace trata da conexão física."
+  },
+  {
+    "id": 219,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Em uma arquitetura de microsserviços, qual é a vantagem principal de utilizar um proxy reverso?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Reduz a latência em conexões locais"
+      },
+      {
+        "letter": "B",
+        "text": "Facilita o balanceamento de carga e roteamento de tráfego"
+      },
+      {
+        "letter": "C",
+        "text": "Aumenta a segurança da camada de rede"
+      },
+      {
+        "letter": "D",
+        "text": "Limita o acesso a APIs internas"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Um proxy reverso é utilizado para facilitar o balanceamento de carga e o roteamento de tráfego, distribuindo as solicitações de entrada entre servidores disponíveis. Ele ajuda a otimizar a resposta ao cliente e a aumentar a disponibilidade do serviço. Embora possa contribuir para a segurança e isolamento, sua principal função é o balanceamento e roteamento."
+  },
+  {
+    "id": 220,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Qual é a principal diferença entre um serviço IaaS e um serviço PaaS em cloud computing?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "IaaS oferece mais controle sobre o sistema operacional do que PaaS"
+      },
+      {
+        "letter": "B",
+        "text": "PaaS permite a configuração de rede em nível de hardware"
+      },
+      {
+        "letter": "C",
+        "text": "IaaS é voltado apenas para pequenas empresas"
+      },
+      {
+        "letter": "D",
+        "text": "PaaS não suporta linguagens de programação modernas"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "IaaS (Infrastructure as a Service) oferece controle total sobre o sistema operacional e a infraestrutura subjacente, permitindo que o usuário gerencie hardware virtualizado, enquanto PaaS (Platform as a Service) fornece um ambiente de desenvolvimento pré-configurado, restringindo o controle sobre o sistema operacional e a infraestrutura."
+  },
+  {
+    "id": 221,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Em uma aplicação web que utiliza REST, qual é a função principal do método HTTP POST?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Recuperar informações de um servidor"
+      },
+      {
+        "letter": "B",
+        "text": "Enviar dados para serem processados por um recurso específico"
+      },
+      {
+        "letter": "C",
+        "text": "Atualizar um recurso existente"
+      },
+      {
+        "letter": "D",
+        "text": "Excluir um recurso no servidor"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O método HTTP POST é usado para enviar dados ao servidor para serem processados por um recurso específico. Isso geralmente resulta na criação de novos recursos, mas também pode desencadear outras ações no servidor. Para recuperar informações, utiliza-se GET; para atualizar, PUT ou PATCH; e para excluir, DELETE."
+  },
+  {
+    "id": 222,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "No contexto de virtualização, qual é uma vantagem do uso de containers sobre máquinas virtuais?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Containers oferecem maior isolamento de segurança"
+      },
+      {
+        "letter": "B",
+        "text": "Containers são mais leves e iniciam mais rapidamente que VMs"
+      },
+      {
+        "letter": "C",
+        "text": "Containers podem executar qualquer sistema operacional"
+      },
+      {
+        "letter": "D",
+        "text": "Containers não requerem um sistema operacional host"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Containers são mais leves e iniciam mais rapidamente que máquinas virtuais (VMs) porque compartilham o kernel do sistema operacional do host em vez de exigir um sistema operacional completo por instância. Eles são menos isolados que VMs, mas são mais eficientes em termos de recurso. Containers exigem um sistema operacional host compatível."
+  },
+  {
+    "id": 223,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Ao configurar um balanceador de carga, qual técnica pode ser usada para distribuir tráfego de rede com base na carga real dos servidores?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Round Robin"
+      },
+      {
+        "letter": "B",
+        "text": "Least Connections"
+      },
+      {
+        "letter": "C",
+        "text": "IP Hash"
+      },
+      {
+        "letter": "D",
+        "text": "Random"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A técnica Least Connections distribui tráfego com base na carga real dos servidores, encaminhando novas conexões para o servidor com o menor número de conexões ativas. Round Robin distribui de forma equitativa, IP Hash roteia baseado em endereços IP e Random distribui aleatoriamente, sem considerar a carga."
+  },
+  {
+    "id": 224,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Em uma equipe que utiliza Scrum, qual é a principal responsabilidade do Product Owner durante um Sprint?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Garantir que os desenvolvedores sigam as práticas de codificação padronizadas."
+      },
+      {
+        "letter": "B",
+        "text": "Priorizar o backlog do produto e estar disponível para esclarecer dúvidas sobre os requisitos."
+      },
+      {
+        "letter": "C",
+        "text": "Facilitar as reuniões diárias e remover impedimentos para a equipe."
+      },
+      {
+        "letter": "D",
+        "text": "Elaborar relatórios de desempenho do Sprint e comunicar aos stakeholders."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O Product Owner é responsável por gerenciar o backlog do produto, priorizando itens e garantindo que a equipe tenha clareza sobre os requisitos. As outras opções descrevem responsabilidades que são do Scrum Master (C) ou equipes de desenvolvimento (A, D)."
+  },
+  {
+    "id": 225,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Em um sistema que adota o Kanban, o que o termo WIP (Work In Progress) limita?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "O número máximo de sprints que podem ser realizados simultaneamente."
+      },
+      {
+        "letter": "B",
+        "text": "O número máximo de tarefas que podem estar em progresso em um determinado estágio do fluxo de trabalho."
+      },
+      {
+        "letter": "C",
+        "text": "O tempo máximo que uma tarefa pode permanecer no quadro Kanban."
+      },
+      {
+        "letter": "D",
+        "text": "A quantidade máxima de reuniões de revisão do fluxo de trabalho."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O WIP (Work In Progress) limita o número de tarefas que podem estar em progresso em um determinado estágio do fluxo de trabalho, ajudando a evitar sobrecarga e garantir um fluxo de trabalho eficiente. As outras opções não estão relacionadas ao conceito de WIP."
+  },
+  {
+    "id": 226,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Qual é a prática do Extreme Programming (XP) que foca na melhoria contínua do código sem alterar seu comportamento externo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Pair programming"
+      },
+      {
+        "letter": "B",
+        "text": "Test-Driven Development"
+      },
+      {
+        "letter": "C",
+        "text": "Refactoring"
+      },
+      {
+        "letter": "D",
+        "text": "Continuous Integration"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Refactoring é a prática de melhorar o código, sua estrutura interna, sem alterar seu comportamento externo. Pair programming e Test-Driven Development são práticas de desenvolvimento colaborativo e de testes, enquanto Continuous Integration foca na integração frequente de código."
+  },
+  {
+    "id": 227,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Em um contexto de escalabilidade ágil, qual framework se concentra na coordenação de várias equipes Scrum trabalhando em conjunto em um único produto?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "SAFe (Scaled Agile Framework)"
+      },
+      {
+        "letter": "B",
+        "text": "LeSS (Large Scale Scrum)"
+      },
+      {
+        "letter": "C",
+        "text": "Scrum of Scrums"
+      },
+      {
+        "letter": "D",
+        "text": "Disciplined Agile Delivery (DAD)"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "LeSS (Large Scale Scrum) é um framework que se concentra na aplicação do Scrum em escala, coordenando várias equipes que trabalham em um único produto. SAFe e DAD também são frameworks de escalabilidade ágil, mas com abordagens diferentes, enquanto Scrum of Scrums é uma técnica para coordenação de equipes."
+  },
+  {
+    "id": 228,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Qual métrica no Kanban é utilizada para medir o tempo total que um item leva para ser concluído desde o início até o final do processo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "WIP"
+      },
+      {
+        "letter": "B",
+        "text": "Cycle Time"
+      },
+      {
+        "letter": "C",
+        "text": "Lead Time"
+      },
+      {
+        "letter": "D",
+        "text": "Throughput"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Lead Time é a métrica que mede o tempo total desde a entrada até a saída de um item no sistema. Cycle Time mede o tempo de execução efetiva, enquanto WIP e Throughput são métricas que representam quantidade de trabalho em progresso e taxa de produção, respectivamente."
+  },
+  {
+    "id": 229,
+    "subject": "especificos_analista",
+    "subjectName": "Conhecimentos Específicos - TI",
+    "weight": 3,
+    "text": "Durante a implementação do SAFe, qual evento é essencial para alinhar todas as equipes ágeis em um ART (Agile Release Train) e ocorre a cada Program Increment (PI)?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Sprint Review"
+      },
+      {
+        "letter": "B",
+        "text": "PI Planning"
+      },
+      {
+        "letter": "C",
+        "text": "System Demo"
+      },
+      {
+        "letter": "D",
+        "text": "Iteration Retrospective"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O PI Planning é um evento crítico no SAFe que ocorre a cada Program Increment e envolve todas as equipes ágeis no ART para planejar e alinhar objetivos e compromissos. Sprint Review e Iteration Retrospective são eventos do Scrum, enquanto System Demo é uma apresentação do progresso."
+  }
+]

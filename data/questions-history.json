@@ -1,0 +1,735 @@
+{
+  "version": "1.0",
+  "created": "2026-01-12T20:12:57.349Z",
+  "lastUpdated": "2026-01-12T20:21:18.534Z",
+  "stats": {
+    "totalGenerated": 80,
+    "analista": 50,
+    "tecnico": 30,
+    "duplicatesAvoided": 0
+  },
+  "questions": [
+    {
+      "id": 301,
+      "cargo": "analista",
+      "materia": "Engenharia de Software",
+      "text": "Em um projeto de desenvolvimento de software utilizando a metodologia ágil, qual é a principal vantagem de aplicar a prática de integração contínua (CI)?",
+      "hash": "86bb7b2cde792b67eda8bae4c3d6c9a9",
+      "createdAt": "2026-01-12T20:13:13.093Z"
+    },
+    {
+      "id": 302,
+      "cargo": "analista",
+      "materia": "Engenharia de Software",
+      "text": "Durante a elicitação de requisitos, qual técnica é mais adequada para obter feedback direto dos usuários sobre um protótipo funcional?",
+      "hash": "228f92d0bd0e9fe7776cae808a4a4c25",
+      "createdAt": "2026-01-12T20:13:13.093Z"
+    },
+    {
+      "id": 303,
+      "cargo": "analista",
+      "materia": "Engenharia de Software",
+      "text": "No contexto do modelo MVC, qual componente é responsável por garantir a atualização da interface do usuário quando o estado do modelo é alterado?",
+      "hash": "0723fe7ab03c3a3b7b76b844f8b8a6a7",
+      "createdAt": "2026-01-12T20:13:13.093Z"
+    },
+    {
+      "id": 304,
+      "cargo": "analista",
+      "materia": "Engenharia de Software",
+      "text": "Qual padrão de projeto GoF é utilizado para permitir que um objeto altere seu comportamento quando seu estado interno muda?",
+      "hash": "80baa83eaec814717fce65784b138784",
+      "createdAt": "2026-01-12T20:13:13.093Z"
+    },
+    {
+      "id": 305,
+      "cargo": "analista",
+      "materia": "Engenharia de Software",
+      "text": "Ao modelar um processo de negócio com BPMN 2.0, qual elemento é utilizado para representar uma decisão baseada em condições?",
+      "hash": "d4849f73379b7eac40297f793932cd30",
+      "createdAt": "2026-01-12T20:13:13.093Z"
+    },
+    {
+      "id": 306,
+      "cargo": "analista",
+      "materia": "Engenharia de Software",
+      "text": "No contexto de testes de software, qual técnica é usada para garantir que cada caminho possível de execução em uma aplicação foi testado?",
+      "hash": "1d7998cb73709b65fcf2f94acb51b249",
+      "createdAt": "2026-01-12T20:13:13.094Z"
+    },
+    {
+      "id": 307,
+      "cargo": "analista",
+      "materia": "Banco de Dados",
+      "text": "Um analista de sistemas está modelando um banco de dados relacional. Ele precisa garantir que não haja dependências parciais na sua estrutura. Qual forma normal ele deve aplicar para atender a essa necessidade?",
+      "hash": "2908a051008b0a37c699c14b70d446ad",
+      "createdAt": "2026-01-12T20:13:35.268Z"
+    },
+    {
+      "id": 308,
+      "cargo": "analista",
+      "materia": "Banco de Dados",
+      "text": "Ao analisar um plano de execução de uma consulta SQL complexa, um analista identifica que uma operação de 'Full Table Scan' está impactando o desempenho. Qual alternativa é mais adequada para resolver esse problema?",
+      "hash": "7c611faff8fc8a971773b87e21c3cc36",
+      "createdAt": "2026-01-12T20:13:35.268Z"
+    },
+    {
+      "id": 309,
+      "cargo": "analista",
+      "materia": "Banco de Dados",
+      "text": "Um sistema utiliza transações para garantir a integridade dos dados. Durante uma operação, ocorre um deadlock. O que isso significa?",
+      "hash": "0396bb5d497ac2b8221d3d5a412fecdf",
+      "createdAt": "2026-01-12T20:13:35.268Z"
+    },
+    {
+      "id": 310,
+      "cargo": "analista",
+      "materia": "Banco de Dados",
+      "text": "Em um banco de dados NoSQL, um analista está utilizando o MongoDB para armazenar dados. Qual dos seguintes conceitos é mais importante para garantir a consistência dos dados em um ambiente distribuído?",
+      "hash": "61a061732885d98b1ee4c1e921c52691",
+      "createdAt": "2026-01-12T20:13:35.268Z"
+    },
+    {
+      "id": 311,
+      "cargo": "analista",
+      "materia": "Banco de Dados",
+      "text": "No contexto de um Data Warehouse, qual técnica é utilizada para permitir a análise multidimensional dos dados?",
+      "hash": "743cbe846ad373f5232740fc20caf6b7",
+      "createdAt": "2026-01-12T20:13:35.268Z"
+    },
+    {
+      "id": 312,
+      "cargo": "analista",
+      "materia": "Banco de Dados",
+      "text": "Um analista precisa assegurar que uma determinada transação em um banco de dados respeite os princípios ACID. Qual parte do ACID garante que uma transação seja completada inteiramente ou não seja aplicada de forma alguma?",
+      "hash": "5663565d2d5b399abcdbf293098142cc",
+      "createdAt": "2026-01-12T20:13:35.268Z"
+    },
+    {
+      "id": 313,
+      "cargo": "analista",
+      "materia": "Segurança da Informação",
+      "text": "Em um cenário onde a segurança de uma aplicação web é uma prioridade, qual técnica é mais indicada para proteger contra ataques de SQL Injection?",
+      "hash": "29efa72d1a7e8b5b0ce185ba4012cf72",
+      "createdAt": "2026-01-12T20:13:57.843Z"
+    },
+    {
+      "id": 314,
+      "cargo": "analista",
+      "materia": "Segurança da Informação",
+      "text": "Ao implementar um sistema de autenticação que permita login único (Single Sign-On), qual tecnologia é mais apropriada para garantir a interoperabilidade entre diferentes serviços?",
+      "hash": "5bc20740d7cc03a67476b65d79e2ad55",
+      "createdAt": "2026-01-12T20:13:57.843Z"
+    },
+    {
+      "id": 315,
+      "cargo": "analista",
+      "materia": "Segurança da Informação",
+      "text": "Durante a implementação de um sistema de PKI, qual componente é responsável por gerar e gerenciar os certificados digitais?",
+      "hash": "58bef8142cb6edee89c8a22b04dfc94d",
+      "createdAt": "2026-01-12T20:13:57.843Z"
+    },
+    {
+      "id": 316,
+      "cargo": "analista",
+      "materia": "Segurança da Informação",
+      "text": "Na gestão de riscos de segurança da informação segundo a ISO 27001, qual é o primeiro passo no processo de avaliação de riscos?",
+      "hash": "1706c791a081a840c877b5707107de38",
+      "createdAt": "2026-01-12T20:13:57.843Z"
+    },
+    {
+      "id": 317,
+      "cargo": "analista",
+      "materia": "Segurança da Informação",
+      "text": "No contexto da LGPD, qual dos seguintes direitos permite que o titular dos dados pessoais solicite a portabilidade de seus dados a outra empresa?",
+      "hash": "e754304c4aff25303cc8bdf69a264fa5",
+      "createdAt": "2026-01-12T20:13:57.843Z"
+    },
+    {
+      "id": 318,
+      "cargo": "analista",
+      "materia": "Segurança da Informação",
+      "text": "Qual dos seguintes riscos relacionados ao OWASP Top 10 envolve a execução de scripts maliciosos ao injetar código em um site confiável?",
+      "hash": "fb70f9a7cc92e41e1f5e6913371dba94",
+      "createdAt": "2026-01-12T20:13:57.843Z"
+    },
+    {
+      "id": 319,
+      "cargo": "analista",
+      "materia": "Redes e Cloud",
+      "text": "No contexto de arquiteturas de aplicações baseadas em microserviços, qual das seguintes opções descreve melhor o uso de um API Gateway?",
+      "hash": "3a9823655a0292fd9b957e3b89a46a73",
+      "createdAt": "2026-01-12T20:14:21.650Z"
+    },
+    {
+      "id": 320,
+      "cargo": "analista",
+      "materia": "Redes e Cloud",
+      "text": "Em relação ao modelo OSI, qual é a principal função da camada de rede?",
+      "hash": "619a2f65b4356d6486d760d13fd99639",
+      "createdAt": "2026-01-12T20:14:21.650Z"
+    },
+    {
+      "id": 321,
+      "cargo": "analista",
+      "materia": "Redes e Cloud",
+      "text": "Qual das alternativas a seguir descreve corretamente a principal diferença entre HTTP e WebSockets?",
+      "hash": "42d0cf6d09d7cec776011fe5c0deef9a",
+      "createdAt": "2026-01-12T20:14:21.650Z"
+    },
+    {
+      "id": 322,
+      "cargo": "analista",
+      "materia": "Redes e Cloud",
+      "text": "Em uma solução de computação em nuvem, qual das opções abaixo melhor representa o conceito de IaaS (Infrastructure as a Service)?",
+      "hash": "9fde4a9a513f354f52d39a7863fe7673",
+      "createdAt": "2026-01-12T20:14:21.650Z"
+    },
+    {
+      "id": 323,
+      "cargo": "analista",
+      "materia": "Redes e Cloud",
+      "text": "Qual é a finalidade primária de um serviço de CDN (Content Delivery Network) em uma arquitetura de nuvem?",
+      "hash": "280fd41acbee823075d6d4d730418f2d",
+      "createdAt": "2026-01-12T20:14:21.650Z"
+    },
+    {
+      "id": 324,
+      "cargo": "analista",
+      "materia": "Redes e Cloud",
+      "text": "Qual é a vantagem principal de utilizar uma arquitetura serverless em desenvolvimento de aplicações?",
+      "hash": "47cf48e5e1c570d439285ee32942cba7",
+      "createdAt": "2026-01-12T20:14:21.650Z"
+    },
+    {
+      "id": 325,
+      "cargo": "analista",
+      "materia": "Metodologias Ágeis",
+      "text": "Em um projeto que utiliza Scrum, qual é o papel do Product Owner durante a Sprint?",
+      "hash": "3e02e119e9a9eb0b74dd1cc4c47b61bb",
+      "createdAt": "2026-01-12T20:14:42.973Z"
+    },
+    {
+      "id": 326,
+      "cargo": "analista",
+      "materia": "Metodologias Ágeis",
+      "text": "Ao aplicar Kanban, o que o indicador de lead time nos informa?",
+      "hash": "8369f4e2bc73f4cf8815f2522fbf0b15",
+      "createdAt": "2026-01-12T20:14:42.973Z"
+    },
+    {
+      "id": 327,
+      "cargo": "analista",
+      "materia": "Metodologias Ágeis",
+      "text": "No contexto do Extreme Programming (XP), qual é a principal finalidade do refactoring?",
+      "hash": "4341b69f9a92a9ea926786110ef973fa",
+      "createdAt": "2026-01-12T20:14:42.973Z"
+    },
+    {
+      "id": 328,
+      "cargo": "analista",
+      "materia": "Metodologias Ágeis",
+      "text": "Qual é a principal característica que diferencia o SAFe (Scaled Agile Framework) de outras metodologias ágeis escaláveis?",
+      "hash": "6d9f814eee95f8eba2db8380addbc8de",
+      "createdAt": "2026-01-12T20:14:42.973Z"
+    },
+    {
+      "id": 329,
+      "cargo": "analista",
+      "materia": "Metodologias Ágeis",
+      "text": "No método Kanban, qual ação deve ser tomada se o WIP (Work In Progress) constantemente ultrapassa o limite estabelecido?",
+      "hash": "8398b04cdebca5ec94dfd6f069c8f3a7",
+      "createdAt": "2026-01-12T20:14:42.973Z"
+    },
+    {
+      "id": 330,
+      "cargo": "analista",
+      "materia": "Metodologias Ágeis",
+      "text": "Como o Nexus Framework auxilia na escalabilidade ágil em comparação com o Scrum tradicional?",
+      "hash": "96ec0279d9f6ffa02a81a63cb49bec20",
+      "createdAt": "2026-01-12T20:14:42.973Z"
+    },
+    {
+      "id": 1301,
+      "cargo": "tecnico",
+      "materia": "Hardware e Manutenção",
+      "text": "Ao configurar um sistema de armazenamento RAID para otimizar a redundância e a capacidade de recuperação de falhas, qual configuração RAID você deve escolher?",
+      "hash": "2f96ced38d7695db515273d3f59041ee",
+      "createdAt": "2026-01-12T20:15:17.749Z"
+    },
+    {
+      "id": 1302,
+      "cargo": "tecnico",
+      "materia": "Hardware e Manutenção",
+      "text": "Qual é a principal diferença prática entre SSDs NVMe e SATA ao considerar a velocidade de leitura e escrita?",
+      "hash": "5816c661c9c7a13cadc9021460f5d5c4",
+      "createdAt": "2026-01-12T20:15:17.794Z"
+    },
+    {
+      "id": 1303,
+      "cargo": "tecnico",
+      "materia": "Hardware e Manutenção",
+      "text": "Durante um diagnóstico de hardware, você escuta uma sequência específica de beep codes. Qual ferramenta você deve consultar primeiro para entender o significado desses códigos?",
+      "hash": "849de0108662c16d1c091d57d52a7d37",
+      "createdAt": "2026-01-12T20:15:17.794Z"
+    },
+    {
+      "id": 1304,
+      "cargo": "tecnico",
+      "materia": "Hardware e Manutenção",
+      "text": "Para garantir a segurança dos dados armazenados em um servidor com dois discos, qual configuração RAID deve ser escolhida?",
+      "hash": "61e9da7ff2c46bf7471aac3c687ca919",
+      "createdAt": "2026-01-12T20:15:17.794Z"
+    },
+    {
+      "id": 1305,
+      "cargo": "tecnico",
+      "materia": "Hardware e Manutenção",
+      "text": "Ao realizar manutenção preventiva em uma fonte ATX, qual procedimento NÃO é recomendado?",
+      "hash": "0c7a7503ab648486b8410bdd3804ecbe",
+      "createdAt": "2026-01-12T20:15:17.795Z"
+    },
+    {
+      "id": 1306,
+      "cargo": "tecnico",
+      "materia": "Hardware e Manutenção",
+      "text": "Qual das seguintes interfaces é comumente utilizada para conectar um SSD NVMe diretamente à placa-mãe?",
+      "hash": "e57c1c2ab7683a1d68f5b049e19f810f",
+      "createdAt": "2026-01-12T20:15:17.795Z"
+    },
+    {
+      "id": 1307,
+      "cargo": "tecnico",
+      "materia": "Windows Server e Active Directory",
+      "text": "Em um ambiente com Windows Server, ao configurar um novo domínio no Active Directory, qual é o primeiro controlador de domínio instalado chamado?",
+      "hash": "adf2addb2471aab376250939fe441353",
+      "createdAt": "2026-01-12T20:15:43.129Z"
+    },
+    {
+      "id": 1308,
+      "cargo": "tecnico",
+      "materia": "Windows Server e Active Directory",
+      "text": "Qual dos seguintes cmdlets do PowerShell é usado para criar uma nova máquina virtual no Hyper-V?",
+      "hash": "599132aeeef6d1a0837b2a25e25e3b8e",
+      "createdAt": "2026-01-12T20:15:43.129Z"
+    },
+    {
+      "id": 1309,
+      "cargo": "tecnico",
+      "materia": "Windows Server e Active Directory",
+      "text": "No contexto de um servidor DHCP, qual é a função do sistema para evitar conflitos de IP em uma rede?",
+      "hash": "6505198825ed164be15d4678926aa848",
+      "createdAt": "2026-01-12T20:15:43.129Z"
+    },
+    {
+      "id": 1310,
+      "cargo": "tecnico",
+      "materia": "Windows Server e Active Directory",
+      "text": "Qual ferramenta do Windows Server permite o monitoramento em tempo real de uso de CPU, memória e disco?",
+      "hash": "2fe1b91d431501f1f2daa45da6f6c473",
+      "createdAt": "2026-01-12T20:15:43.129Z"
+    },
+    {
+      "id": 1311,
+      "cargo": "tecnico",
+      "materia": "Windows Server e Active Directory",
+      "text": "Durante o processo de backup usando o Windows Server Backup, qual tecnologia garante cópias de segurança de arquivos que estão abertos?",
+      "hash": "932e4d14f14181c018cb174eaf3b431e",
+      "createdAt": "2026-01-12T20:15:43.129Z"
+    },
+    {
+      "id": 1312,
+      "cargo": "tecnico",
+      "materia": "Windows Server e Active Directory",
+      "text": "Em um ambiente de Active Directory, o que as Unidades Organizacionais (OUs) permitem que os administradores façam?",
+      "hash": "ce438151cc02531901e1ead96806e338",
+      "createdAt": "2026-01-12T20:15:43.129Z"
+    },
+    {
+      "id": 1313,
+      "cargo": "tecnico",
+      "materia": "Linux Administration",
+      "text": "Qual comando é utilizado para visualizar e filtrar logs gerados por serviços gerenciados pelo systemd?",
+      "hash": "1e85d2d699d3dc3d7d86ea66f758ae84",
+      "createdAt": "2026-01-12T20:15:57.970Z"
+    },
+    {
+      "id": 1314,
+      "cargo": "tecnico",
+      "materia": "Linux Administration",
+      "text": "No contexto do gerenciamento de pacotes, qual comando você usaria para atualizar todos os pacotes instalados em um sistema baseado em Debian?",
+      "hash": "bcd4e2a28fd94ed2a27a9393a086b423",
+      "createdAt": "2026-01-12T20:15:57.970Z"
+    },
+    {
+      "id": 1315,
+      "cargo": "tecnico",
+      "materia": "Linux Administration",
+      "text": "Você precisa adicionar uma entrada no arquivo /etc/fstab para montar automaticamente uma partição ext4 na inicialização. Qual das opções abaixo é um exemplo correto dessa configuração?",
+      "hash": "3051c08fa6ff6f919c32299a72ca1172",
+      "createdAt": "2026-01-12T20:15:57.970Z"
+    },
+    {
+      "id": 1316,
+      "cargo": "tecnico",
+      "materia": "Linux Administration",
+      "text": "Qual comando deve ser utilizado para alterar o proprietário de um arquivo no Linux?",
+      "hash": "5680d1117d4e7e47663d760f5d54684a",
+      "createdAt": "2026-01-12T20:15:57.970Z"
+    },
+    {
+      "id": 1317,
+      "cargo": "tecnico",
+      "materia": "Linux Administration",
+      "text": "Em um script bash, qual estrutura de controle é usada para executar um conjunto de comandos enquanto uma condição for verdadeira?",
+      "hash": "9f38cb0d1f8dd1894a3e6b9c8fe396d3",
+      "createdAt": "2026-01-12T20:15:57.970Z"
+    },
+    {
+      "id": 1318,
+      "cargo": "tecnico",
+      "materia": "Linux Administration",
+      "text": "Qual comando é usado para listar todas as interfaces de rede e suas configurações no Linux?",
+      "hash": "a6d9dfa6c9aa37d0dc1ee68cb7f175de",
+      "createdAt": "2026-01-12T20:15:57.970Z"
+    },
+    {
+      "id": 1319,
+      "cargo": "tecnico",
+      "materia": "Redes de Computadores",
+      "text": "Em um ambiente de rede com switches, a técnica que permite a criação de múltiplas redes locais virtuais em um único switch físico é conhecida como:",
+      "hash": "9950db1fc473fd650db7a687faa3c3d9",
+      "createdAt": "2026-01-12T20:16:13.923Z"
+    },
+    {
+      "id": 1320,
+      "cargo": "tecnico",
+      "materia": "Redes de Computadores",
+      "text": "Qual é o protocolo de roteamento dinâmico que utiliza o conceito de áreas para otimizar o roteamento dentro de uma rede?",
+      "hash": "6d9a45750ebf3a53a6c4e069a309720e",
+      "createdAt": "2026-01-12T20:16:13.923Z"
+    },
+    {
+      "id": 1321,
+      "cargo": "tecnico",
+      "materia": "Redes de Computadores",
+      "text": "Considere que você está configurando uma rede Wi-Fi que deve suportar alta densidade de dispositivos e alta velocidade. Qual padrão é mais adequado para esse cenário?",
+      "hash": "b60cfaf7089f211ae93e208c4d55274b",
+      "createdAt": "2026-01-12T20:16:13.923Z"
+    },
+    {
+      "id": 1322,
+      "cargo": "tecnico",
+      "materia": "Redes de Computadores",
+      "text": "Quando se utiliza o protocolo 802.1Q em uma rede de switches, qual é o objetivo principal dessa configuração?",
+      "hash": "5b4fe8d76bfb3eed1a74c58f5ba20c7c",
+      "createdAt": "2026-01-12T20:16:13.923Z"
+    },
+    {
+      "id": 1323,
+      "cargo": "tecnico",
+      "materia": "Redes de Computadores",
+      "text": "Em termos de cabeamento, qual das seguintes categorias é mais indicada para suportar aplicações de 10 Gigabit Ethernet em distâncias de até 55 metros?",
+      "hash": "da2f407b65ea719fa22b47238d4a637d",
+      "createdAt": "2026-01-12T20:16:13.923Z"
+    },
+    {
+      "id": 1324,
+      "cargo": "tecnico",
+      "materia": "Redes de Computadores",
+      "text": "Qual ferramenta de rede é utilizada para capturar e analisar pacotes trafegando em uma rede?",
+      "hash": "bc5f96857fb9d6913d2eeffc77708569",
+      "createdAt": "2026-01-12T20:16:13.923Z"
+    },
+    {
+      "id": 1325,
+      "cargo": "tecnico",
+      "materia": "Segurança e Backup",
+      "text": "Qual é a principal função de um firewall configurado com uma DMZ em uma rede corporativa?",
+      "hash": "16ac52f3f1dc3095238e2441c2aa7402",
+      "createdAt": "2026-01-12T20:16:28.275Z"
+    },
+    {
+      "id": 1326,
+      "cargo": "tecnico",
+      "materia": "Segurança e Backup",
+      "text": "Em um plano de backup seguindo a regra 3-2-1, quantas cópias dos dados devem ser armazenadas localmente?",
+      "hash": "e8a7e5ceb098c9aa61520f4871f17fcb",
+      "createdAt": "2026-01-12T20:16:28.275Z"
+    },
+    {
+      "id": 1327,
+      "cargo": "tecnico",
+      "materia": "Segurança e Backup",
+      "text": "Qual tecnologia de criptografia pode ser utilizada para proteger dados armazenados em um disco rígido, tornando-os inacessíveis sem a devida autenticação?",
+      "hash": "5b153491dff7ef89c014f8ca971cf390",
+      "createdAt": "2026-01-12T20:16:28.275Z"
+    },
+    {
+      "id": 1328,
+      "cargo": "tecnico",
+      "materia": "Segurança e Backup",
+      "text": "Em qual cenário o uso de um backup diferencial é mais eficiente do que um backup completo?",
+      "hash": "f122966fa8f14925d396340560ec1264",
+      "createdAt": "2026-01-12T20:16:28.275Z"
+    },
+    {
+      "id": 1329,
+      "cargo": "tecnico",
+      "materia": "Segurança e Backup",
+      "text": "Qual das alternativas abaixo é um exemplo de ferramenta EDR (Endpoint Detection and Response)?",
+      "hash": "605df8b6c3c9063bddfd690c35d4dd78",
+      "createdAt": "2026-01-12T20:16:28.275Z"
+    },
+    {
+      "id": 1330,
+      "cargo": "tecnico",
+      "materia": "Segurança e Backup",
+      "text": "Ao configurar uma VPN com IPSec, qual é o principal benefício de usar o modo de túnel?",
+      "hash": "39efc950f888e6fe117b228ade032092",
+      "createdAt": "2026-01-12T20:16:28.276Z"
+    },
+    {
+      "id": 331,
+      "cargo": "analista",
+      "materia": "Engenharia de Software",
+      "text": "Qual das seguintes alternativas representa corretamente o conceito de microsserviços?",
+      "hash": "02b33404d2a3b51a3481cceea407c242",
+      "createdAt": "2026-01-12T20:20:03.479Z"
+    },
+    {
+      "id": 332,
+      "cargo": "analista",
+      "materia": "Engenharia de Software",
+      "text": "Marque a alternativa CORRETA que corresponde ao uso da ferramenta Docker no contexto DevOps:",
+      "hash": "c09ab3da4b460f0a7a30d892084f26bb",
+      "createdAt": "2026-01-12T20:20:03.482Z"
+    },
+    {
+      "id": 333,
+      "cargo": "analista",
+      "materia": "Engenharia de Software",
+      "text": "Sobre a arquitetura hexagonal, avalie as afirmativas: I. A arquitetura hexagonal promove a separação de preocupações, isolando o núcleo de um aplicativo de suas dependências externas. II. Na arquitetura hexagonal, as interfaces são projetadas para permitir a substituição de módulos sem afetar o núcleo do sistema. III. A arquitetura hexagonal elimina completamente a necessidade de uso de padrões de design GoF.",
+      "hash": "61580e1427ff292b6ab86d56adf9188b",
+      "createdAt": "2026-01-12T20:20:03.482Z"
+    },
+    {
+      "id": 334,
+      "cargo": "analista",
+      "materia": "Engenharia de Software",
+      "text": "Julgue com V ou F as afirmativas sobre o padrão MVC: (__) O padrão MVC se destina a dividir a aplicação em três componentes principais: Model, View e Controller. (__) O Controller no padrão MVC é responsável por armazenar o estado persistente da aplicação. A sequência CORRETA é:",
+      "hash": "955b512fed26593d3982a3ae6de76103",
+      "createdAt": "2026-01-12T20:20:03.482Z"
+    },
+    {
+      "id": 335,
+      "cargo": "analista",
+      "materia": "Banco de Dados",
+      "text": "Qual das seguintes alternativas representa corretamente o conceito de normalização na terceira forma normal (3FN)?",
+      "hash": "86f551fc2d757eb53d9bd6a535a3261a",
+      "createdAt": "2026-01-12T20:20:18.613Z"
+    },
+    {
+      "id": 336,
+      "cargo": "analista",
+      "materia": "Banco de Dados",
+      "text": "Marque a alternativa CORRETA que corresponde ao uso de índices em bancos de dados:",
+      "hash": "5fb664ba9402672d83f639521f5f2e08",
+      "createdAt": "2026-01-12T20:20:18.613Z"
+    },
+    {
+      "id": 337,
+      "cargo": "analista",
+      "materia": "Banco de Dados",
+      "text": "Sobre transações e níveis de isolamento, avalie as afirmativas: I. O nível de isolamento SERIALIZABLE é o mais restritivo, prevenindo todas as anomalias de concorrência. II. O nível de isolamento READ UNCOMMITTED permite leitura de dados não confirmados (uncommitted). III. O nível de isolamento REPEATABLE READ previne leituras não repetidas (non-repeatable reads). Está(ão) CORRETA(S) a(s) afirmativa(s):",
+      "hash": "d57d0c036b80978c4b31892bbda7f168",
+      "createdAt": "2026-01-12T20:20:18.613Z"
+    },
+    {
+      "id": 338,
+      "cargo": "analista",
+      "materia": "Banco de Dados",
+      "text": "Associe a segunda coluna de acordo com a primeira: Primeira coluna: 1.CAP Theorem 2.MongoDB 3.ETL Segunda coluna: (__) Processo de extração, transformação e carga de dados. (__) Sistema de banco de dados NoSQL orientado a documentos. (__) Princípio que diz que um sistema distribuído pode ter apenas dois de três garantias: consistência, disponibilidade e tolerância a partições. A sequência CORRETA é:",
+      "hash": "260289c0440db6fcefb9cefe8302f8de",
+      "createdAt": "2026-01-12T20:20:18.613Z"
+    },
+    {
+      "id": 339,
+      "cargo": "analista",
+      "materia": "Segurança da Informação",
+      "text": "Qual das seguintes alternativas representa corretamente a função de um certificado digital em uma infraestrutura de chave pública (PKI)?",
+      "hash": "b74873e43d1d60afb9ce110d54971957",
+      "createdAt": "2026-01-12T20:20:32.039Z"
+    },
+    {
+      "id": 340,
+      "cargo": "analista",
+      "materia": "Segurança da Informação",
+      "text": "Marque a alternativa CORRETA que corresponde à aplicação de hashing na segurança da informação:",
+      "hash": "eafd0db889d055411b5578d19b983517",
+      "createdAt": "2026-01-12T20:20:32.039Z"
+    },
+    {
+      "id": 341,
+      "cargo": "analista",
+      "materia": "Segurança da Informação",
+      "text": "Sobre o OAuth 2.0, avalie as afirmativas: I. OAuth 2.0 é um protocolo de autenticação utilizado principalmente para login único. II. OAuth 2.0 é um protocolo de autorização que permite que aplicativos acessem recursos em nome de um usuário. III. OAuth 2.0 não suporta autenticação de usuários, apenas autorização. Está(ão) CORRETA(S) a(s) afirmativa(s):",
+      "hash": "262e80a6919f0e5218065d7e40c1a12f",
+      "createdAt": "2026-01-12T20:20:32.039Z"
+    },
+    {
+      "id": 342,
+      "cargo": "analista",
+      "materia": "Segurança da Informação",
+      "text": "Todas as alternativas a seguir estão corretas, com EXCEÇÃO de:",
+      "hash": "e9bd755677e7c1af9d488fcf86f8f69a",
+      "createdAt": "2026-01-12T20:20:32.039Z"
+    },
+    {
+      "id": 343,
+      "cargo": "analista",
+      "materia": "Redes e Cloud",
+      "text": "Marque a alternativa CORRETA que corresponde a uma característica do protocolo gRPC:",
+      "hash": "46eada07dea97fecc292a49c7484e41d",
+      "createdAt": "2026-01-12T20:20:52.450Z"
+    },
+    {
+      "id": 344,
+      "cargo": "analista",
+      "materia": "Redes e Cloud",
+      "text": "Sobre o modelo de computação em nuvem, avalie as afirmativas:\nI. IaaS fornece infraestrutura de TI como serviço, permitindo às empresas alugar servidores e armazenamento.\nII. SaaS oferece plataformas de desenvolvimento e ferramentas como serviço, permitindo a criação de aplicativos personalizados.\nIII. PaaS fornece software pronto para uso final, como e-mail e aplicativos de produtividade.\nEstá(ão) CORRETA(S) a(s) afirmativa(s):",
+      "hash": "828aa008bb11cb5302e506797f2bfe54",
+      "createdAt": "2026-01-12T20:20:52.450Z"
+    },
+    {
+      "id": 345,
+      "cargo": "analista",
+      "materia": "Redes e Cloud",
+      "text": "Associe a segunda coluna de acordo com a primeira:\nPrimeira coluna: 1. API Gateway 2. Load Balancer 3. CDN\nSegunda coluna: (__) Distribui requisições para vários servidores para otimização de recursos. (__) Controla o tráfego de entrada para APIs e pode implementar políticas de segurança. (__) Acelera a entrega de conteúdo por meio de cache em múltiplos pontos geográficos.\nA sequência CORRETA é:",
+      "hash": "c9b165cb1084c538fc05efa36c0b37a2",
+      "createdAt": "2026-01-12T20:20:52.450Z"
+    },
+    {
+      "id": 346,
+      "cargo": "analista",
+      "materia": "Redes e Cloud",
+      "text": "Qual das seguintes alternativas representa corretamente uma função do serviço de DNS na arquitetura de rede?",
+      "hash": "fdf6d1f5b2d0342bf79e6d52f16f43fa",
+      "createdAt": "2026-01-12T20:20:52.450Z"
+    },
+    {
+      "id": 347,
+      "cargo": "analista",
+      "materia": "Metodologias Ágeis",
+      "text": "Qual das seguintes alternativas representa corretamente o papel do Scrum Master em um time Scrum?",
+      "hash": "7c5c2f9a4edf1ceece9f3b45180809c5",
+      "createdAt": "2026-01-12T20:21:17.523Z"
+    },
+    {
+      "id": 348,
+      "cargo": "analista",
+      "materia": "Metodologias Ágeis",
+      "text": "Marque a alternativa CORRETA que corresponde ao conceito de refactoring no contexto do Extreme Programming (XP):",
+      "hash": "ac7be2b0a5acf6064cf0294341bb4922",
+      "createdAt": "2026-01-12T20:21:17.523Z"
+    },
+    {
+      "id": 349,
+      "cargo": "analista",
+      "materia": "Metodologias Ágeis",
+      "text": "Sobre o Kanban, avalie as afirmativas:\nI. O WIP (Work In Progress) é uma métrica que determina a velocidade de entrega do time.\nII. O Cycle Time é o tempo total desde o início até a conclusão de um item no fluxo de trabalho.\nIII. O CFD (Cumulative Flow Diagram) ajuda a visualizar o estado do processo ao longo do tempo.\nEstá(ão) CORRETA(S) a(s) afirmativa(s):",
+      "hash": "3b8373809c50d1b0e690f533f21de34f",
+      "createdAt": "2026-01-12T20:21:17.523Z"
+    },
+    {
+      "id": 350,
+      "cargo": "analista",
+      "materia": "Metodologias Ágeis",
+      "text": "Associe a segunda coluna de acordo com a primeira:\nPrimeira coluna: 1.SAFe 2.LeSS 3.Nexus\nSegunda coluna: (__)Framework para escalabilidade ágil que utiliza múltiplos times Scrum. (__)Focado na entrega de valor em grandes organizações por meio de alinhamento e colaboração. (__)Desenvolvido para coordenar o trabalho de até oito times Scrum simultaneamente.\nA sequência CORRETA é:",
+      "hash": "c7ad74a1eb210062ad96351abb4b2d98",
+      "createdAt": "2026-01-12T20:21:17.523Z"
+    }
+  ],
+  "hashes": [
+    "86bb7b2cde792b67eda8bae4c3d6c9a9",
+    "228f92d0bd0e9fe7776cae808a4a4c25",
+    "0723fe7ab03c3a3b7b76b844f8b8a6a7",
+    "80baa83eaec814717fce65784b138784",
+    "d4849f73379b7eac40297f793932cd30",
+    "1d7998cb73709b65fcf2f94acb51b249",
+    "2908a051008b0a37c699c14b70d446ad",
+    "7c611faff8fc8a971773b87e21c3cc36",
+    "0396bb5d497ac2b8221d3d5a412fecdf",
+    "61a061732885d98b1ee4c1e921c52691",
+    "743cbe846ad373f5232740fc20caf6b7",
+    "5663565d2d5b399abcdbf293098142cc",
+    "29efa72d1a7e8b5b0ce185ba4012cf72",
+    "5bc20740d7cc03a67476b65d79e2ad55",
+    "58bef8142cb6edee89c8a22b04dfc94d",
+    "1706c791a081a840c877b5707107de38",
+    "e754304c4aff25303cc8bdf69a264fa5",
+    "fb70f9a7cc92e41e1f5e6913371dba94",
+    "3a9823655a0292fd9b957e3b89a46a73",
+    "619a2f65b4356d6486d760d13fd99639",
+    "42d0cf6d09d7cec776011fe5c0deef9a",
+    "9fde4a9a513f354f52d39a7863fe7673",
+    "280fd41acbee823075d6d4d730418f2d",
+    "47cf48e5e1c570d439285ee32942cba7",
+    "3e02e119e9a9eb0b74dd1cc4c47b61bb",
+    "8369f4e2bc73f4cf8815f2522fbf0b15",
+    "4341b69f9a92a9ea926786110ef973fa",
+    "6d9f814eee95f8eba2db8380addbc8de",
+    "8398b04cdebca5ec94dfd6f069c8f3a7",
+    "96ec0279d9f6ffa02a81a63cb49bec20",
+    "2f96ced38d7695db515273d3f59041ee",
+    "5816c661c9c7a13cadc9021460f5d5c4",
+    "849de0108662c16d1c091d57d52a7d37",
+    "61e9da7ff2c46bf7471aac3c687ca919",
+    "0c7a7503ab648486b8410bdd3804ecbe",
+    "e57c1c2ab7683a1d68f5b049e19f810f",
+    "adf2addb2471aab376250939fe441353",
+    "599132aeeef6d1a0837b2a25e25e3b8e",
+    "6505198825ed164be15d4678926aa848",
+    "2fe1b91d431501f1f2daa45da6f6c473",
+    "932e4d14f14181c018cb174eaf3b431e",
+    "ce438151cc02531901e1ead96806e338",
+    "1e85d2d699d3dc3d7d86ea66f758ae84",
+    "bcd4e2a28fd94ed2a27a9393a086b423",
+    "3051c08fa6ff6f919c32299a72ca1172",
+    "5680d1117d4e7e47663d760f5d54684a",
+    "9f38cb0d1f8dd1894a3e6b9c8fe396d3",
+    "a6d9dfa6c9aa37d0dc1ee68cb7f175de",
+    "9950db1fc473fd650db7a687faa3c3d9",
+    "6d9a45750ebf3a53a6c4e069a309720e",
+    "b60cfaf7089f211ae93e208c4d55274b",
+    "5b4fe8d76bfb3eed1a74c58f5ba20c7c",
+    "da2f407b65ea719fa22b47238d4a637d",
+    "bc5f96857fb9d6913d2eeffc77708569",
+    "16ac52f3f1dc3095238e2441c2aa7402",
+    "e8a7e5ceb098c9aa61520f4871f17fcb",
+    "5b153491dff7ef89c014f8ca971cf390",
+    "f122966fa8f14925d396340560ec1264",
+    "605df8b6c3c9063bddfd690c35d4dd78",
+    "39efc950f888e6fe117b228ade032092",
+    "02b33404d2a3b51a3481cceea407c242",
+    "c09ab3da4b460f0a7a30d892084f26bb",
+    "61580e1427ff292b6ab86d56adf9188b",
+    "955b512fed26593d3982a3ae6de76103",
+    "86f551fc2d757eb53d9bd6a535a3261a",
+    "5fb664ba9402672d83f639521f5f2e08",
+    "d57d0c036b80978c4b31892bbda7f168",
+    "260289c0440db6fcefb9cefe8302f8de",
+    "b74873e43d1d60afb9ce110d54971957",
+    "eafd0db889d055411b5578d19b983517",
+    "262e80a6919f0e5218065d7e40c1a12f",
+    "e9bd755677e7c1af9d488fcf86f8f69a",
+    "46eada07dea97fecc292a49c7484e41d",
+    "828aa008bb11cb5302e506797f2bfe54",
+    "c9b165cb1084c538fc05efa36c0b37a2",
+    "fdf6d1f5b2d0342bf79e6d52f16f43fa",
+    "7c5c2f9a4edf1ceece9f3b45180809c5",
+    "ac7be2b0a5acf6064cf0294341bb4922",
+    "3b8373809c50d1b0e690f533f21de34f",
+    "c7ad74a1eb210062ad96351abb4b2d98"
+  ]
+}

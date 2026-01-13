@@ -1,0 +1,816 @@
+// Questões geradas automaticamente via OpenAI - 2026-01-12
+// Cargo: TECNICO
+// Total: 30 questões
+
+export const questoesGeradas = [
+  {
+    "id": 1200,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Em um ambiente corporativo, a configuração de um sistema de armazenamento RAID é crucial para garantir a segurança dos dados e a performance. Considere um servidor que precisa de alta disponibilidade de dados e uma boa velocidade de leitura, mas com um orçamento limitado. Qual configuração de RAID seria mais apropriada para esse cenário?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "RAID 0"
+      },
+      {
+        "letter": "B",
+        "text": "RAID 1"
+      },
+      {
+        "letter": "C",
+        "text": "RAID 5"
+      },
+      {
+        "letter": "D",
+        "text": "RAID 6"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "RAID 5 oferece um bom equilíbrio entre disponibilidade, performance e custo, pois permite tolerar a falha de um disco enquanto ainda fornece boa velocidade de leitura devido à distribuição de dados e paridade entre os discos."
+  },
+  {
+    "id": 1201,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Ao iniciar um computador, um técnico observa que não há sinal de vídeo e ouve uma sequência de bipes longos e contínuos. Este comportamento sugere uma falha em qual componente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Processador"
+      },
+      {
+        "letter": "B",
+        "text": "Placa de vídeo"
+      },
+      {
+        "letter": "C",
+        "text": "Memória RAM"
+      },
+      {
+        "letter": "D",
+        "text": "Fonte de alimentação"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Bipes longos e contínuos geralmente indicam um problema com a placa de vídeo, especialmente se o sistema não exibe vídeo. O POST (Power-On Self-Test) utiliza códigos sonoros para indicar falhas de hardware durante a inicialização."
+  },
+  {
+    "id": 1202,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Um técnico está selecionando uma fonte de alimentação para um PC de alto desempenho que inclui uma placa de vídeo topo de linha e vários discos rígidos. Considerando a potência necessária e a qualidade dos componentes, qual característica da fonte é mais crítica?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tensão de entrada ajustável"
+      },
+      {
+        "letter": "B",
+        "text": "Certificação 80 PLUS"
+      },
+      {
+        "letter": "C",
+        "text": "Número de conectores SATA"
+      },
+      {
+        "letter": "D",
+        "text": "Formato SFX"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A certificação 80 PLUS garante eficiência energética e menor geração de calor, o que é crucial para sistemas de alto desempenho, proporcionando uma operação mais estável e confiável."
+  },
+  {
+    "id": 1203,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Ao configurar um SSD no slot M.2 de uma placa-mãe, um técnico observa que a performance não está conforme o esperado. Ao investigar, percebe que a interface está configurada como SATA. O que o técnico deveria fazer para obter o melhor desempenho?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Habilitar o modo RAID na BIOS"
+      },
+      {
+        "letter": "B",
+        "text": "Trocar o SSD para um slot U.2"
+      },
+      {
+        "letter": "C",
+        "text": "Configurar a interface como NVMe"
+      },
+      {
+        "letter": "D",
+        "text": "Atualizar o firmware do SSD"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "Configurar a interface como NVMe em vez de SATA permite utilizar todo o potencial de velocidade do SSD, já que NVMe oferece uma conexão direta ao processador, eliminando gargalos associados ao uso de SATA."
+  },
+  {
+    "id": 1204,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Durante a manutenção de rotina, um técnico utiliza uma ferramenta S.M.A.R.T. para monitorar o estado de saúde dos discos rígidos de um servidor. Qual parâmetro do S.M.A.R.T. é mais crítico para prever falhas iminentes no disco?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Temperatura do disco"
+      },
+      {
+        "letter": "B",
+        "text": "Tempo de operação total"
+      },
+      {
+        "letter": "C",
+        "text": "Número de setores realocados"
+      },
+      {
+        "letter": "D",
+        "text": "Horas de alimentação"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "O número de setores realocados é um indicador chave de falhas físicas no disco. Um aumento nesse número pode indicar que o disco está começando a falhar, pois setores defeituosos estão sendo substituídos por setores de reserva."
+  },
+  {
+    "id": 1205,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Ao realizar uma manutenção preventiva em computadores de um escritório, um técnico deve seguir uma série de procedimentos para garantir a operação correta dos equipamentos. Qual das seguintes ações é recomendada como parte da manutenção preventiva?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Formatar o disco rígido e reinstalar o sistema operacional"
+      },
+      {
+        "letter": "B",
+        "text": "Limpar fisicamente o interior do gabinete para remover poeira"
+      },
+      {
+        "letter": "C",
+        "text": "Desfragmentar SSDs para melhorar o desempenho"
+      },
+      {
+        "letter": "D",
+        "text": "Substituir a pasta térmica do processador a cada mês"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Limpar o interior do gabinete para remover poeira é uma prática de manutenção preventiva essencial para evitar o superaquecimento e garantir a eficiência dos componentes. Diferente de HDDs, SSDs não se beneficiam de desfragmentação, e a substituição da pasta térmica não é necessária com tal frequência."
+  },
+  {
+    "id": 1206,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Em um ambiente Windows Server, você precisa configurar um servidor DHCP para alocar endereços IP automaticamente aos clientes da rede. Qual é uma das configurações essenciais que deve ser realizada para garantir que o DHCP funcione corretamente?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Configurar um escopo IPv6 mesmo que a rede utilize apenas IPv4."
+      },
+      {
+        "letter": "B",
+        "text": "Definir o intervalo de endereços IP a serem distribuídos dentro do escopo."
+      },
+      {
+        "letter": "C",
+        "text": "Configurar o servidor como membro de um domínio Active Directory."
+      },
+      {
+        "letter": "D",
+        "text": "Habilitar o recurso de detecção de rede no Windows Firewall."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A configuração do intervalo de endereços IP dentro do escopo é essencial para que o servidor DHCP possa distribuir IPs corretamente. As outras opções não são obrigatórias para o funcionamento básico do DHCP."
+  },
+  {
+    "id": 1207,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Você está gerenciando um domínio Active Directory e deseja aplicar uma política de segurança específica a um grupo de usuários. Qual é a melhor prática para aplicar essa política utilizando Group Policy Objects (GPOs)?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Aplicar a GPO diretamente no domínio inteiro."
+      },
+      {
+        "letter": "B",
+        "text": "Criar uma Unidade Organizacional (OU) e vincular a GPO a essa OU."
+      },
+      {
+        "letter": "C",
+        "text": "Vincular a GPO à Default Domain Policy."
+      },
+      {
+        "letter": "D",
+        "text": "Configurar a GPO na raiz das Florestas de Domínio."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A melhor prática é criar uma OU específica para o grupo de usuários e vincular a GPO a essa OU, garantindo que apenas os usuários desejados sejam afetados pela política. Aplicar a GPO no domínio inteiro ou na Default Domain Policy impactaria todos os usuários."
+  },
+  {
+    "id": 1208,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Ao utilizar o PowerShell para automatizar tarefas em um servidor Windows, você deseja exportar uma lista de processos em execução para um arquivo CSV. Qual dos cmdlets abaixo é mais adequado para essa tarefa?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Export-Process"
+      },
+      {
+        "letter": "B",
+        "text": "Out-File"
+      },
+      {
+        "letter": "C",
+        "text": "Export-Csv"
+      },
+      {
+        "letter": "D",
+        "text": "ConvertTo-Json"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "O cmdlet Export-Csv é o mais adequado para exportar dados para um arquivo CSV. Out-File pode ser usado para redirecionar a saída para um arquivo, mas não formata os dados em CSV. Export-Process e ConvertTo-Json não são adequados para essa tarefa."
+  },
+  {
+    "id": 1209,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Você está configurando um Hyper-V no Windows Server e deseja criar um snapshot de uma máquina virtual. Qual é a principal finalidade de criar um snapshot em uma VM?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Otimizar o desempenho geral da máquina virtual."
+      },
+      {
+        "letter": "B",
+        "text": "Capturar o estado atual da VM para recuperação futura."
+      },
+      {
+        "letter": "C",
+        "text": "Aumentar o espaço de armazenamento disponível na VM."
+      },
+      {
+        "letter": "D",
+        "text": "Migrar a VM para outro host sem interrupção."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A finalidade principal de um snapshot é capturar o estado atual da VM, incluindo disco, memória e dispositivos, permitindo a recuperação futura desse estado. Ele não otimiza desempenho, aumenta armazenamento, ou é usado para migração direta de VMs."
+  },
+  {
+    "id": 1210,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Durante o monitoramento de um servidor Windows, você identifica um processo que está consumindo recursos excessivos. Qual ferramenta do Windows Server pode ser utilizada para identificar quais recursos estão sendo consumidos por este processo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Task Scheduler"
+      },
+      {
+        "letter": "B",
+        "text": "Performance Monitor"
+      },
+      {
+        "letter": "C",
+        "text": "Disk Management"
+      },
+      {
+        "letter": "D",
+        "text": "Remote Desktop"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O Performance Monitor permite monitorar o uso de recursos do sistema, como CPU, memória, disco e rede, por processos específicos. Task Scheduler agenda tarefas, Disk Management gerencia discos e partições, e Remote Desktop acessa servidores remotamente."
+  },
+  {
+    "id": 1211,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Em um servidor Windows, você deseja realizar um backup completo do sistema utilizando o comando wbadmin. Qual sintaxe básica deve ser utilizada para iniciar esse backup?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "wbadmin start backup -backupTarget:D:"
+      },
+      {
+        "letter": "B",
+        "text": "wbadmin backup system -target:D:"
+      },
+      {
+        "letter": "C",
+        "text": "wbadmin initiate backup -full"
+      },
+      {
+        "letter": "D",
+        "text": "wbadmin create backup -allVolumes"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "A sintaxe correta para iniciar um backup completo do sistema usando wbadmin é 'wbadmin start backup -backupTarget:D:'. Essa opção especifica que o backup deve ser iniciado e direcionado para a unidade D:. As outras opções não são sintaxes válidas para o comando wbadmin."
+  },
+  {
+    "id": 1212,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Em um sistema Linux utilizando o gerenciador de pacotes APT, qual comando deve ser utilizado para atualizar a lista de pacotes disponíveis nos repositórios configurados?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "apt-get upgrade"
+      },
+      {
+        "letter": "B",
+        "text": "apt-get update"
+      },
+      {
+        "letter": "C",
+        "text": "apt-cache update"
+      },
+      {
+        "letter": "D",
+        "text": "apt-get install"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O comando apt-get update é utilizado para atualizar a lista de pacotes disponíveis nos repositórios configurados, enquanto apt-get upgrade é utilizado para atualizar os pacotes instalados. O comando apt-cache update não existe, e apt-get install é usado para instalar pacotes."
+  },
+  {
+    "id": 1213,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Ao configurar permissões em um sistema de arquivos ext4, qual comando é utilizado para alterar o proprietário de um arquivo?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "chmod"
+      },
+      {
+        "letter": "B",
+        "text": "chown"
+      },
+      {
+        "letter": "C",
+        "text": "chgrp"
+      },
+      {
+        "letter": "D",
+        "text": "setfacl"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O comando chown é utilizado para alterar o proprietário de um arquivo ou diretório. O comando chmod altera permissões, chgrp altera o grupo, e setfacl é usado para configurar listas de controle de acesso (ACLs)."
+  },
+  {
+    "id": 1214,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Qual comando do systemd permite verificar o status de um serviço, como por exemplo, o serviço 'nginx'?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "systemctl enable nginx"
+      },
+      {
+        "letter": "B",
+        "text": "systemctl status nginx"
+      },
+      {
+        "letter": "C",
+        "text": "systemctl start nginx"
+      },
+      {
+        "letter": "D",
+        "text": "journalctl -u nginx"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O comando systemctl status nginx exibe o status do serviço 'nginx', incluindo se está ativo ou inativo. systemctl enable nginx configura o serviço para iniciar automaticamente no boot, systemctl start nginx inicia o serviço, e journalctl -u nginx mostra logs do serviço."
+  },
+  {
+    "id": 1215,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Em um script bash, qual estrutura de controle é utilizada para iterar sobre uma lista de valores?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "if"
+      },
+      {
+        "letter": "B",
+        "text": "while"
+      },
+      {
+        "letter": "C",
+        "text": "for"
+      },
+      {
+        "letter": "D",
+        "text": "case"
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "A estrutura de controle for é utilizada em scripts bash para iterar sobre listas de valores. while é usado para loops com condição, if para condições, e case para seleção de múltiplos caminhos com base em valores."
+  },
+  {
+    "id": 1216,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Para verificar a configuração de interfaces de rede em um sistema que usa o comando 'ip', qual comando deve ser executado?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ip link show"
+      },
+      {
+        "letter": "B",
+        "text": "ip addr show"
+      },
+      {
+        "letter": "C",
+        "text": "ifconfig"
+      },
+      {
+        "letter": "D",
+        "text": "netstat -i"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O comando ip addr show exibe as configurações de endereço das interfaces de rede. ip link show mostra o estado das interfaces de rede, ifconfig também pode ser usado mas está obsoleto, e netstat -i exibe informações de interfaces mas não as configurações de endereço."
+  },
+  {
+    "id": 1217,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Ao configurar um firewall utilizando iptables, qual comando seria usado para listar as regras atuais na tabela 'filter'?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "iptables -A INPUT"
+      },
+      {
+        "letter": "B",
+        "text": "iptables -L"
+      },
+      {
+        "letter": "C",
+        "text": "iptables -F"
+      },
+      {
+        "letter": "D",
+        "text": "iptables -D INPUT"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O comando iptables -L lista as regras atuais na tabela 'filter', que é a tabela padrão. iptables -A INPUT adiciona uma nova regra, iptables -F limpa as regras, e iptables -D INPUT remove uma regra específica."
+  },
+  {
+    "id": 1218,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Em uma rede corporativa, um técnico de suporte precisa configurar VLANs para segmentar o tráfego de diferentes departamentos. Qual protocolo deve ser usado para permitir que múltiplas VLANs compartilhem o mesmo link físico entre switches?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "STP"
+      },
+      {
+        "letter": "B",
+        "text": "802.1Q"
+      },
+      {
+        "letter": "C",
+        "text": "RSTP"
+      },
+      {
+        "letter": "D",
+        "text": "VTP"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O protocolo 802.1Q é o padrão para VLAN tagging em redes Ethernet, permitindo que múltiplas VLANs compartilhem o mesmo link físico entre switches. STP e RSTP são protocolos de spanning tree usados para evitar loops, e VTP é usado para propagação de informações de VLAN entre switches, mas não para tagging."
+  },
+  {
+    "id": 1219,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Um técnico está configurando o roteamento em um roteador de borda e precisa garantir que as rotas sejam aprendidas dinamicamente e possam ser trocadas com provedores de internet. Qual protocolo de roteamento deve ser configurado para este propósito?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "OSPF"
+      },
+      {
+        "letter": "B",
+        "text": "BGP"
+      },
+      {
+        "letter": "C",
+        "text": "RIP"
+      },
+      {
+        "letter": "D",
+        "text": "EIGRP"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "BGP (Border Gateway Protocol) é o protocolo de roteamento utilizado para troca de informações de roteamento entre sistemas autônomos na internet, sendo ideal para roteadores de borda que necessitam comunicar-se com provedores de internet. OSPF é usado dentro de um único sistema autônomo."
+  },
+  {
+    "id": 1220,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Durante uma auditoria de segurança, foi solicitado que o técnico de suporte implemente medidas para proteger as portas de um switch gerenciável contra ataques de MAC flooding. Qual configuração deve ser aplicada?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Port Security"
+      },
+      {
+        "letter": "B",
+        "text": "DHCP Snooping"
+      },
+      {
+        "letter": "C",
+        "text": "BPDU Guard"
+      },
+      {
+        "letter": "D",
+        "text": "Spanning Tree Protocol"
+      }
+    ],
+    "correctAnswer": "A",
+    "explanation": "Port Security é uma funcionalidade que permite limitar o número de endereços MAC que podem ser aprendidos em uma porta de switch, protegendo contra ataques de MAC flooding. DHCP Snooping protege contra ataques de DHCP, BPDU Guard protege contra BPDUs em portas não-trunk, e STP evita loops na topologia."
+  },
+  {
+    "id": 1221,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Em uma análise de rede Wi-Fi, um técnico identificou que a interferência entre canais está causando problemas de conectividade. Qual é a abordagem correta para minimizar essa interferência usando canais no padrão 802.11n de 2.4 GHz?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Utilizar canais sobrepostos"
+      },
+      {
+        "letter": "B",
+        "text": "Utilizar canais não sobrepostos, como 1, 6 e 11"
+      },
+      {
+        "letter": "C",
+        "text": "Utilizar canais 12 e 13"
+      },
+      {
+        "letter": "D",
+        "text": "Utilizar apenas o canal 7"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "Para minimizar a interferência em redes Wi-Fi de 2.4 GHz, deve-se utilizar canais não sobrepostos, como 1, 6 e 11. Canais sobrepostos causam interferência, e os canais 12 e 13 podem não ser permitidos em todas as regiões."
+  },
+  {
+    "id": 1222,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Um técnico de suporte está testando a conectividade entre dois servidores em diferentes sub-redes. Qual ferramenta ele deve usar para verificar o caminho que os pacotes estão tomando na rede?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "ping"
+      },
+      {
+        "letter": "B",
+        "text": "traceroute"
+      },
+      {
+        "letter": "C",
+        "text": "nslookup"
+      },
+      {
+        "letter": "D",
+        "text": "Wireshark"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A ferramenta traceroute é usada para determinar o caminho que um pacote toma até o destino, listando todos os roteadores intermediários. Ping verifica apenas a conectividade, nslookup é para resolução de DNS, e Wireshark é usado para captura e análise de pacotes."
+  },
+  {
+    "id": 1223,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Em uma instalação de cabeamento estruturado, o técnico de suporte deve escolher entre diferentes categorias de cabos UTP. Para garantir suporte a redes de até 10 Gbps em distâncias de até 55 metros, qual categoria de cabo é mais apropriada?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Cat5e"
+      },
+      {
+        "letter": "B",
+        "text": "Cat6"
+      },
+      {
+        "letter": "C",
+        "text": "Cat6a"
+      },
+      {
+        "letter": "D",
+        "text": "Cat7"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "O cabo Cat6 pode suportar redes de até 10 Gbps em distâncias curtas de até 55 metros. Cat6a é uma melhoria para 10 Gbps até 100 metros, mas Cat6 é suficiente nas distâncias especificadas. Cat5e suporta até 1 Gbps, e Cat7 não é necessário neste contexto."
+  },
+  {
+    "id": 1224,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Em uma organização, um técnico de TI precisa configurar um firewall para permitir o acesso remoto seguro a um servidor interno. Qual das configurações abaixo ele deve aplicar para garantir que o servidor permaneça protegido contra ataques externos, mas acessível para o pessoal autorizado?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Permitir todas as conexões de entrada e saída."
+      },
+      {
+        "letter": "B",
+        "text": "Configurar uma DMZ e permitir apenas conexões de entrada nas portas necessárias para o serviço."
+      },
+      {
+        "letter": "C",
+        "text": "Desabilitar o NAT e permitir conexões diretas ao servidor."
+      },
+      {
+        "letter": "D",
+        "text": "Configurar o firewall para bloquear todas as conexões de saída."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "A configuração de uma DMZ permite que o servidor fique isolado de ataques diretos à rede interna, enquanto ainda está acessível. Permitir apenas conexões nas portas necessárias minimiza a superfície de ataque. A opção A é insegura, C expõe o servidor a riscos, e D impede a comunicação legítima do servidor para fora."
+  },
+  {
+    "id": 1225,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Uma empresa decidiu implementar criptografia de disco em seus laptops corporativos para proteger os dados em caso de perda ou roubo. Considerando o ambiente Linux da empresa, qual solução de criptografia deve ser utilizada?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "BitLocker"
+      },
+      {
+        "letter": "B",
+        "text": "LUKS"
+      },
+      {
+        "letter": "C",
+        "text": "NTFS Encryption"
+      },
+      {
+        "letter": "D",
+        "text": "EFS (Encrypting File System)"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "LUKS (Linux Unified Key Setup) é uma solução de criptografia de disco amplamente usada no ambiente Linux. BitLocker é específico para Windows, NTFS Encryption e EFS são tecnologias de criptografia de arquivos do Windows."
+  },
+  {
+    "id": 1226,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Para garantir a proteção contra malware avançado, uma empresa optou por utilizar uma solução de EDR (Endpoint Detection and Response). Qual dos seguintes recursos é essencial em uma solução EDR eficaz?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Atualização manual de assinaturas de vírus."
+      },
+      {
+        "letter": "B",
+        "text": "Monitoramento e análise contínua de eventos em endpoints."
+      },
+      {
+        "letter": "C",
+        "text": "Bloqueio de todas as conexões de rede."
+      },
+      {
+        "letter": "D",
+        "text": "Backup diário dos arquivos."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "EDR envolve o monitoramento e análise contínua de eventos em endpoints para detectar e responder proativamente a ameaças. As opções A, C e D não refletem a funcionalidade central de um EDR."
+  },
+  {
+    "id": 1227,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Um técnico de suporte de uma empresa deve implementar uma política de backup que minimize o espaço de armazenamento e o tempo de backup diário, mas que também permita uma rápida recuperação de dados em caso de falha. Qual estratégia de backup ele deve escolher?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Backup completo diário."
+      },
+      {
+        "letter": "B",
+        "text": "Backup diferencial diário."
+      },
+      {
+        "letter": "C",
+        "text": "Backup incremental diário."
+      },
+      {
+        "letter": "D",
+        "text": "Backup 3-2-1 diário."
+      }
+    ],
+    "correctAnswer": "C",
+    "explanation": "O backup incremental economiza espaço e tempo ao armazenar apenas as alterações desde o último backup, tornando-o ideal para backups diários. O backup completo consome mais tempo e espaço, o diferencial acumula mudanças desde o último completo, e o 3-2-1 é uma regra geral de backup, não uma estratégia específica."
+  },
+  {
+    "id": 1228,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Em uma estrutura de rede corporativa, um técnico precisa configurar uma VPN para garantir que os dados transmitidos entre a sede e as filiais sejam seguros e autenticados. Qual protocolo ele deve escolher para garantir a segurança e a autenticidade dos dados?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "PPTP"
+      },
+      {
+        "letter": "B",
+        "text": "IPSec"
+      },
+      {
+        "letter": "C",
+        "text": "L2TP sem criptografia adicional."
+      },
+      {
+        "letter": "D",
+        "text": "FTP"
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "IPSec é um protocolo de VPN que oferece segurança e autenticação para pacotes de dados. PPTP é menos seguro, L2TP sem criptografia adicional não oferece segurança, e FTP não é um protocolo de VPN."
+  },
+  {
+    "id": 1229,
+    "subject": "especificos_tecnico",
+    "subjectName": "Conhecimentos Específicos - Técnico",
+    "weight": 3,
+    "text": "Uma empresa precisa configurar uma VPN para acesso remoto seguro e está considerando usar o WireGuard. Quais são as vantagens de utilizar o WireGuard em comparação com outros protocolos de VPN?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Complexidade de configuração e alto consumo de recursos."
+      },
+      {
+        "letter": "B",
+        "text": "Código simples e eficiência de desempenho."
+      },
+      {
+        "letter": "C",
+        "text": "Incompatibilidade com dispositivos móveis."
+      },
+      {
+        "letter": "D",
+        "text": "Uso exclusivo em sistemas operacionais Windows."
+      }
+    ],
+    "correctAnswer": "B",
+    "explanation": "WireGuard é conhecido por ter um código simples e ser altamente eficiente em termos de desempenho, tornando-o uma escolha atraente para VPNs modernas. As opções A, C e D são incorretas, pois WireGuard é leve e compatível com múltiplas plataformas."
+  }
+];
