@@ -1,5 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import OpenAI from 'openai';
+import { checkAdminToken, checkRateLimit, secureLog } from './_lib/rateLimiter';
 
 interface ReviewRequestBody {
   question: {
@@ -13,19 +14,26 @@ interface ReviewRequestBody {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  const endpoint = '/api/review-question';
+  const model = process.env.ZAI_MODEL || 'glm-4.5-flash';
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed. Use POST.' });
   }
 
-  const expectedToken = process.env.AI_ADMIN_TOKEN;
-  const providedToken = req.headers['x-ai-admin-token'] as string | undefined;
-  if (!expectedToken || !providedToken || providedToken !== expectedToken) {
+  if (!checkAdminToken(req)) {
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 401, ipHash: 'unknown', model, success: false, errorType: 'unauthorized' });
     return res.status(401).json({ success: false, error: 'Unauthorized' });
+  }
+
+  const rateLimit = checkRateLimit(req);
+  if (!rateLimit.allowed) {
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 429, ipHash: rateLimit.ipHash, model, success: false, errorType: 'rate_limited' });
+    return res.status(429).json({ success: false, error: rateLimit.reason || 'Limite atingido. Tente novamente mais tarde.' });
   }
 
   const apiKey = process.env.ZAI_API_KEY;
   const baseUrl = process.env.ZAI_BASE_URL || 'https://api.z.ai/api/paas/v4';
-  const model = process.env.ZAI_MODEL || 'glm-4.5-flash';
 
   if (!apiKey) {
     return res.status(503).json({
@@ -92,9 +100,11 @@ Retorne JSON:
     }
 
     const result = JSON.parse(content);
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 200, ipHash: rateLimit.ipHash, model, success: true });
     return res.status(200).json({ success: true, review: result });
   } catch (error: unknown) {
     const err = error as { status?: number; message?: string };
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: err.status || 500, ipHash: rateLimit.ipHash, model, success: false, errorType: 'server_error' });
     return res.status(500).json({
       success: false,
       error: 'Erro ao revisar questão.',

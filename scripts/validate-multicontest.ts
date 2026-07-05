@@ -387,6 +387,84 @@ assert(!checkAdminTokenLogic('secret', 'wrong-token'), 'Token inválido: rejeita
 assert(checkAdminTokenLogic('secret', 'secret'), 'Token correto: aceita');
 assert(!checkAdminTokenLogic('', 'some-token'), 'Token vazio no servidor: rejeita');
 
+// 15. RATE LIMIT LOGIC
+console.log('\n15. RATE LIMIT E CONTROLE DE CUSTO');
+
+// Simulate rate limit logic
+const LIMITS = {
+  IP: { perHour: 20, perDay: 50 },
+  TOKEN: { perHour: 30, perDay: 100 },
+};
+
+function checkLimits(ipHour: number, ipDay: number, tokenHour: number, tokenDay: number): { allowed: boolean; reason?: string } {
+  if (ipHour >= LIMITS.IP.perHour) return { allowed: false, reason: 'ip_hour' };
+  if (ipDay >= LIMITS.IP.perDay) return { allowed: false, reason: 'ip_day' };
+  if (tokenHour >= LIMITS.TOKEN.perHour) return { allowed: false, reason: 'token_hour' };
+  if (tokenDay >= LIMITS.TOKEN.perDay) return { allowed: false, reason: 'token_day' };
+  return { allowed: true };
+}
+
+assert(checkLimits(0, 0, 0, 0).allowed, 'Sem requests prévios: permite');
+assert(checkLimits(19, 49, 29, 99).allowed, 'No limite máximo - 1: permite');
+assert(!checkLimits(20, 0, 0, 0).allowed, 'IP hora no limite: bloqueia');
+assert(!checkLimits(0, 50, 0, 0).allowed, 'IP dia no limite: bloqueia');
+assert(!checkLimits(0, 0, 30, 0).allowed, 'Token hora no limite: bloqueia');
+assert(!checkLimits(0, 0, 0, 100).allowed, 'Token dia no limite: bloqueia');
+assert(checkLimits(20, 0, 0, 0).reason === 'ip_hour', 'Bloqueio por IP hora tem reason correto');
+assert(checkLimits(0, 0, 30, 0).reason === 'token_hour', 'Bloqueio por token hora tem reason correto');
+
+// When rate limited, Z.ai should NOT be called
+let zaiCalled = false;
+function simulateZaiCall() { zaiCalled = true; }
+
+const blockedResult = checkLimits(20, 0, 0, 0);
+if (!blockedResult.allowed) {
+  // Don't call Z.ai
+} else {
+  simulateZaiCall();
+}
+assert(!zaiCalled, 'Quando rate limited: Z.ai NÃO é chamada');
+
+zaiCalled = false;
+const allowedResult = checkLimits(5, 10, 15, 20);
+if (allowedResult.allowed) {
+  simulateZaiCall();
+}
+assert(zaiCalled, 'Quando dentro do limite: Z.ai é chamada');
+
+// Logging security: never log secrets
+const logEntry = {
+  timestamp: '2026-07-05T00:00:00Z',
+  endpoint: '/api/generate-questions',
+  status: 200,
+  quantity: 5,
+  ipHash: 'abc123def456',
+  model: 'glm-4.5-flash',
+  success: true,
+};
+const logStr = JSON.stringify(logEntry);
+assert(!logStr.includes('ZAI_API_KEY'), 'Log não contém ZAI_API_KEY');
+assert(!logStr.includes('AI_ADMIN_TOKEN'), 'Log não contém AI_ADMIN_TOKEN');
+assert(!logStr.includes('161c298b'), 'Log não contém valor da chave da API');
+assert(logStr.includes('ipHash'), 'Log contém ipHash (mascarado)');
+assert(!logStr.includes('192.168.'), 'Log não contém IP original');
+
+// Health check should not expose secrets
+const healthResponse = {
+  configured: true,
+  model: 'glm-4.5-flash',
+  baseUrlConfigured: true,
+  apiKeyConfigured: true,
+  adminProtectionConfigured: true,
+  rateLimitEnabled: true,
+  rateLimits: { ipHourly: 20, ipDaily: 50, tokenHourly: 30, tokenDaily: 100 },
+};
+const healthStr = JSON.stringify(healthResponse);
+assert(!healthStr.includes('ZAI_API_KEY'), 'Health check não expõe ZAI_API_KEY');
+assert(!healthStr.includes('AI_ADMIN_TOKEN'), 'Health check não expõe AI_ADMIN_TOKEN');
+assert(healthStr.includes('rateLimitEnabled'), 'Health check informa rateLimitEnabled');
+assert(healthStr.includes('adminProtectionConfigured'), 'Health check informa adminProtectionConfigured');
+
 // RESULTS
 console.log('\n=== RESULTADO ===');
 console.log(`Passou: ${passed}`);

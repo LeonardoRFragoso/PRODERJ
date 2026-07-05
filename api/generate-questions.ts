@@ -1,5 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import OpenAI from 'openai';
+import { checkAdminToken, checkRateLimit, secureLog } from './_lib/rateLimiter';
 
 interface GenerateRequestBody {
   contestId: string;
@@ -19,14 +20,6 @@ const API_TIMEOUT_MS = 60000;
 
 const activeSessions = new Map<string, number>();
 const SESSION_TTL_MS = 65_000;
-
-function checkAdminToken(req: VercelRequest): boolean {
-  const expected = process.env.AI_ADMIN_TOKEN;
-  if (!expected) return false;
-  const provided = req.headers['x-ai-admin-token'] as string | undefined;
-  if (!provided) return false;
-  return provided === expected;
-}
 
 function acquireSession(req: VercelRequest): boolean {
   const sessionKey = (req.headers['x-session-id'] as string) || req.headers['x-ai-admin-token'] as string || 'default';
@@ -143,21 +136,31 @@ Formato obrigatório de resposta:
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  const endpoint = '/api/generate-questions';
+  const model = process.env.ZAI_MODEL || 'glm-4.5-flash';
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed. Use POST.' });
   }
 
   if (!checkAdminToken(req)) {
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 401, ipHash: 'unknown', model, success: false, errorType: 'unauthorized' });
     return res.status(401).json({ success: false, error: 'Unauthorized' });
   }
 
+  const rateLimit = checkRateLimit(req);
+  if (!rateLimit.allowed) {
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 429, ipHash: rateLimit.ipHash, model, success: false, errorType: 'rate_limited' });
+    return res.status(429).json({ success: false, error: rateLimit.reason || 'Limite de geração atingido. Tente novamente mais tarde.' });
+  }
+
   if (!acquireSession(req)) {
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 429, ipHash: rateLimit.ipHash, model, success: false, errorType: 'session_busy' });
     return res.status(429).json({ success: false, error: 'Já existe uma geração em andamento. Aguarde.' });
   }
 
   const apiKey = process.env.ZAI_API_KEY;
   const baseUrl = process.env.ZAI_BASE_URL || 'https://api.z.ai/api/paas/v4';
-  const model = process.env.ZAI_MODEL || 'glm-4.5-flash';
 
   if (!apiKey) {
     releaseSession(req);
@@ -245,6 +248,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       };
     });
 
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 200, quantity: request.quantity, ipHash: rateLimit.ipHash, model, success: true });
     return res.status(200).json({
       success: true,
       questions,
@@ -258,6 +262,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   } catch (error: unknown) {
     releaseSession(req);
     const err = error as { status?: number; message?: string; code?: string };
+    const errorType = err.status === 401 ? 'zai_unauthorized' : err.status === 429 ? 'zai_rate_limited' : err.code === 'ETIMEDOUT' ? 'timeout' : 'server_error';
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: err.status || 500, quantity: request.quantity, ipHash: rateLimit.ipHash, model, success: false, errorType });
 
     if (err.status === 401) {
       return res.status(401).json({

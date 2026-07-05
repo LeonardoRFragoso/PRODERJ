@@ -12,9 +12,10 @@ Atualmente disponível:
 
 - Multi-concurso com seleção visual
 - Simulado completo, modo difícil, treino por disciplina e reforço por pontos fracos
-- Geração assistida de questões difíceis com IA (Z.ai GLM-5.2)
+- Geração assistida de questões difíceis com IA (Z.ai GLM-4.5-flash free tier)
+- Proteção administrativa com token + rate limit por IP e por token
 - Histórico separado por concurso com compatibilidade retroativa
-- Validação automatizada (92 testes via `npm run validate`)
+- Validação automatizada (122 testes via `npm run validate`)
 
 ---
 

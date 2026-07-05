@@ -80,12 +80,58 @@ Esta flag **não contém segredos** — apenas controla a visibilidade do painel
 - Reduz janela de exposição do token
 - Não persiste entre sessões
 
-### Rate Limit
+### Rate Limit e Controle de Custo
 
+O sistema tem múltiplas camadas de limite para evitar consumo excessivo de créditos:
+
+**Por request:**
 - Máximo 10 questões por request
-- Máximo 1 request em andamento por sessão (bloqueio de 35s)
-- Timeout de 30s
-- Tratamento de erros 401, 429, 500
+- Timeout de 60s
+- Máximo 1 retry para erros temporários
+- Máximo 1 request em andamento por sessão (bloqueio de 65s)
+
+**Por IP:**
+- Máximo 20 requests por hora
+- Máximo 50 requests por dia
+
+**Por token admin:**
+- Máximo 30 requests por hora
+- Máximo 100 requests por dia
+
+**Comportamento ao exceder:**
+- Retorna HTTP 429
+- Mensagem: "Limite de geração atingido. Tente novamente mais tarde."
+- A Z.ai **não é chamada** quando o limite já foi atingido — economiza créditos
+
+**Logging seguro:**
+Cada request registra apenas:
+- Timestamp
+- Endpoint
+- Status HTTP
+- Quantidade solicitada
+- IP mascarado (hash SHA-256, primeiros 16 chars)
+- Modelo usado
+- Sucesso/erro
+
+**Nunca** é registrado:
+- `ZAI_API_KEY` ou `AI_ADMIN_TOKEN`
+- Prompt completo
+- Resposta completa da IA
+- IP original
+
+### Por que existe rate limit?
+
+1. **Proteção de custo:** A Z.ai cobra por token. Sem limite, um único usuário poderia consumir todo o saldo
+2. **Proteção contra abuso:** Mesmo com `AI_ADMIN_TOKEN`, um token vazado poderia gerar centenas de questões
+3. **Fair use:** O free tier da Z.ai tem 1000 req/dia — o limite de 100/dia por token mantém uso sustentável
+4. **Estabilidade:** Evita sobrecarga da API Z.ai durante picos
+
+### O que fazer ao receber 429
+
+- **Limite por hora:** Aguarde 1 hora e tente novamente
+- **Limite por dia:** Aguarde até o próximo dia (meia-noite UTC)
+- **Sessão ocupada:** Aguarde 65 segundos (há uma geração em andamento)
+- Se persistir, verifique se não há outra aba/usuário usando o mesmo token
 
 ## Fluxo de Geração
 
