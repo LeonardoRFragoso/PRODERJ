@@ -1406,6 +1406,14 @@ body {
   margin-top: 24px;
 }
 
+.ai-unlock-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+  margin: 24px 0;
+}
+
 .ai-panel-header {
   display: flex;
   justify-content: space-between;

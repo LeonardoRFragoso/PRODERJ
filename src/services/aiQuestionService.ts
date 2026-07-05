@@ -13,14 +13,51 @@ const generateLocalId = (): string => {
   return Date.now().toString(36) + Math.random().toString(36).substring(2, 9);
 };
 
+// === ADMIN TOKEN (sessionStorage only, never localStorage) ===
+
+const ADMIN_TOKEN_KEY = 'aiAdminToken';
+
+export function getAdminToken(): string | null {
+  try {
+    return sessionStorage.getItem(ADMIN_TOKEN_KEY);
+  } catch {
+    return null;
+  }
+}
+
+export function setAdminToken(token: string): void {
+  sessionStorage.setItem(ADMIN_TOKEN_KEY, token);
+}
+
+export function clearAdminToken(): void {
+  sessionStorage.removeItem(ADMIN_TOKEN_KEY);
+}
+
+export function isAdminUnlocked(): boolean {
+  return !!getAdminToken();
+}
+
 // === API CALL ===
 
 export async function callGenerateApi(request: GenerateQuestionsRequest): Promise<GenerateQuestionsResponse> {
+  const adminToken = getAdminToken();
+  if (!adminToken) {
+    throw new Error('Token administrativo necessário. Desbloqueie a área administrativa.');
+  }
+
   const response = await fetch('/api/generate-questions', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'x-ai-admin-token': adminToken,
+    },
     body: JSON.stringify(request),
   });
+
+  if (response.status === 401) {
+    clearAdminToken();
+    throw new Error('Unauthorized — token administrativo inválido. Faça login novamente.');
+  }
 
   const data = await response.json();
 

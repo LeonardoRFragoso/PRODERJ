@@ -8,11 +8,13 @@ export default async function handler(_req: VercelRequest, res: VercelResponse) 
   const apiKeyConfigured = !!process.env.ZAI_API_KEY;
   const baseUrlConfigured = !!process.env.ZAI_BASE_URL;
   const model = process.env.ZAI_MODEL || 'glm-5.2';
+  const adminProtectionConfigured = !!process.env.AI_ADMIN_TOKEN;
 
   return res.status(200).json({
     configured: apiKeyConfigured && baseUrlConfigured,
     model,
     baseUrlConfigured,
     apiKeyConfigured,
+    adminProtectionConfigured,
   });
 }

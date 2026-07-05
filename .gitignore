@@ -47,3 +47,5 @@ generated/
 
 # TypeScript build info
 *.tsbuildinfo
+.vercel
+.env*

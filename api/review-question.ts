@@ -17,6 +17,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Method not allowed. Use POST.' });
   }
 
+  const expectedToken = process.env.AI_ADMIN_TOKEN;
+  const providedToken = req.headers['x-ai-admin-token'] as string | undefined;
+  if (!expectedToken || !providedToken || providedToken !== expectedToken) {
+    return res.status(401).json({ success: false, error: 'Unauthorized' });
+  }
+
   const apiKey = process.env.ZAI_API_KEY;
   const baseUrl = process.env.ZAI_BASE_URL || 'https://api.z.ai/api/paas/v4';
   const model = process.env.ZAI_MODEL || 'glm-5.2';

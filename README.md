@@ -368,13 +368,17 @@ O sistema inclui geração de questões difíceis usando a API da Z.ai (modelo G
 > - **NÃO** commite `.env`, `.env.local` ou qualquer arquivo com chaves reais
 > - A chamada para Z.ai acontece apenas em serverless functions (`/api/`)
 > - O frontend chama apenas a API interna `/api/generate-questions`
+> - **`AI_ADMIN_TOKEN`** protege os endpoints de geração — sem token, retorna 401
+> - O token admin fica em `sessionStorage` (não `localStorage`) — some ao fechar a aba
+> - `VITE_ENABLE_AI_GENERATOR` apenas mostra o painel — não concede acesso à geração
 
 ### Configuração
 
 1. Copie `.env.example` para `.env.local`
 2. Preencha `ZAI_API_KEY` com sua chave real
-3. Defina `VITE_ENABLE_AI_GENERATOR=true` para habilitar o painel
-4. Na Vercel, adicione as variáveis `ZAI_API_KEY`, `ZAI_BASE_URL`, `ZAI_MODEL` em Settings → Environment Variables
+3. Defina `AI_ADMIN_TOKEN` com um token seguro (obrigatório para geração)
+4. Defina `VITE_ENABLE_AI_GENERATOR=true` para habilitar o painel
+5. Na Vercel, adicione `ZAI_API_KEY`, `ZAI_BASE_URL`, `ZAI_MODEL`, `AI_ADMIN_TOKEN` em Settings → Environment Variables
 
 ### Scripts
 

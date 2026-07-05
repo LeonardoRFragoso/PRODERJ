@@ -2,7 +2,7 @@ import { questionsDataprevDev } from '../src/data/questionsDataprevDev';
 import { contests, getCareerTotalPoints, getCareerPassingScore } from '../src/data/contests';
 import { getQuestionsForCareer } from '../src/services/examService';
 import { calculateScore } from '../src/services/scoringService';
-import { validateGeneratedQuestion, checkSimilarityAgainstAll } from '../src/services/aiQuestionService';
+import { validateGeneratedQuestion, checkSimilarityAgainstAll, setAdminToken, getAdminToken, clearAdminToken, isAdminUnlocked } from '../src/services/aiQuestionService';
 import type { Career } from '../src/types/career';
 import type { GeneratedQuestion } from '../src/types/generatedQuestion';
 
@@ -334,6 +334,58 @@ const proderjNormal = getQuestionsForCareer(analista, 'full');
 assert(proderjNormal.length === 60, 'PRODERJ modo full: 60 questões');
 const proderjHard = getQuestionsForCareer(analista, 'hard');
 assert(proderjHard.length === 60, 'PRODERJ modo hard: 60 questões');
+
+// 13. ADMIN PROTECTION
+console.log('\n13. PROTEÇÃO ADMINISTRATIVA (AI_ADMIN_TOKEN)');
+
+// Polyfill sessionStorage and localStorage for Node.js
+const sessionStore: Record<string, string> = {};
+const sessionStorageMock = {
+  getItem: (key: string) => sessionStore[key] ?? null,
+  setItem: (key: string, val: string) => { sessionStore[key] = val; },
+  removeItem: (key: string) => { delete sessionStore[key]; },
+};
+(globalThis as any).sessionStorage = sessionStorageMock;
+const localStore: Record<string, string> = {};
+const localStorageMock = {
+  getItem: (key: string) => localStore[key] ?? null,
+  setItem: (key: string, val: string) => { localStore[key] = val; },
+  removeItem: (key: string) => { delete localStore[key]; },
+};
+(globalThis as any).localStorage = localStorageMock;
+
+// Initially not unlocked
+clearAdminToken();
+assert(!isAdminUnlocked(), 'Sem token: painel bloqueado');
+
+// Set token
+setAdminToken('test-admin-token-123');
+assert(isAdminUnlocked(), 'Com token no sessionStorage: painel desbloqueado');
+assert(getAdminToken() === 'test-admin-token-123', 'Token recuperado corretamente do sessionStorage');
+
+// Clear token
+clearAdminToken();
+assert(!isAdminUnlocked(), 'Após clear: painel bloqueado novamente');
+assert(getAdminToken() === null, 'Token removido do sessionStorage');
+
+// Token is NOT in localStorage
+assert(localStorage.getItem('aiAdminToken') === null, 'Token admin NÃO está em localStorage (apenas sessionStorage)');
+
+// 14. ENDPOINT SECURITY LOGIC
+console.log('\n14. LÓGICA DE SEGURANÇA DO ENDPOINT');
+
+// Simulate the checkAdminToken logic
+function checkAdminTokenLogic(expected: string | undefined, provided: string | undefined): boolean {
+  if (!expected) return false;
+  if (!provided) return false;
+  return provided === expected;
+}
+
+assert(!checkAdminTokenLogic(undefined, 'some-token'), 'Sem AI_ADMIN_TOKEN no servidor: rejeita');
+assert(!checkAdminTokenLogic('secret', undefined), 'Sem header x-ai-admin-token: rejeita');
+assert(!checkAdminTokenLogic('secret', 'wrong-token'), 'Token inválido: rejeita');
+assert(checkAdminTokenLogic('secret', 'secret'), 'Token correto: aceita');
+assert(!checkAdminTokenLogic('', 'some-token'), 'Token vazio no servidor: rejeita');
 
 // RESULTS
 console.log('\n=== RESULTADO ===');

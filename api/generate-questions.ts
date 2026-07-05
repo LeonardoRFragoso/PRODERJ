@@ -17,6 +17,33 @@ const MAX_QUANTITY = 10;
 const PROMPT_VERSION = '1.0.0';
 const API_TIMEOUT_MS = 30000;
 
+const activeSessions = new Map<string, number>();
+const SESSION_TTL_MS = 35_000;
+
+function checkAdminToken(req: VercelRequest): boolean {
+  const expected = process.env.AI_ADMIN_TOKEN;
+  if (!expected) return false;
+  const provided = req.headers['x-ai-admin-token'] as string | undefined;
+  if (!provided) return false;
+  return provided === expected;
+}
+
+function acquireSession(req: VercelRequest): boolean {
+  const sessionKey = (req.headers['x-session-id'] as string) || req.headers['x-ai-admin-token'] as string || 'default';
+  const now = Date.now();
+  for (const [k, t] of activeSessions) {
+    if (now - t > SESSION_TTL_MS) activeSessions.delete(k);
+  }
+  if (activeSessions.has(sessionKey)) return false;
+  activeSessions.set(sessionKey, now);
+  return true;
+}
+
+function releaseSession(req: VercelRequest): void {
+  const sessionKey = (req.headers['x-session-id'] as string) || req.headers['x-ai-admin-token'] as string || 'default';
+  activeSessions.delete(sessionKey);
+}
+
 function validateRequest(body: Partial<GenerateRequestBody>): string[] {
   const errors: string[] = [];
 
@@ -120,11 +147,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Method not allowed. Use POST.' });
   }
 
+  if (!checkAdminToken(req)) {
+    return res.status(401).json({ success: false, error: 'Unauthorized' });
+  }
+
+  if (!acquireSession(req)) {
+    return res.status(429).json({ success: false, error: 'Já existe uma geração em andamento. Aguarde.' });
+  }
+
   const apiKey = process.env.ZAI_API_KEY;
   const baseUrl = process.env.ZAI_BASE_URL || 'https://api.z.ai/api/paas/v4';
   const model = process.env.ZAI_MODEL || 'glm-5.2';
 
   if (!apiKey) {
+    releaseSession(req);
     return res.status(503).json({
       success: false,
       error: 'ZAI_API_KEY não configurada no servidor. Configure a variável de ambiente na Vercel.',
@@ -134,6 +170,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const body = req.body as Partial<GenerateRequestBody>;
   const validationErrors = validateRequest(body);
   if (validationErrors.length > 0) {
+    releaseSession(req);
     return res.status(400).json({
       success: false,
       error: 'Validação falhou',
@@ -162,6 +199,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       temperature: 0.7,
       response_format: { type: 'json_object' },
     });
+
+    releaseSession(req);
 
     const content = completion.choices[0]?.message?.content;
     if (!content) {
@@ -217,6 +256,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       },
     });
   } catch (error: unknown) {
+    releaseSession(req);
     const err = error as { status?: number; message?: string; code?: string };
 
     if (err.status === 401) {

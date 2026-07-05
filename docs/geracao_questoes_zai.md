@@ -21,6 +21,9 @@ Frontend (React)          Serverless (Vercel)         Z.ai API
 - A chave fica apenas nas variáveis de ambiente do servidor (Vercel ou `.env.local`)
 - O frontend chama apenas a API interna `/api/generate-questions`
 - A API interna valida a entrada e chama a Z.ai com a chave do servidor
+- **`AI_ADMIN_TOKEN`** protege o uso dos endpoints de geração — sem token válido, retorna 401
+- O token admin é armazenado apenas em `sessionStorage` (não `localStorage`)
+- `VITE_ENABLE_AI_GENERATOR` apenas controla visibilidade do painel — não concede acesso
 
 ## Configuração
 
@@ -31,6 +34,7 @@ Frontend (React)          Serverless (Vercel)         Z.ai API
 | `ZAI_API_KEY` | Chave da API Z.ai | (não commitar) |
 | `ZAI_BASE_URL` | URL base da API | `https://api.z.ai/api/paas/v4` |
 | `ZAI_MODEL` | Modelo a usar | `glm-5.2` |
+| `AI_ADMIN_TOKEN` | Token admin para autorizar geração | (não commitar) |
 
 ### Variáveis de Ambiente (Frontend)
 
@@ -44,7 +48,8 @@ Esta flag **não contém segredos** — apenas controla a visibilidade do painel
 
 1. Copie `.env.example` para `.env.local`
 2. Preencha `ZAI_API_KEY` com sua chave real
-3. Defina `VITE_ENABLE_AI_GENERATOR=true` para ver o painel
+3. Defina `AI_ADMIN_TOKEN` com um token seguro de sua escolha
+4. Defina `VITE_ENABLE_AI_GENERATOR=true` para ver o painel
 
 ### Configuração na Vercel
 
@@ -53,8 +58,34 @@ Esta flag **não contém segredos** — apenas controla a visibilidade do painel
    - `ZAI_API_KEY` = sua chave
    - `ZAI_BASE_URL` = `https://api.z.ai/api/paas/v4`
    - `ZAI_MODEL` = `glm-5.2`
+   - `AI_ADMIN_TOKEN` = token admin seguro (obrigatório para geração)
    - `VITE_ENABLE_AI_GENERATOR` = `true` (opcional, para habilitar em produção)
 3. Faça redeploy
+
+## Proteção Administrativa
+
+### Como funciona
+
+1. `VITE_ENABLE_AI_GENERATOR=true` apenas **mostra** o botão "Gerador de Questões IA" na UI
+2. Ao clicar, o usuário vê uma tela de desbloqueio pedindo o token admin
+3. O token é salvo em `sessionStorage` (não `localStorage`) — some ao fechar a aba
+4. Toda chamada para `/api/generate-questions` envia o header `x-ai-admin-token`
+5. O endpoint valida o header contra `process.env.AI_ADMIN_TOKEN`
+6. Se inválido ou ausente: retorna **401 Unauthorized**
+7. Se 401: frontend limpa o token e pede novamente
+
+### Por que sessionStorage e não localStorage?
+
+- `sessionStorage` é limpo ao fechar a aba/navegador
+- Reduz janela de exposição do token
+- Não persiste entre sessões
+
+### Rate Limit
+
+- Máximo 10 questões por request
+- Máximo 1 request em andamento por sessão (bloqueio de 35s)
+- Timeout de 30s
+- Tratamento de erros 401, 429, 500
 
 ## Fluxo de Geração
 
