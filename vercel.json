@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/generate-questions.ts": {
+      "maxDuration": 60
+    },
+    "api/review-question.ts": {
+      "maxDuration": 30
+    }
+  }
+}

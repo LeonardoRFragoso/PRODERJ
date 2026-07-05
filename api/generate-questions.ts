@@ -15,10 +15,10 @@ interface GenerateRequestBody {
 
 const MAX_QUANTITY = 10;
 const PROMPT_VERSION = '1.0.0';
-const API_TIMEOUT_MS = 30000;
+const API_TIMEOUT_MS = 60000;
 
 const activeSessions = new Map<string, number>();
-const SESSION_TTL_MS = 35_000;
+const SESSION_TTL_MS = 65_000;
 
 function checkAdminToken(req: VercelRequest): boolean {
   const expected = process.env.AI_ADMIN_TOKEN;
@@ -193,7 +193,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const completion = await client.chat.completions.create({
       model,
       messages: [
-        { role: 'system', content: 'Você é um elaborador de questões de concurso público especializado. Responda apenas com JSON válido.' },
+        { role: 'system', content: 'Você é um elaborador de questões de concurso público especializado. Responda apenas com JSON válido. Não use raciocínio interno.' },
         { role: 'user', content: prompt },
       ],
       temperature: 0.7,
