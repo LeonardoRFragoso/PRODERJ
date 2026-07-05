@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import OpenAI from 'openai';
-import { checkAdminToken, checkRateLimit, secureLog } from './_lib/rateLimiter';
+import { checkAdminToken, checkRateLimit, secureLog } from './_lib/rateLimiter.js';
 
 interface ReviewRequestBody {
   question: {
