@@ -33,7 +33,7 @@ Frontend (React)          Serverless (Vercel)         Z.ai API
 |----------|-----------|---------|
 | `ZAI_API_KEY` | Chave da API Z.ai | (não commitar) |
 | `ZAI_BASE_URL` | URL base da API | `https://api.z.ai/api/paas/v4` |
-| `ZAI_MODEL` | Modelo a usar | `glm-5.2` |
+| `ZAI_MODEL` | Modelo a usar | `glm-4.5-flash` (free tier) |
 | `AI_ADMIN_TOKEN` | Token admin para autorizar geração | (não commitar) |
 
 ### Variáveis de Ambiente (Frontend)
@@ -57,7 +57,7 @@ Esta flag **não contém segredos** — apenas controla a visibilidade do painel
 2. Adicione:
    - `ZAI_API_KEY` = sua chave
    - `ZAI_BASE_URL` = `https://api.z.ai/api/paas/v4`
-   - `ZAI_MODEL` = `glm-5.2`
+   - `ZAI_MODEL` = `glm-4.5-flash` (free tier) ou `glm-5.1` (pago)
    - `AI_ADMIN_TOKEN` = token admin seguro (obrigatório para geração)
    - `VITE_ENABLE_AI_GENERATOR` = `true` (opcional, para habilitar em produção)
 3. Faça redeploy

@@ -359,7 +359,7 @@ Ver `docs/integracao_dataprev.md` para um exemplo completo de integração.
 
 ## Geração Assistida de Questões com IA (Z.ai)
 
-O sistema inclui geração de questões difíceis usando a API da Z.ai (modelo GLM-5.2), com arquitetura segura.
+O sistema inclui geração de questões difíceis usando a API da Z.ai (modelo GLM-4.5-flash no free tier), com arquitetura segura.
 
 ### Segurança
 
@@ -378,7 +378,7 @@ O sistema inclui geração de questões difíceis usando a API da Z.ai (modelo G
 2. Preencha `ZAI_API_KEY` com sua chave real
 3. Defina `AI_ADMIN_TOKEN` com um token seguro (obrigatório para geração)
 4. Defina `VITE_ENABLE_AI_GENERATOR=true` para habilitar o painel
-5. Na Vercel, adicione `ZAI_API_KEY`, `ZAI_BASE_URL`, `ZAI_MODEL`, `AI_ADMIN_TOKEN` em Settings → Environment Variables
+5. Na Vercel, adicione `ZAI_API_KEY`, `ZAI_BASE_URL`, `ZAI_MODEL` (`glm-4.5-flash` para free tier), `AI_ADMIN_TOKEN` em Settings → Environment Variables
 
 ### Scripts
 

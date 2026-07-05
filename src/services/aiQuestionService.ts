@@ -228,7 +228,7 @@ export function normalizeGeneratedQuestion(
     aiGenerated: true,
     generationMetadata: q.generationMetadata || {
       provider: 'zai',
-      model: 'glm-5.2',
+      model: 'glm-4.5-flash',
       generatedAt: new Date().toISOString(),
       contestId,
       careerId,

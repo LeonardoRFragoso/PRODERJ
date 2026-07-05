@@ -46,7 +46,7 @@ async function main() {
   const args = parseArgs();
   const apiKey = process.env.ZAI_API_KEY;
   const baseUrl = process.env.ZAI_BASE_URL || 'https://api.z.ai/api/paas/v4';
-  const model = process.env.ZAI_MODEL || 'glm-5.2';
+  const model = process.env.ZAI_MODEL || 'glm-4.5-flash';
 
   if (!apiKey) {
     console.error('ZAI_API_KEY não configurada. Defina no .env.local ou ambiente.');
