@@ -116,6 +116,12 @@ Regras de conteúdo:
 - Não cobre assuntos fora do conteúdo programático.
 - Para conhecimentos específicos, priorize desenvolvimento de software, arquitetura, APIs, segurança, dados, DevOps, IA, governança e legislação conforme o edital.
 
+Regras por disciplina:
+- Quando a disciplina for Língua Portuguesa, a questão deve cobrar uma habilidade linguística (interpretação textual, coesão, coerência, concordância, regência, crase, pontuação, colocação pronominal, reescrita, equivalência semântica, ambiguidade, função sintática, tipologia textual, valor semântico dos conectivos). O tema Dataprev, TI ou administração pública pode ser usado apenas como contexto textual. A alternativa correta não pode depender de conhecimento jurídico, administrativo ou técnico externo ao texto.
+- Quando a disciplina for Língua Inglesa, a questão deve cobrar compreensão linguística do inglês, vocabulário em contexto, inferência, conectivos ou gramática aplicada à leitura. Não deve cobrar apenas conhecimento técnico de TI traduzido para inglês.
+- Quando a disciplina for Legislação, cobre LAI, LGPD, Marco Civil, segurança da informação, proteção de dados e princípios normativos.
+- Quando a disciplina for Conhecimentos Específicos, cobre arquitetura, APIs, Java, Spring, DevOps, segurança, banco de dados, testes, microsserviços etc.
+
 Regras de estilo ${boardName}:
 ${styleRules}
 

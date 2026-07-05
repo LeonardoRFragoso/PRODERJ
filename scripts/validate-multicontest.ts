@@ -584,6 +584,9 @@ Prioridade de geração:
 Não copie, não adapte e não reproduza questões oficiais.
 Use provas anteriores da FGV para calibrar estilo.
 Use provas antigas da Dataprev apenas para identificar temas recorrentes.
+Regras por disciplina:
+- Quando a disciplina for Língua Portuguesa, a questão deve cobrar uma habilidade linguística. O tema Dataprev, TI ou administração pública pode ser usado apenas como contexto textual. A alternativa correta não pode depender de conhecimento jurídico, administrativo ou técnico externo ao texto.
+- Quando a disciplina for Língua Inglesa, a questão deve cobrar compreensão linguística do inglês, vocabulário, inferência ou gramática aplicada, e não apenas conhecimento técnico de TI.
 source: "Questão autoral gerada com apoio de IA, inspirada no padrão da banca FGV"`;
 
 assert(simulatedPrompt.includes('edital'), 'Prompt contém referência ao edital atual');
@@ -601,6 +604,7 @@ const reviewResponse = {
   boardStyleScore: 7,
   difficultyScore: 8,
   editalAdherenceScore: 9,
+  disciplineAdherenceScore: 8,
   warnings: [],
   suggestions: [],
 };
@@ -612,6 +616,142 @@ assert(reviewResponse.boardStyleScore >= 0 && reviewResponse.boardStyleScore <= 
 // No paid models in prompt
 assert(!simulatedPrompt.includes('glm-5.2'), 'Prompt não referencia modelo pago');
 assert(!simulatedPrompt.includes('glm-5.1'), 'Prompt não referencia modelo pago');
+
+// === 18. ADERÊNCIA POR DISCIPLINA ===
+console.log('\n18. ADERÊNCIA POR DISCIPLINA (PORTUGUÊS E INGLÊS)');
+
+const validPortugueseSubtopics = [
+  'Interpretação de Texto',
+  'Coesão e Coerência',
+  'Concordância Verbal',
+  'Concordância Nominal',
+  'Regência',
+  'Regência Verbal',
+  'Crase',
+  'Pontuação',
+  'Reescrita',
+  'Reescrita de Frases',
+  'Valor Semântico dos Conectivos',
+  'Inferência Textual',
+  'Classes de Palavras',
+  'Sintaxe',
+  'Sintaxe — Período Composto',
+  'Semântica',
+  'Semântica e Vocabulário',
+  'Tipologia Textual',
+  'Funções da Linguagem',
+  'Análise de Afirmações',
+  'Polissemia e Ambiguidade',
+  'Colocação Pronominal',
+  'Vozes do Verbo',
+  'Vocabulário — Homônimos e Parônimos',
+  'Vocabulário — Antônimos',
+  'Função Sintática',
+];
+
+const forbiddenPortugueseSubtopics = [
+  'Vocabulário Técnico',
+  'Sinônimos no Contexto Técnico',
+  'Vocabulary - Technical Terms',
+  'Vocabulary - Technical Acronyms',
+];
+
+const validEnglishSubtopics = [
+  'Reading Comprehension',
+  'Vocabulary in Context',
+  'Vocabulary - Synonyms',
+  'Vocabulary - Phrasal Verbs',
+  'Vocabulary - Word Formation',
+  'Grammar - Verb Tenses',
+  'Grammar - Conditionals',
+  'Grammar - Passive Voice',
+  'Grammar - Articles',
+  'Grammar - Relative Clauses',
+  'Grammar - Modal Verbs',
+  'Grammar - Conjunctions',
+  'Grammar - Prepositions',
+  'Grammar - Linking Words',
+];
+
+const forbiddenEnglishSubtopics = [
+  'Vocabulary - Technical Terms',
+  'Vocabulary - Technical Acronyms',
+  'Technical Vocabulary',
+];
+
+const portugueseQuestions = questionsDataprevDev.filter(q => q.subject === 'portugues');
+const englishQuestions = questionsDataprevDev.filter(q => q.subject === 'ingles');
+
+console.log(`  Total questões Português: ${portugueseQuestions.length}`);
+console.log(`  Total questões Inglês: ${englishQuestions.length}`);
+
+// Check Portuguese subtopics
+let portugueseOk = 0;
+let portugueseFlagged = 0;
+for (const q of portugueseQuestions) {
+  if (forbiddenPortugueseSubtopics.includes(q.subtopic || '')) {
+    console.log(`  ❌ Português ID ${q.id}: subtopic proibido "${q.subtopic}" — cobra conhecimento técnico`);
+    portugueseFlagged++;
+    failed++;
+  } else if (validPortugueseSubtopics.includes(q.subtopic || '')) {
+    portugueseOk++;
+  } else {
+    console.log(`  ⚠️ Português ID ${q.id}: subtopic não listado "${q.subtopic}" — revisar manualmente`);
+  }
+}
+assert(portugueseFlagged === 0, 'Nenhuma questão de Português com subtopic de conteúdo técnico');
+assert(portugueseOk >= 40, `Pelo menos 40 questões de Português com subtopic linguístico válido (${portugueseOk} encontradas)`);
+
+// Check English subtopics
+let englishOk = 0;
+let englishFlagged = 0;
+for (const q of englishQuestions) {
+  if (forbiddenEnglishSubtopics.includes(q.subtopic || '')) {
+    console.log(`  ❌ Inglês ID ${q.id}: subtopic proibido "${q.subtopic}" — cobra conhecimento técnico`);
+    englishFlagged++;
+    failed++;
+  } else if (validEnglishSubtopics.includes(q.subtopic || '')) {
+    englishOk++;
+  } else {
+    console.log(`  ⚠️ Inglês ID ${q.id}: subtopic não listado "${q.subtopic}" — revisar manualmente`);
+  }
+}
+assert(englishFlagged === 0, 'Nenhuma questão de Inglês com subtopic de conteúdo técnico puro');
+assert(englishOk >= 30, `Pelo menos 30 questões de Inglês com subtopic linguístico válido (${englishOk} encontradas)`);
+
+// Check that Portuguese questions don't have tags indicating non-linguistic content
+const forbiddenPortugueseTags = ['lgpd', 'administracao-publica', 'legislacao', 'seguranca-info'];
+let portugueseTagIssues = 0;
+for (const q of portugueseQuestions) {
+  const tags = q.tags || [];
+  const hasForbidden = tags.some(t => forbiddenPortugueseTags.includes(t));
+  if (hasForbidden) {
+    console.log(`  ❌ Português ID ${q.id}: tags indicam conteúdo não linguístico: ${tags.join(', ')}`);
+    portugueseTagIssues++;
+    failed++;
+  }
+}
+assert(portugueseTagIssues === 0, 'Nenhuma questão de Português com tags de conteúdo não linguístico');
+
+// Check that Portuguese "Vocabulário Técnico" subtopic is no longer present
+const hasVocabularioTecnico = portugueseQuestions.some(q => q.subtopic === 'Vocabulário Técnico');
+assert(!hasVocabularioTecnico, 'Nenhuma questão de Português com subtopic "Vocabulário Técnico"');
+
+// Check that English "Vocabulary - Technical Terms" and "Vocabulary - Technical Acronyms" are gone
+const hasTechTerms = englishQuestions.some(q => q.subtopic === 'Vocabulary - Technical Terms');
+const hasTechAcronyms = englishQuestions.some(q => q.subtopic === 'Vocabulary - Technical Acronyms');
+assert(!hasTechTerms, 'Nenhuma questão de Inglês com subtopic "Vocabulary - Technical Terms"');
+assert(!hasTechAcronyms, 'Nenhuma questão de Inglês com subtopic "Vocabulary - Technical Acronyms"');
+
+// Check disciplineAdherenceScore in review response
+assert(reviewResponse.disciplineAdherenceScore !== undefined, 'Review retorna disciplineAdherenceScore');
+assert(typeof reviewResponse.disciplineAdherenceScore === 'number', 'disciplineAdherenceScore é número');
+assert(reviewResponse.disciplineAdherenceScore >= 0 && reviewResponse.disciplineAdherenceScore <= 10, 'disciplineAdherenceScore entre 0 e 10');
+
+// Check prompt includes discipline rules
+assert(simulatedPrompt.includes('Língua Portuguesa') || simulatedPrompt.includes('disciplina'), 'Prompt menciona disciplina');
+assert(simulatedPrompt.includes('habilidade linguística') || simulatedPrompt.includes('competência linguística'), 'Prompt menciona habilidade linguística para Português');
+assert(simulatedPrompt.includes('não pode depender de conhecimento') || simulatedPrompt.includes('não deve depender'), 'Prompt proíbe dependência de conhecimento externo');
 
 // RESULTS
 console.log('\n=== RESULTADO ===');

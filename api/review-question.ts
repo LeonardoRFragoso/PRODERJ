@@ -96,6 +96,7 @@ Verifique obrigatoriamente:
 8. Há cópia ou semelhança excessiva com questão já existente?
 9. O nível de dificuldade é apropriado e condizente com a banca?
 10. A questão realmente parece uma questão da ${boardName}?
+11. Aderência à disciplina — a questão realmente pertence à disciplina informada (${q.subjectName})? Se for Língua Portuguesa, a resposta deve depender de análise linguística (interpretação, gramática, coesão), não de conhecimento jurídico, administrativo ou técnico. Se for Língua Inglesa, deve cobrar compreensão do inglês, não apenas conhecimento técnico. Se for Legislação, deve cobrar temas legais. Se for Conhecimentos Específicos, deve cobrar conteúdo técnico.
 
 Retorne JSON obrigatoriamente no formato:
 {
@@ -104,6 +105,7 @@ Retorne JSON obrigatoriamente no formato:
   "boardStyleScore": number (0-10, aderência ao estilo da banca),
   "difficultyScore": number (0-10, adequação da dificuldade),
   "editalAdherenceScore": number (0-10, aderência ao edital),
+  "disciplineAdherenceScore": number (0-10, a questão realmente pertence à disciplina informada?),
   "warnings": ["aviso 1", "aviso 2"],
   "suggestions": ["sugestão 1", "sugestão 2"]
 }`;
