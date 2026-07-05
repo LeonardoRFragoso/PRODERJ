@@ -8,6 +8,14 @@ Atualmente disponível:
 - **PRODERJ 2026** — Centro de Tecnologia da Informação e Comunicação do Estado do Rio de Janeiro (Banca: IBFC)
 - **Dataprev 2026** — Empresa de Tecnologia e Informações da Previdência (Banca: FGV)
 
+### Recursos
+
+- Multi-concurso com seleção visual
+- Simulado completo, modo difícil, treino por disciplina e reforço por pontos fracos
+- Geração assistida de questões difíceis com IA (Z.ai GLM-5.2)
+- Histórico separado por concurso com compatibilidade retroativa
+- Validação automatizada (92 testes via `npm run validate`)
+
 ---
 
 ## Objetivo do Projeto
@@ -346,6 +354,38 @@ questionario-proderj/
 4. Executar `npm run validate` para auditar a base
 
 Ver `docs/integracao_dataprev.md` para um exemplo completo de integração.
+
+---
+
+## Geração Assistida de Questões com IA (Z.ai)
+
+O sistema inclui geração de questões difíceis usando a API da Z.ai (modelo GLM-5.2), com arquitetura segura.
+
+### Segurança
+
+> **⚠️ AVISO:** A chave da API Z.ai **nunca** deve ser exposta no frontend.
+> - **NÃO** use variáveis `VITE_ZAI_API_KEY`
+> - **NÃO** commite `.env`, `.env.local` ou qualquer arquivo com chaves reais
+> - A chamada para Z.ai acontece apenas em serverless functions (`/api/`)
+> - O frontend chama apenas a API interna `/api/generate-questions`
+
+### Configuração
+
+1. Copie `.env.example` para `.env.local`
+2. Preencha `ZAI_API_KEY` com sua chave real
+3. Defina `VITE_ENABLE_AI_GENERATOR=true` para habilitar o painel
+4. Na Vercel, adicione as variáveis `ZAI_API_KEY`, `ZAI_BASE_URL`, `ZAI_MODEL` em Settings → Environment Variables
+
+### Scripts
+
+```bash
+npm run generate:dataprev -- --subject especificos_dev --topic "Microsserviços" --difficulty dificil --quantity 5
+npm run validate:generated
+npm run check:duplicates
+npm run import:generated
+```
+
+Ver `docs/geracao_questoes_zai.md` e `docs/modo_dificil_dataprev.md` para detalhes.
 
 ---
 

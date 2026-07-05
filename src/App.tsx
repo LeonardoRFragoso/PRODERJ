@@ -5,15 +5,20 @@ import { contests, getContestById, getCareerTotalPoints, getCareerPassingScore }
 import type { Question } from './types/question';
 import type { Career } from './types/career';
 import type { Contest } from './types/contest';
-import { getQuestionsForCareer } from './services/examService';
+import type { ExamMode } from './types/examMode';
+import { getQuestionsForCareer, getQuestionsForTraining } from './services/examService';
 import { calculateScore } from './services/scoringService';
 import type { AttemptHistory, Answer, ActiveQuizState } from './services/storageService';
 import {
   loadHistory, saveHistory, saveActiveQuiz, loadActiveQuiz,
   clearActiveQuiz, generateId,
 } from './services/storageService';
+import DifficultModeSelector from './components/DifficultModeSelector';
+import AIQuestionGeneratorPanel from './components/AIQuestionGeneratorPanel';
 
-type GameState = 'contest-select' | 'career-select' | 'start' | 'playing' | 'results' | 'history';
+const AI_GENERATOR_ENABLED = import.meta.env.VITE_ENABLE_AI_GENERATOR === 'true';
+
+type GameState = 'contest-select' | 'career-select' | 'start' | 'playing' | 'results' | 'history' | 'ai-generator';
 
 interface SubjectScore {
   subjectId: string;
@@ -57,6 +62,8 @@ function App() {
   const [history, setHistory] = useState<AttemptHistory[]>([]);
   const [selectedAttempt, setSelectedAttempt] = useState<AttemptHistory | null>(null);
   const [startTime, setStartTime] = useState<number>(0);
+  const [examMode, setExamMode] = useState<ExamMode>('full');
+  const [trainingSubject, setTrainingSubject] = useState<string>('');
 
   const currentSubjects = selectedCareer ? getSubjectsForCareer(selectedCareer) : subjects;
   const totalPoints = selectedCareer ? getCareerTotalPoints(selectedCareer) : 150;
@@ -110,7 +117,12 @@ function App() {
 
   const startQuiz = () => {
     if (!selectedCareer) return;
-    const careerQuestions = getQuestionsForCareer(selectedCareer);
+    let careerQuestions: Question[];
+    if (examMode === 'training' && trainingSubject) {
+      careerQuestions = getQuestionsForTraining(selectedCareer, trainingSubject, selectedCareer.totalQuestions);
+    } else {
+      careerQuestions = getQuestionsForCareer(selectedCareer, examMode);
+    }
     setShuffledQuestions(careerQuestions);
     setGameState('playing');
     setCurrentQuestionIndex(0);
@@ -642,8 +654,26 @@ function App() {
                 </div>
               </div>
             )}
+            <DifficultModeSelector
+              value={examMode}
+              onChange={setExamMode}
+              isDataprev={selectedContest?.id === 'dataprev-2026'}
+            />
+            {examMode === 'training' && (
+              <div className="training-subject-selector">
+                <h4>Escolha a disciplina para treino:</h4>
+                <select value={trainingSubject} onChange={e => setTrainingSubject(e.target.value)}>
+                  <option value="">Selecione uma disciplina...</option>
+                  {currentSubjects.map(s => (
+                    <option key={s.id} value={s.id}>{s.name}</option>
+                  ))}
+                </select>
+              </div>
+            )}
             <div className="start-actions">
-              <button className="nav-btn primary start-btn" onClick={startQuiz}>🚀 Iniciar Simulado</button>
+              <button className="nav-btn primary start-btn" onClick={startQuiz} disabled={examMode === 'training' && !trainingSubject}>
+                🚀 Iniciar Simulado
+              </button>
               <button className="nav-btn secondary" onClick={() => { setSelectedCareer(null); setGameState('career-select'); }}>
                 🔄 Trocar Cargo
               </button>
@@ -652,7 +682,34 @@ function App() {
                   📊 Ver Histórico ({history.length})
                 </button>
               )}
+              {AI_GENERATOR_ENABLED && selectedContest?.id === 'dataprev-2026' && (
+                <button className="nav-btn secondary" onClick={() => setGameState('ai-generator')}>
+                  🤖 Gerador de Questões IA
+                </button>
+              )}
             </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // === AI GENERATOR SCREEN ===
+  if (gameState === 'ai-generator' && selectedCareer && selectedContest) {
+    return (
+      <div className="app">
+        <div className="container">
+          <div className="header">
+            <h1>{selectedContest.icon} {selectedContest.name}</h1>
+            <p>🤖 Geração Assistida de Questões com IA</p>
+          </div>
+          <AIQuestionGeneratorPanel
+            career={selectedCareer}
+            contestId={selectedContest.id}
+            history={history}
+          />
+          <div className="results-actions" style={{ marginTop: '20px' }}>
+            <button className="nav-btn secondary" onClick={() => setGameState('start')}>← Voltar</button>
           </div>
         </div>
       </div>
@@ -755,6 +812,9 @@ function App() {
           <div className="question-meta">
             <span className="subject-badge">{currentQuestion.subjectName}</span>
             <span className="weight-badge">Peso: {currentQuestion.weight} pontos</span>
+            {currentQuestion.id >= 100000 && (
+              <span className="ai-badge">🤖 IA Revisada</span>
+            )}
           </div>
           <div className="question-number">Questão {currentQuestionIndex + 1}</div>
           <div className="question-text">

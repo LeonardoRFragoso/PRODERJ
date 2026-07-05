@@ -10,9 +10,14 @@
     "preview": "vite preview",
     "generate": "node scripts/generate-questions-openai.cjs",
     "integrate": "node scripts/integrate-questions.cjs",
-    "validate": "npx tsx scripts/validate-multicontest.ts"
+    "validate": "npx tsx scripts/validate-multicontest.ts",
+    "generate:dataprev": "npx tsx scripts/generate-dataprev-questions.ts",
+    "validate:generated": "npx tsx scripts/validate-generated-questions.ts",
+    "check:duplicates": "npx tsx scripts/check-duplicates.ts",
+    "import:generated": "npx tsx scripts/import-generated-questions.ts"
   },
   "dependencies": {
+    "openai": "^6.45.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
@@ -21,6 +26,7 @@
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
+    "@vercel/node": "^5.8.22",
     "@vitejs/plugin-react": "^5.1.1",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",

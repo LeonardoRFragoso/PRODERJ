@@ -1,6 +1,9 @@
 # Environment variables (API Keys)
 .env
 .env.local
+.env.production
+.env.development
+.env.*.local
 
 # Logs
 logs
@@ -38,3 +41,9 @@ questionario-dataprev-2026/
 
 # Dataprev research notes (not part of React app)
 DATAPREV/
+
+# Generated question drafts (not committed)
+generated/
+
+# TypeScript build info
+*.tsbuildinfo

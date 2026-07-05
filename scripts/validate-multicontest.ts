@@ -2,7 +2,9 @@ import { questionsDataprevDev } from '../src/data/questionsDataprevDev';
 import { contests, getCareerTotalPoints, getCareerPassingScore } from '../src/data/contests';
 import { getQuestionsForCareer } from '../src/services/examService';
 import { calculateScore } from '../src/services/scoringService';
+import { validateGeneratedQuestion, checkSimilarityAgainstAll } from '../src/services/aiQuestionService';
 import type { Career } from '../src/types/career';
+import type { GeneratedQuestion } from '../src/types/generatedQuestion';
 
 let passed = 0;
 let failed = 0;
@@ -249,6 +251,89 @@ assert(proderjAllHave4, 'Questões PRODERJ Analista têm 4 alternativas (A-D)');
 import { questionsTecnico } from '../src/data/questionsTecnico';
 const tecnicoAllHave4 = questionsTecnico.every(x => x.options.length === 4);
 assert(tecnicoAllHave4, 'Questões PRODERJ Técnico têm 4 alternativas (A-D)');
+
+// 9. HARD MODE - DATAPREV
+console.log('\n9. MODO DIFÍCIL DATAPREV');
+const hardQuestions = getQuestionsForCareer(dev, 'hard');
+assert(hardQuestions.length === 70, `Modo difícil gera 70 questões (atual: ${hardQuestions.length})`);
+const hardIds = hardQuestions.map(x => x.id);
+assert(new Set(hardIds).size === hardIds.length, 'Modo difícil: sem questões repetidas');
+
+// Hard mode distribution
+const hardDist: Record<string, number> = {};
+hardQuestions.forEach(x => { hardDist[x.subject] = (hardDist[x.subject] || 0) + 1; });
+assert(hardDist['portugues'] === 12, `Modo difícil Português: 12 (atual: ${hardDist['portugues']})`);
+assert(hardDist['ingles'] === 12, `Modo difícil Inglês: 12 (atual: ${hardDist['ingles']})`);
+assert(hardDist['logica'] === 5, `Modo difícil Lógica: 5 (atual: ${hardDist['logica']})`);
+assert(hardDist['atualidades_ia'] === 6, `Modo difícil Atualidades/IA: 6 (atual: ${hardDist['atualidades_ia']})`);
+assert(hardDist['legislacao_seguranca'] === 5, `Modo difícil Legislação: 5 (atual: ${hardDist['legislacao_seguranca']})`);
+assert(hardDist['especificos_dev'] === 30, `Modo difícil Específicos: 30 (atual: ${hardDist['especificos_dev']})`);
+
+// Hard mode prioritizes difficult questions
+const hardDifficult = hardQuestions.filter(x => x.difficulty === 'dificil' || x.difficulty === 'alto').length;
+const hardFacil = hardQuestions.filter(x => x.difficulty === 'facil' || x.difficulty === 'baixo').length;
+assert(hardDifficult >= hardFacil, `Modo difícil prioriza difíceis (${hardDifficult} difíceis vs ${hardFacil} fáceis)`);
+
+// 10. AI QUESTION VALIDATION
+console.log('\n10. VALIDAÇÃO DE QUESTÕES GERADAS POR IA');
+
+// Valid question
+const validQ: GeneratedQuestion = {
+  subject: 'especificos_dev',
+  subjectName: 'Conhecimentos Específicos - Desenvolvimento de Software',
+  subtopic: 'Microsserviços',
+  difficulty: 'dificil',
+  weight: 2.5,
+  text: 'Em uma arquitetura de microsserviços, qual padrão de comunicação é mais adequado para garantir desacoplamento assíncrono entre serviços?',
+  options: [
+    { letter: 'A', text: 'Chamada síncrona REST' },
+    { letter: 'B', text: 'Message queue com pub/sub' },
+    { letter: 'C', text: 'Shared database' },
+    { letter: 'D', text: 'RPC binário' },
+    { letter: 'E', text: 'File transfer' },
+  ],
+  correctAnswer: 'B',
+  explanation: 'Message queues com pub/sub garantem desacoplamento assíncrono, permitindo que serviços operem independentemente sem bloqueio.',
+  tags: ['dataprev', 'microsservicos', 'arquitetura'],
+  source: 'Questão autoral gerada com IA',
+  aiGenerated: true,
+};
+const validResult = validateGeneratedQuestion(validQ, 5);
+assert(validResult.valid, 'Questão válida passa na validação');
+
+// Invalid: no explanation
+const noExpQ = { ...validQ, explanation: '' };
+assert(!validateGeneratedQuestion(noExpQ, 5).valid, 'Questão sem explicação é rejeitada');
+
+// Invalid: duplicated options
+const dupOptsQ = { ...validQ, options: [...validQ.options.map(o => ({ ...o, text: o.letter === 'A' ? 'Same text' : o.text })), { letter: 'B', text: 'Same text' as string }] };
+const dupResult = validateGeneratedQuestion({ ...validQ, options: validQ.options.map(o => ({ letter: o.letter, text: o.letter === 'A' || o.letter === 'B' ? 'Duplicated' : o.text })) }, 5);
+assert(!dupResult.valid, 'Questão com alternativas duplicadas é rejeitada');
+
+// Invalid: wrong correctAnswer
+const badAnswerQ = { ...validQ, correctAnswer: 'F' as 'A' };
+assert(!validateGeneratedQuestion(badAnswerQ, 5).valid, 'Questão com correctAnswer inexistente é rejeitada');
+
+// Invalid: only 4 options
+const fourOptsQ = { ...validQ, options: validQ.options.slice(0, 4) };
+assert(!validateGeneratedQuestion(fourOptsQ, 5).valid, 'Questão com 4 alternativas (esperado 5) é rejeitada');
+
+// 11. SIMILARITY DETECTION
+console.log('\n11. DETECÇÃO DE SIMILARIDADE');
+const exactDup = checkSimilarityAgainstAll(questionsDataprevDev[0].text);
+assert(exactDup.isDuplicate, 'Texto idêntico é detectado como duplicado');
+assert(exactDup.similarity > 0.82, `Similaridade de texto idêntico > 0.82 (atual: ${exactDup.similarity.toFixed(2)})`);
+
+const uniqueText = 'Esta é uma questão completamente única sobre um tópico que não existe em nenhuma base de questões do sistema atual.';
+const uniqueCheck = checkSimilarityAgainstAll(uniqueText);
+assert(!uniqueCheck.isDuplicate, 'Texto único não é marcado como duplicado');
+
+// 12. PRODERJ STILL WORKS
+console.log('\n12. PRODERJ CONTINUA FUNCIONANDO');
+const proderjNormal = getQuestionsForCareer(analista, 'full');
+assert(proderjNormal.length === 60, 'PRODERJ modo full: 60 questões');
+const proderjHard = getQuestionsForCareer(analista, 'hard');
+assert(proderjHard.length === 60, 'PRODERJ modo hard: 60 questões');
 
 // RESULTS
 console.log('\n=== RESULTADO ===');

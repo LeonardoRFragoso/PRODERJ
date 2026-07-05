@@ -1,8 +1,10 @@
 import type { Question } from '../types/question';
 import type { Career } from '../types/career';
+import type { ExamMode } from '../types/examMode';
 import { questions as questionsProderjAnalista, subjects as subjectsAnalista } from '../data/questions';
 import { questionsTecnico } from '../data/questionsTecnico';
 import { questionsDataprevDev } from '../data/questionsDataprevDev';
+import { getApprovedAsQuestions } from './aiQuestionService';
 
 const shuffleArray = <T,>(array: T[]): T[] => {
   const shuffled = [...array];
@@ -18,7 +20,21 @@ const selectRandomQuestions = (pool: Question[], count: number): Question[] => {
   return shuffled.slice(0, count);
 };
 
-export const getQuestionsForCareer = (career: Career): Question[] => {
+const selectHardQuestions = (pool: Question[], count: number): Question[] => {
+  const dificil = shuffleArray(pool.filter(q => q.difficulty === 'dificil' || q.difficulty === 'alto'));
+  const medio = shuffleArray(pool.filter(q => q.difficulty === 'medio'));
+  const facil = shuffleArray(pool.filter(q => q.difficulty === 'facil' || q.difficulty === 'baixo'));
+  const selected = [...dificil, ...medio, ...facil].slice(0, count);
+  return selected;
+};
+
+const mergeAiQuestions = (official: Question[], ai: Question[]): Question[] => {
+  const officialIds = new Set(official.map(q => q.id));
+  const uniqueAi = ai.filter(q => !officialIds.has(q.id));
+  return [...official, ...uniqueAi];
+};
+
+export const getQuestionsForCareer = (career: Career, mode: ExamMode = 'full'): Question[] => {
   if (career.contestId === 'proderj-2026') {
     if (career.id === 'analista') {
       const portugues = selectRandomQuestions(questionsProderjAnalista.filter(q => q.subject === 'portugues'), 10);
@@ -46,14 +62,46 @@ export const getQuestionsForCareer = (career: Career): Question[] => {
   }
 
   if (career.contestId === 'dataprev-2026' && career.id === 'dataprev-dev') {
+    const useAi = mode === 'hard' || mode === 'weak-topics' || mode === 'training';
+    const aiQuestions = useAi ? getApprovedAsQuestions(career.contestId, career.id) : [];
+
     const examQuestions: Question[] = [];
     for (const subject of career.subjects) {
-      const pool = questionsDataprevDev.filter(q => q.subject === subject.id);
+      let pool = questionsDataprevDev.filter(q => q.subject === subject.id);
+      pool = mergeAiQuestions(pool, aiQuestions.filter(q => q.subject === subject.id));
+
       const needed = subject.questionCount;
-      const selected = pool.length >= needed ? selectRandomQuestions(pool, needed) : pool;
+      let selected: Question[];
+
+      if (mode === 'hard' || mode === 'weak-topics') {
+        selected = selectHardQuestions(pool, needed);
+      } else if (mode === 'training') {
+        selected = selectRandomQuestions(pool, Math.min(needed, pool.length));
+      } else {
+        selected = pool.length >= needed ? selectRandomQuestions(pool, needed) : pool;
+      }
+
       examQuestions.push(...shuffleArray(selected));
     }
     return examQuestions;
+  }
+
+  return [];
+};
+
+export const getQuestionsForTraining = (career: Career, subjectId: string, count: number): Question[] => {
+  if (career.contestId === 'dataprev-2026' && career.id === 'dataprev-dev') {
+    const aiQuestions = getApprovedAsQuestions(career.contestId, career.id);
+    let pool = questionsDataprevDev.filter(q => q.subject === subjectId);
+    pool = mergeAiQuestions(pool, aiQuestions.filter(q => q.subject === subjectId));
+    return selectRandomQuestions(pool, Math.min(count, pool.length));
+  }
+
+  if (career.contestId === 'proderj-2026') {
+    const pool = career.id === 'analista'
+      ? questionsProderjAnalista.filter(q => q.subject === subjectId)
+      : questionsTecnico.filter(q => q.subject === subjectId);
+    return selectRandomQuestions(pool, Math.min(count, pool.length));
   }
 
   return [];
