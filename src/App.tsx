@@ -1,50 +1,27 @@
 import { useState, useEffect, useCallback } from 'react';
 import './App.css';
-import { questions, subjects } from './data/questions';
-import { questionsTecnico } from './data/questionsTecnico';
-import { careers, getCareerTotalPoints, getCareerPassingScore } from './data/careers';
-import type { Question, SubjectInfo } from './data/questions';
-import type { Career } from './data/careers';
+import { subjects } from './data/questions';
+import { contests, getContestById, getCareerTotalPoints, getCareerPassingScore } from './data/contests';
+import type { Question } from './types/question';
+import type { Career } from './types/career';
+import type { Contest } from './types/contest';
+import { getQuestionsForCareer } from './services/examService';
+import { calculateScore } from './services/scoringService';
+import type { AttemptHistory, Answer, ActiveQuizState } from './services/storageService';
+import {
+  loadHistory, saveHistory, saveActiveQuiz, loadActiveQuiz,
+  clearActiveQuiz, generateId,
+} from './services/storageService';
 
-type GameState = 'start' | 'career-select' | 'playing' | 'results' | 'history';
-
-interface Answer {
-  questionId: number;
-  selectedAnswer: string;
-  correctAnswer: string;
-  isCorrect: boolean;
-  questionText: string;
-  subjectId: string;
-  subjectName: string;
-}
+type GameState = 'contest-select' | 'career-select' | 'start' | 'playing' | 'results' | 'history';
 
 interface SubjectScore {
-  subject: SubjectInfo;
+  subjectId: string;
+  subjectName: string;
   correct: number;
   total: number;
   points: number;
   maxPoints: number;
-}
-
-interface AttemptHistory {
-  id: string;
-  date: string;
-  totalPoints: number;
-  maxPoints: number;
-  correctCount: number;
-  totalQuestions: number;
-  percentage: number;
-  passed: boolean;
-  timeSpent: number;
-  answers: Answer[];
-  subjectScores: {
-    subjectId: string;
-    subjectName: string;
-    correct: number;
-    total: number;
-    points: number;
-    maxPoints: number;
-  }[];
 }
 
 interface QuestionStats {
@@ -57,91 +34,7 @@ interface QuestionStats {
   errorRate: number;
 }
 
-const HISTORY_KEY = 'proderj_quiz_history';
-const ACTIVE_QUIZ_KEY = 'proderj_active_quiz';
-
-interface ActiveQuizState {
-  careerId: string;
-  currentQuestionIndex: number;
-  answers: Answer[];
-  shuffledQuestionIds: number[];
-  timeLeft: number;
-  startTime: number;
-}
-
-const saveActiveQuiz = (state: ActiveQuizState): void => {
-  localStorage.setItem(ACTIVE_QUIZ_KEY, JSON.stringify(state));
-};
-
-const loadActiveQuiz = (): ActiveQuizState | null => {
-  try {
-    const data = localStorage.getItem(ACTIVE_QUIZ_KEY);
-    return data ? JSON.parse(data) : null;
-  } catch {
-    return null;
-  }
-};
-
-const clearActiveQuiz = (): void => {
-  localStorage.removeItem(ACTIVE_QUIZ_KEY);
-};
-
-// Função para embaralhar array (Fisher-Yates shuffle)
-const shuffleArray = <T,>(array: T[]): T[] => {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-};
-
-// Seleciona N questões aleatórias de um array
-const selectRandomQuestions = (questionPool: Question[], count: number): Question[] => {
-  const shuffled = shuffleArray(questionPool);
-  return shuffled.slice(0, count);
-};
-
-// Combina questões comuns (português, lógica, direito) com as específicas de cada cargo
-// Seleciona a quantidade correta conforme o edital: 10 PT + 10 LOG + 10 DIR + 30 ESP = 60 questões
-// As questões são selecionadas ALEATORIAMENTE a cada execução da prova
-const getQuestionsForCareer = (careerId: string): Question[] => {
-  if (careerId === 'analista') {
-    // Seleciona questões aleatórias de cada matéria
-    const portugues = selectRandomQuestions(questions.filter(q => q.subject === 'portugues'), 10);
-    const logica = selectRandomQuestions(questions.filter(q => q.subject === 'logica'), 10);
-    const direito = selectRandomQuestions(questions.filter(q => q.subject === 'direito'), 10);
-    const especificos = selectRandomQuestions(questions.filter(q => q.subject === 'especificos_analista'), 30);
-    
-    // Embaralha também a ordem dentro de cada bloco de matéria
-    const allQuestions = [
-      ...shuffleArray(portugues),
-      ...shuffleArray(logica),
-      ...shuffleArray(direito),
-      ...shuffleArray(especificos)
-    ];
-    return allQuestions;
-  } else if (careerId === 'tecnico') {
-    // Para Técnico, usa as questões do arquivo questionsTecnico para TODAS as matérias
-    const portuguesTecnico = selectRandomQuestions(questionsTecnico.filter(q => q.subject === 'portugues'), 10);
-    const logicaTecnico = selectRandomQuestions(questionsTecnico.filter(q => q.subject === 'logica'), 10);
-    const direitoTecnico = selectRandomQuestions(questionsTecnico.filter(q => q.subject === 'direito'), 10);
-    const especificosTecnico = selectRandomQuestions(questionsTecnico.filter(q => q.subject === 'especificos_tecnico'), 30);
-    
-    // Embaralha também a ordem dentro de cada bloco de matéria
-    const allQuestions = [
-      ...shuffleArray(portuguesTecnico),
-      ...shuffleArray(logicaTecnico),
-      ...shuffleArray(direitoTecnico),
-      ...shuffleArray(especificosTecnico)
-    ];
-    return allQuestions;
-  }
-  
-  return questions;
-};
-
-const getSubjectsForCareer = (career: Career): SubjectInfo[] => {
+const getSubjectsForCareer = (career: Career) => {
   return career.subjects.map(s => ({
     id: s.id,
     name: s.name,
@@ -151,25 +44,9 @@ const getSubjectsForCareer = (career: Career): SubjectInfo[] => {
   }));
 };
 
-const loadHistory = (): AttemptHistory[] => {
-  try {
-    const data = localStorage.getItem(HISTORY_KEY);
-    return data ? JSON.parse(data) : [];
-  } catch {
-    return [];
-  }
-};
-
-const saveHistory = (history: AttemptHistory[]): void => {
-  localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
-};
-
-const generateId = (): string => {
-  return Date.now().toString(36) + Math.random().toString(36).substr(2);
-};
-
 function App() {
-  const [gameState, setGameState] = useState<GameState>('start');
+  const [gameState, setGameState] = useState<GameState>('contest-select');
+  const [selectedContest, setSelectedContest] = useState<Contest | null>(null);
   const [selectedCareer, setSelectedCareer] = useState<Career | null>(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Answer[]>([]);
@@ -181,27 +58,26 @@ function App() {
   const [selectedAttempt, setSelectedAttempt] = useState<AttemptHistory | null>(null);
   const [startTime, setStartTime] = useState<number>(0);
 
-  // Funções auxiliares baseadas no cargo selecionado
   const currentSubjects = selectedCareer ? getSubjectsForCareer(selectedCareer) : subjects;
   const totalPoints = selectedCareer ? getCareerTotalPoints(selectedCareer) : 150;
   const passingScore = selectedCareer ? getCareerPassingScore(selectedCareer) : 75;
 
-  // Carregar histórico e verificar se há prova em andamento
   useEffect(() => {
     setHistory(loadHistory());
-    
-    // Verificar se há prova em andamento
+
     const activeQuiz = loadActiveQuiz();
     if (activeQuiz) {
-      const career = careers.find(c => c.id === activeQuiz.careerId);
-      if (career) {
-        // Reconstruir questões na mesma ordem
-        const allQuestions = getQuestionsForCareer(activeQuiz.careerId);
+      const contestId = activeQuiz.contestId || 'proderj-2026';
+      const contest = getContestById(contestId);
+      const career = contest?.careers.find(c => c.id === activeQuiz.careerId);
+      if (contest && career) {
+        const allQuestions = getQuestionsForCareer(career);
         const orderedQuestions = activeQuiz.shuffledQuestionIds
           .map(id => allQuestions.find(q => q.id === id))
           .filter((q): q is Question => q !== undefined);
-        
+
         if (orderedQuestions.length === activeQuiz.shuffledQuestionIds.length) {
+          setSelectedContest(contest);
           setSelectedCareer(career);
           setShuffledQuestions(orderedQuestions);
           setCurrentQuestionIndex(activeQuiz.currentQuestionIndex);
@@ -209,8 +85,7 @@ function App() {
           setTimeLeft(activeQuiz.timeLeft);
           setStartTime(activeQuiz.startTime);
           setGameState('playing');
-          
-          // Restaurar estado da questão atual
+
           const currentAnswer = activeQuiz.answers.find(
             a => a.questionId === orderedQuestions[activeQuiz.currentQuestionIndex]?.id
           );
@@ -223,6 +98,11 @@ function App() {
     }
   }, []);
 
+  const selectContest = (contest: Contest) => {
+    setSelectedContest(contest);
+    setGameState('career-select');
+  };
+
   const selectCareer = (career: Career) => {
     setSelectedCareer(career);
     setGameState('start');
@@ -230,9 +110,7 @@ function App() {
 
   const startQuiz = () => {
     if (!selectedCareer) return;
-    const careerQuestions = getQuestionsForCareer(selectedCareer.id);
-    // Mantém questões agrupadas por matéria (padrão de provas de concurso)
-    // Não embaralha para seguir o formato real da banca IBDO
+    const careerQuestions = getQuestionsForCareer(selectedCareer);
     setShuffledQuestions(careerQuestions);
     setGameState('playing');
     setCurrentQuestionIndex(0);
@@ -244,7 +122,9 @@ function App() {
   };
 
   const saveAttemptToHistory = useCallback(() => {
-    const subjectScoresData = currentSubjects.map(subject => {
+    if (!selectedContest || !selectedCareer) return;
+
+    const subjectScoresData: SubjectScore[] = currentSubjects.map(subject => {
       const subjectQuestions = shuffledQuestions.filter(q => q.subject === subject.id);
       const subjectAnswers = answers.filter(a => subjectQuestions.some(q => q.id === a.questionId));
       const correct = subjectAnswers.filter(a => a.isCorrect).length;
@@ -259,14 +139,22 @@ function App() {
       };
     });
 
+    const answersMap = new Map<number, string | null>();
+    answers.forEach(a => answersMap.set(a.questionId, a.selectedAnswer));
+    const scoring = calculateScore(selectedCareer, shuffledQuestions, answersMap);
+
     const attemptTotalPoints = subjectScoresData.reduce((sum, s) => sum + s.points, 0);
     const correctCount = answers.filter(a => a.isCorrect).length;
     const percentage = Math.round((attemptTotalPoints / totalPoints) * 100);
-    const passed = attemptTotalPoints >= passingScore;
+    const passed = scoring.passed;
     const timeSpent = Math.floor((Date.now() - startTime) / 1000);
 
     const attempt: AttemptHistory = {
       id: generateId(),
+      contestId: selectedContest.id,
+      contestName: selectedContest.name,
+      careerId: selectedCareer.id,
+      careerName: selectedCareer.name,
       date: new Date().toISOString(),
       totalPoints: attemptTotalPoints,
       maxPoints: totalPoints,
@@ -282,7 +170,7 @@ function App() {
     const updatedHistory = [attempt, ...history].slice(0, 50);
     setHistory(updatedHistory);
     saveHistory(updatedHistory);
-  }, [answers, shuffledQuestions, startTime, history, currentSubjects, totalPoints, passingScore]);
+  }, [answers, shuffledQuestions, startTime, history, currentSubjects, totalPoints, selectedContest, selectedCareer]);
 
   const getQuestionStats = useCallback((): QuestionStats[] => {
     const statsMap = new Map<number, QuestionStats>();
@@ -315,7 +203,7 @@ function App() {
   const clearHistory = () => {
     if (confirm('Tem certeza que deseja apagar todo o histórico?')) {
       setHistory([]);
-      localStorage.removeItem(HISTORY_KEY);
+      localStorage.removeItem('proderj_quiz_history');
     }
   };
 
@@ -362,10 +250,10 @@ function App() {
     }
   };
 
-  // Salvar estado da prova a cada mudança
   useEffect(() => {
-    if (gameState === 'playing' && selectedCareer && shuffledQuestions.length > 0) {
+    if (gameState === 'playing' && selectedContest && selectedCareer && shuffledQuestions.length > 0) {
       const state: ActiveQuizState = {
+        contestId: selectedContest.id,
         careerId: selectedCareer.id,
         currentQuestionIndex,
         answers,
@@ -375,18 +263,14 @@ function App() {
       };
       saveActiveQuiz(state);
     }
-  }, [gameState, selectedCareer, currentQuestionIndex, answers, shuffledQuestions, timeLeft, startTime]);
+  }, [gameState, selectedContest, selectedCareer, currentQuestionIndex, answers, shuffledQuestions, timeLeft, startTime]);
 
-  // Limpar estado ao finalizar
   useEffect(() => {
-    if (gameState === 'results' || gameState === 'start' || gameState === 'career-select') {
-      if (gameState === 'results') {
-        clearActiveQuiz();
-      }
+    if (gameState === 'results') {
+      clearActiveQuiz();
     }
   }, [gameState]);
 
-  // Aviso ao tentar sair da página durante a prova
   useEffect(() => {
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
       if (gameState === 'playing') {
@@ -395,12 +279,10 @@ function App() {
         return e.returnValue;
       }
     };
-
     window.addEventListener('beforeunload', handleBeforeUnload);
     return () => window.removeEventListener('beforeunload', handleBeforeUnload);
   }, [gameState]);
 
-  // Função para desistir da prova
   const handleQuitQuiz = () => {
     if (confirm('⚠️ ATENÇÃO!\n\nVocê está prestes a DESISTIR da prova.\nTodo o seu progresso será perdido.\n\nTem certeza que deseja desistir?')) {
       clearActiveQuiz();
@@ -413,19 +295,14 @@ function App() {
     }
   };
 
-  const calculateResults = useCallback((): { totalPoints: number; correctCount: number; subjectScores: SubjectScore[]; passed: boolean } => {
-    const subjectScores: SubjectScore[] = currentSubjects.map(subject => {
-      const subjectQuestions = shuffledQuestions.filter(q => q.subject === subject.id);
-      const subjectAnswers = answers.filter(a => subjectQuestions.some(q => q.id === a.questionId));
-      const correct = subjectAnswers.filter(a => a.isCorrect).length;
-      const points = correct * subject.weight;
-      return { subject, correct, total: subjectQuestions.length, points, maxPoints: subject.maxPoints };
-    });
-    const calcTotalPoints = subjectScores.reduce((sum, s) => sum + s.points, 0);
-    const correctCount = answers.filter(a => a.isCorrect).length;
-    const passed = calcTotalPoints >= passingScore;
-    return { totalPoints: calcTotalPoints, correctCount, subjectScores, passed };
-  }, [answers, shuffledQuestions, currentSubjects, passingScore]);
+  const calculateResults = useCallback(() => {
+    const answersMap = new Map<number, string | null>();
+    answers.forEach(a => answersMap.set(a.questionId, a.selectedAnswer));
+    if (!selectedCareer) {
+      return { totalPoints: 0, correctCount: 0, subjectScores: [] as any[], passed: false, zeroedSubjects: [] as string[] };
+    }
+    return calculateScore(selectedCareer, shuffledQuestions, answersMap);
+  }, [answers, shuffledQuestions, selectedCareer]);
 
   useEffect(() => {
     if (gameState !== 'playing') return;
@@ -463,11 +340,7 @@ function App() {
   const formatDate = (dateStr: string): string => {
     const date = new Date(dateStr);
     return date.toLocaleDateString('pt-BR', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
+      day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit',
     });
   };
 
@@ -477,6 +350,100 @@ function App() {
     return h > 0 ? `${h}h ${m}min` : `${m}min`;
   };
 
+  // === CONTEST SELECT SCREEN ===
+  if (gameState === 'contest-select') {
+    return (
+      <div className="app">
+        <div className="container">
+          <div className="header">
+            <h1>📝 Plataforma de Simulados</h1>
+            <p>Escolha o Concurso</p>
+          </div>
+          <div className="start-screen">
+            <h2>Escolha o Concurso</h2>
+            <p>Selecione o concurso para o qual deseja simular. Cada concurso possui cargos, disciplinas e regras próprias.</p>
+            <div className="career-grid">
+              {contests.map(contest => (
+                <div
+                  key={contest.id}
+                  className="career-card"
+                  onClick={() => selectContest(contest)}
+                >
+                  <div className="career-level">{contest.icon} {contest.board}</div>
+                  <h3>{contest.name}</h3>
+                  <p className="career-description">{contest.description}</p>
+                  <div className="career-info">
+                    <span className="career-questions">{contest.careers.length} cargo(s)</span>
+                  </div>
+                  <div className="career-subjects">
+                    {contest.careers.map(c => (
+                      <span key={c.id} className="career-subject-tag">
+                        {c.shortName}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // === CAREER SELECT SCREEN ===
+  if (gameState === 'career-select' || (gameState === 'start' && !selectedCareer)) {
+    const contest = selectedContest;
+    if (!contest) {
+      setGameState('contest-select');
+      return null;
+    }
+    return (
+      <div className="app">
+        <div className="container">
+          <div className="header">
+            <h1>{contest.icon} {contest.name}</h1>
+            <p>Concurso Público - Selecione o Cargo</p>
+          </div>
+          <div className="start-screen">
+            <h2>Escolha o Cargo</h2>
+            <p>Selecione o cargo para o qual deseja treinar. Cada cargo possui questões específicas conforme o edital.</p>
+            <div className="career-grid">
+              {contest.careers.map(career => (
+                <div
+                  key={career.id}
+                  className={`career-card ${selectedCareer?.id === career.id ? 'selected' : ''}`}
+                  onClick={() => selectCareer(career)}
+                >
+                  <div className="career-level">{career.level === 'superior' ? '🎓 Nível Superior' : '🔧 Nível Técnico'}</div>
+                  <h3>{career.name}</h3>
+                  <p className="career-description">{career.description}</p>
+                  <div className="career-info">
+                    <span className="career-salary">{career.salary}</span>
+                    <span className="career-questions">{career.totalQuestions} questões</span>
+                  </div>
+                  <div className="career-subjects">
+                    {career.subjects.map(s => (
+                      <span key={s.id} className="career-subject-tag">
+                        {s.name.split(' - ')[0]}: {s.questionCount}q
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="start-actions">
+              <button className="nav-btn secondary" onClick={() => { setSelectedContest(null); setGameState('contest-select'); }}>
+                🔄 Trocar Concurso
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // === HISTORY SCREEN ===
   if (gameState === 'history') {
     const questionStats = getQuestionStats();
     const mostMissedQuestions = questionStats.filter(q => q.errorRate > 0).slice(0, 10);
@@ -485,7 +452,7 @@ function App() {
       <div className="app">
         <div className="container">
           <div className="header">
-            <h1>📝 Simulado PRODERJ 2025</h1>
+            <h1>📝 {selectedContest ? selectedContest.name : 'Simulado'}</h1>
             <p>Histórico de Tentativas</p>
           </div>
 
@@ -494,6 +461,9 @@ function App() {
               <div className="history-detail-header">
                 <h2>Detalhes da Tentativa</h2>
                 <p>{formatDate(selectedAttempt.date)}</p>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+                  {selectedAttempt.contestName || 'PRODERJ'} — {selectedAttempt.careerName || selectedAttempt.careerId}
+                </p>
               </div>
 
               <div className="score-display">
@@ -600,7 +570,9 @@ function App() {
                       >
                         <div className="history-item-left">
                           <div className="history-date">{formatDate(attempt.date)}</div>
-                          <div className="history-duration">Duração: {formatDuration(attempt.timeSpent)}</div>
+                          <div className="history-duration">
+                            {attempt.contestName || 'PRODERJ'} — {formatDuration(attempt.timeSpent)}
+                          </div>
                         </div>
                         <div className="history-item-center">
                           <div className="history-score">{attempt.totalPoints}/{attempt.maxPoints} pts</div>
@@ -626,7 +598,7 @@ function App() {
 
               <div className="results-actions" style={{ marginTop: '20px' }}>
                 <button className="nav-btn primary" onClick={startQuiz}>🚀 Novo Simulado</button>
-                <button className="nav-btn secondary" onClick={() => setGameState('start')}>🏠 Voltar ao Início</button>
+                <button className="nav-btn secondary" onClick={() => setGameState('contest-select')}>🏠 Voltar ao Início</button>
               </div>
             </div>
           )}
@@ -635,59 +607,18 @@ function App() {
     );
   }
 
-  // Tela de seleção de cargo
-  if (gameState === 'career-select' || !selectedCareer) {
+  // === START SCREEN ===
+  if (gameState === 'start' && selectedCareer) {
     return (
       <div className="app">
         <div className="container">
           <div className="header">
-            <h1>📝 Simulado PRODERJ 2026</h1>
-            <p>Concurso Público - Selecione o Cargo</p>
-          </div>
-          <div className="start-screen">
-            <h2>Escolha o Cargo</h2>
-            <p>Selecione o cargo para o qual deseja treinar. Cada cargo possui questões específicas conforme o edital.</p>
-            <div className="career-grid">
-              {careers.map(career => (
-                <div 
-                  key={career.id} 
-                  className={`career-card ${selectedCareer?.id === career.id ? 'selected' : ''}`}
-                  onClick={() => selectCareer(career)}
-                >
-                  <div className="career-level">{career.level === 'superior' ? '🎓 Nível Superior' : '🔧 Nível Técnico'}</div>
-                  <h3>{career.name}</h3>
-                  <p className="career-description">{career.description}</p>
-                  <div className="career-info">
-                    <span className="career-salary">{career.salary}</span>
-                    <span className="career-questions">{career.totalQuestions} questões</span>
-                  </div>
-                  <div className="career-subjects">
-                    {career.subjects.map(s => (
-                      <span key={s.id} className="career-subject-tag">
-                        {s.name.split(' - ')[0]}: {s.questionCount}q
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (gameState === 'start') {
-    return (
-      <div className="app">
-        <div className="container">
-          <div className="header">
-            <h1>📝 Simulado PRODERJ 2026</h1>
+            <h1>{selectedContest?.icon} {selectedContest?.name}</h1>
             <p>Concurso Público - {selectedCareer.name}</p>
           </div>
           <div className="start-screen">
             <h2>Bem-vindo ao Simulado!</h2>
-            <p>Este simulado segue o padrão oficial do concurso PRODERJ para o cargo de <strong>{selectedCareer.name}</strong>, com {selectedCareer.totalQuestions} questões distribuídas conforme o edital.</p>
+            <p>Este simulado segue o padrão oficial do concurso <strong>{selectedContest?.name}</strong> para o cargo de <strong>{selectedCareer.name}</strong>, com {selectedCareer.totalQuestions} questões distribuídas conforme o edital.</p>
             <div className="subjects-grid">
               {currentSubjects.map(subject => (
                 <div key={subject.id} className="subject-card">
@@ -701,12 +632,19 @@ function App() {
             <div className="exam-info">
               <div className="info-badge"><strong>{selectedCareer.totalQuestions}</strong> questões</div>
               <div className="info-badge"><strong>{totalPoints}</strong> pontos totais</div>
-              <div className="info-badge"><strong>{passingScore}</strong> pontos para aprovação (50%)</div>
+              <div className="info-badge"><strong>{passingScore}</strong> pontos para aprovação</div>
               <div className="info-badge"><strong>4 horas</strong> de duração</div>
             </div>
+            {selectedCareer.requireNoZeroedSubject && (
+              <div className="exam-info" style={{ marginTop: '12px' }}>
+                <div className="info-badge" style={{ background: 'rgba(239, 68, 68, 0.15)', borderColor: 'var(--danger)' }}>
+                  ⚠️ <strong>Regra:</strong> Reprova se zerar qualquer disciplina
+                </div>
+              </div>
+            )}
             <div className="start-actions">
               <button className="nav-btn primary start-btn" onClick={startQuiz}>🚀 Iniciar Simulado</button>
-              <button className="nav-btn secondary" onClick={() => setSelectedCareer(null)}>
+              <button className="nav-btn secondary" onClick={() => { setSelectedCareer(null); setGameState('career-select'); }}>
                 🔄 Trocar Cargo
               </button>
               {history.length > 0 && (
@@ -721,15 +659,22 @@ function App() {
     );
   }
 
+  // === RESULTS SCREEN ===
   if (gameState === 'results') {
-    const { totalPoints: resultPoints, correctCount, subjectScores, passed } = calculateResults();
+    const scoring = calculateResults();
+    const resultPoints = scoring.totalPoints;
+    const correctCount = scoring.correctCount;
+    const subjectScores = scoring.subjectScores;
+    const passed = scoring.passed;
+    const zeroedSubjects = scoring.zeroedSubjects;
     const totalQuestions = shuffledQuestions.length;
     const percentage = Math.round((resultPoints / totalPoints) * 100);
+
     return (
       <div className="app">
         <div className="container">
           <div className="header">
-            <h1>📝 Simulado PRODERJ 2025</h1>
+            <h1>{selectedContest?.icon} {selectedContest?.name}</h1>
             <p>Resultado Final</p>
           </div>
           <div className="results-screen">
@@ -751,6 +696,12 @@ function App() {
                 <div className="score-label">aproveitamento</div>
               </div>
             </div>
+            {zeroedSubjects.length > 0 && (
+              <div className="results-header failed" style={{ marginTop: '16px' }}>
+                <h2 style={{ fontSize: '1.1rem' }}>⚠️ Disciplina(s) zerada(s):</h2>
+                <p>{zeroedSubjects.join(', ')}</p>
+              </div>
+            )}
             <div className="subject-results">
               <h3>📊 Desempenho por Matéria</h3>
               {subjectScores.map(score => (
@@ -776,13 +727,14 @@ function App() {
     );
   }
 
+  // === PLAYING SCREEN ===
   if (!currentQuestion) return <div className="app">Carregando...</div>;
 
   return (
     <div className="app">
       <div className="container">
         <div className="header">
-          <h1>📝 Simulado PRODERJ 2025</h1>
+          <h1>{selectedContest?.icon} {selectedContest?.shortName}</h1>
           <div className="exam-info">
             <div className="info-badge">Questão <strong>{currentQuestionIndex + 1}</strong> de <strong>{shuffledQuestions.length}</strong></div>
             <div className="info-badge">Respondidas: <strong>{answers.length}</strong></div>

@@ -1,25 +1,31 @@
-# Simulado PRODERJ 2026
+# Plataforma de Simulados — PRODERJ & Dataprev 2026
 
-Sistema de simulados para preparação do Concurso Público PRODERJ 2026 - Centro de Tecnologia da Informação e Comunicação do Estado do Rio de Janeiro.
+Sistema de simulados para preparação de Concursos Públicos, suportando múltiplos concursos com regras, cargos e questões específicas.
+
+Atualmente disponível:
+- **PRODERJ 2026** — Centro de Tecnologia da Informação e Comunicação do Estado do Rio de Janeiro (Banca: IBFC)
+- **Dataprev 2026** — Empresa de Tecnologia e Informações da Previdência (Banca: FGV)
 
 ---
 
 ## Objetivo do Projeto
 
-Este projeto foi desenvolvido como ferramenta de estudo pessoal para o concurso PRODERJ 2026, permitindo simular a experiência real de prova com:
+Este projeto foi desenvolvido como ferramenta de estudo pessoal para concursos públicos, permitindo simular a experiência real de prova com:
 
-- **60 questões** por simulado (conforme edital oficial)
-- **4 horas de duração** cronometradas
+- **Múltiplos concursos** na mesma plataforma
 - **Correção automática** com explicações detalhadas
-- **Histórico de tentativas** para acompanhar evolução
+- **Cronômetro** com tempo oficial de cada prova
+- **Histórico de tentativas** separado por concurso/cargo
 - **Identificação de pontos fracos** (questões mais erradas)
+- **Regras específicas** por concurso (pesos, nota de aprovação, zerar disciplina)
 
-### Cargos Disponíveis
+### Concursos e Cargos Disponíveis
 
-| Cargo | Nível | Questões Específicas |
-|-------|-------|---------------------|
-| Analista de Sistemas e Métodos | Superior | Desenvolvimento, UML, BPMN, Banco de Dados |
-| Técnico de Sistemas e Métodos | Médio | Suporte, Infraestrutura, Redes |
+| Concurso | Cargo | Nível | Questões | Banca |
+|----------|-------|-------|----------|-------|
+| PRODERJ 2026 | Analista de Sistemas e Métodos | Superior | 60 | IBFC |
+| PRODERJ 2026 | Técnico de Suporte, Computação e Processamento | Técnico | 60 | IBFC |
+| Dataprev 2026 | Analista de TI — Perfil 3: Desenvolvimento de Software | Superior | 70 | FGV |
 
 ---
 
@@ -36,6 +42,24 @@ Seguindo o padrão do edital PRODERJ e da banca IBDO:
 | **TOTAL** | **60** | - | **150 pontos** |
 
 **Aprovação**: Mínimo de 50% (75 pontos)
+
+### Dataprev 2026 — Analista de TI (Perfil 3: Desenvolvimento de Software)
+
+Seguindo o padrão do edital Dataprev e da banca FGV:
+
+| Disciplina | Questões | Peso | Pontuação Máxima |
+|------------|----------|------|------------------|
+| Língua Portuguesa | 12 | 1 | 12 pontos |
+| Língua Inglesa | 12 | 1 | 12 pontos |
+| Raciocínio Lógico Matemático | 5 | 1 | 5 pontos |
+| Atualidades e Inteligência Artificial | 6 | 1 | 6 pontos |
+| Legislação (Segurança e Proteção de Dados) | 5 | 1 | 5 pontos |
+| Conhecimentos Específicos - Desenvolvimento de Software | 30 | 2,5 | 75 pontos |
+| **TOTAL** | **70** | - | **115 pontos** |
+
+**Aprovação**: Mínimo de 57,5 pontos E não zerar nenhuma disciplina
+
+**Questões**: 5 alternativas (A, B, C, D, E) — estilo FGV
 
 ---
 
@@ -206,9 +230,29 @@ npm run preview
 
 ---
 
-## Deploy em Servidor
+## Deploy
 
-O projeto está configurado para deploy em VM Linux com systemd.
+### Vercel (Recomendado)
+
+O projeto é uma SPA React/Vite e pode ser deployada diretamente na Vercel:
+
+1. Conectar o repositório GitHub na Vercel
+2. Configurações automáticas:
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Install Command**: `npm install`
+3. Deploy automático a cada push para `main`
+
+Ou via CLI:
+
+```bash
+npm i -g vercel
+vercel --prod
+```
+
+### Servidor VM (Alternativo)
+
+O projeto também está configurado para deploy em VM Linux com systemd.
 
 ### Dados do Servidor
 - **IP**: 192.168.0.45
@@ -240,39 +284,72 @@ Ver arquivo `INSTRUCOES-DEPLOY.md` para instruções detalhadas.
 ```
 questionario-proderj/
 ├── src/
+│   ├── types/
+│   │   ├── contest.ts          # Interface Contest
+│   │   ├── career.ts           # Interface Career
+│   │   └── question.ts         # Interface Question
 │   ├── data/
-│   │   ├── questions.ts       # Questões do Analista (183 questões)
-│   │   ├── questionsTecnico.ts # Questões do Técnico
-│   │   └── careers.ts         # Configuração dos cargos
-│   ├── App.tsx                # Componente principal
-│   ├── App.css                # Estilos
-│   └── main.tsx               # Entry point
+│   │   ├── contests.ts         # Define PRODERJ e Dataprev
+│   │   ├── careers.ts          # Re-export para compat
+│   │   ├── questions.ts        # Questões PRODERJ Analista
+│   │   ├── questionsTecnico.ts # Questões PRODERJ Técnico
+│   │   └── questionsDataprevDev.ts  # 300 questões Dataprev
+│   ├── services/
+│   │   ├── examService.ts      # Seleção de questões por concurso
+│   │   ├── scoringService.ts   # Pontuação com regras variáveis
+│   │   └── storageService.ts   # LocalStorage com histórico por concurso
+│   ├── App.tsx                 # Componente principal (multi-concurso)
+│   ├── App.css                 # Estilos (tema escuro compartilhado)
+│   └── main.tsx                # Entry point
+├── docs/
+│   └── integracao_dataprev.md  # Doc da integração Dataprev
 ├── public/
-├── dist/                      # Build de produção
-├── deploy-vm.sh               # Script de deploy
-├── INSTRUCOES-DEPLOY.md       # Guia de deploy
-├── ANALISE-QUESTIONARIO-PRODERJ.md  # Análise de gaps
-└── README.md                  # Este arquivo
+├── dist/                       # Build de produção
+└── README.md                   # Este arquivo
 ```
 
 ---
 
 ## Estatísticas do Banco de Questões
 
-| Métrica | Valor |
-|---------|-------|
-| Total de questões (Analista) | 183 |
-| Questões de Interpretação de Texto | 8 |
-| Questões de UML | 11 |
-| Questões de BPMN | 8 |
-| Questões de SQL | 11 |
-| Questões com dificuldade classificada | ~50 |
+| Métrica | PRODERJ | Dataprev |
+|---------|---------|----------|
+| Total de questões (Analista) | 183 | 300 |
+| Total de questões (Técnico) | ~150 | — |
+| Alternativas por questão | 4 (A-D) | 5 (A-E) |
+| Disciplinas | 4 | 6 |
+
+---
+
+## Como Adicionar um Novo Concurso
+
+1. Criar arquivo de questões em `src/data/questionsNovoConcurso.ts` seguindo a interface `Question`
+2. Adicionar careers e contest em `src/data/contests.ts`:
+   - Definir `id`, `name`, `shortName`, `year`, `board`, `description`, `icon`
+   - Adicionar cargos com disciplinas, pesos, `passingScore` e `requireNoZeroedSubject` se aplicável
+3. Adicionar lógica de seleção em `src/services/examService.ts` (switch por `contestId` + `careerId`)
+4. O sistema detecta automaticamente o novo concurso na tela inicial
+
+## Como Adicionar um Novo Cargo
+
+1. Adicionar o cargo no array `careers` do concurso correspondente em `src/data/contests.ts`
+2. Criar arquivo de questões em `src/data/questionsNovoCargo.ts` (ou reutilizar existente)
+3. Adicionar lógica de seleção em `src/services/examService.ts`
+
+## Como Adicionar Novas Questões
+
+1. Adicionar questões no arquivo TypeScript correspondente (`src/data/questions*.ts`)
+2. Seguir a interface `Question` com todos os campos obrigatórios
+3. Usar IDs sequenciais únicos
+4. Executar `npm run validate` para auditar a base
+
+Ver `docs/integracao_dataprev.md` para um exemplo completo de integração.
 
 ---
 
 ## Limitações e Avisos
 
-> **IMPORTANTE**: Este é um projeto de estudo pessoal e NÃO possui vínculo oficial com o PRODERJ, a banca IBDO ou qualquer órgão público.
+> **IMPORTANTE**: Este é um projeto de estudo pessoal e NÃO possui vínculo oficial com o PRODERJ, Dataprev, as bancas IBDO/FGV ou qualquer órgão público.
 
 - As questões são **elaboradas** e **não são reproduções** de provas anteriores
 - O conteúdo pode conter imprecisões - sempre consulte fontes oficiais

@@ -26,3 +26,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.db
+
+# Streamlit project (legacy, not part of React app)
+questionario-dataprev-2026/
+
+# Dataprev research notes (not part of React app)
+DATAPREV/
