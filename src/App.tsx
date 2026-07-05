@@ -64,6 +64,7 @@ function App() {
   const [startTime, setStartTime] = useState<number>(0);
   const [examMode, setExamMode] = useState<ExamMode>('full');
   const [trainingSubject, setTrainingSubject] = useState<string>('');
+  const [showWhenUseModal, setShowWhenUseModal] = useState(false);
 
   const currentSubjects = selectedCareer ? getSubjectsForCareer(selectedCareer) : subjects;
   const totalPoints = selectedCareer ? getCareerTotalPoints(selectedCareer) : 150;
@@ -683,10 +684,45 @@ function App() {
                 </button>
               )}
               {AI_GENERATOR_ENABLED && selectedContest?.id === 'dataprev-2026' && (
-                <button className="nav-btn secondary" onClick={() => setGameState('ai-generator')}>
-                  🤖 Gerador de Questões IA
-                </button>
+                <div className="ai-generator-entry">
+                  <button className="nav-btn secondary" onClick={() => setGameState('ai-generator')}>
+                    🤖 Gerar novas questões com IA
+                  </button>
+                  <p className="ai-generator-hint">
+                    Área administrativa para expandir a base de questões. Use quando precisar criar questões novas, difíceis ou focadas em pontos fracos.
+                  </p>
+                  <button className="ai-when-use-link" onClick={() => setShowWhenUseModal(true)}>
+                    ℹ️ Quando usar?
+                  </button>
+                </div>
               )}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // === WHEN USE MODAL ===
+  if (showWhenUseModal) {
+    return (
+      <div className="app">
+        <div className="container">
+          <div className="modal-overlay" onClick={() => setShowWhenUseModal(false)}>
+            <div className="modal-content" onClick={e => e.stopPropagation()}>
+              <h2>Quando usar o Gerador de Questões IA?</h2>
+              <p>Use este recurso apenas para criar novas questões autorais com apoio de IA.</p>
+              <p><strong>Indicado quando:</strong></p>
+              <ul>
+                <li>você já respondeu muitas questões e começou a ver repetições;</li>
+                <li>precisa de questões mais difíceis no estilo da banca;</li>
+                <li>quer gerar questões sobre tópicos em que está errando mais;</li>
+                <li>deseja expandir a base de estudos do Dataprev.</li>
+              </ul>
+              <p>As questões geradas <strong>não entram automaticamente no simulado</strong>. Elas precisam ser revisadas, aprovadas e validadas antes de serem usadas.</p>
+              <button className="nav-btn primary" onClick={() => setShowWhenUseModal(false)}>
+                Entendi
+              </button>
             </div>
           </div>
         </div>

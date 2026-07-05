@@ -171,6 +171,25 @@ export default function AIQuestionGeneratorPanel({ career, contestId, history }:
         <button className="nav-btn secondary small-btn" onClick={handleLock}>🔒 Bloquear</button>
       </div>
 
+      <div className="ai-panel-warning">
+        <strong>⚠️ Aviso:</strong> Este painel não substitui o simulado. Ele serve para criar novas questões autorais, revisar a qualidade e aprovar apenas as melhores para uso posterior.
+      </div>
+
+      <div className="ai-panel-steps">
+        <h4>Fluxo correto:</h4>
+        <ol>
+          <li>Escolha disciplina, tópico e dificuldade.</li>
+          <li>Gere poucas questões por vez.</li>
+          <li>Revise enunciado, alternativas, gabarito e explicação.</li>
+          <li>Aprove apenas questões boas.</li>
+          <li>Use as questões aprovadas no modo difícil ou no reforço por pontos fracos.</li>
+        </ol>
+      </div>
+
+      <div className="ai-panel-quality-alert">
+        <strong>⚠️ Qualidade:</strong> Não aprove questões sem revisar. A IA pode gerar alternativas ambíguas, explicações incompletas ou questões fáceis demais.
+      </div>
+
       {contestProfile && boardProfile && (
         <div className="ai-panel-contest-info">
           <div className="ai-contest-info-row">
@@ -184,6 +203,9 @@ export default function AIQuestionGeneratorPanel({ career, contestId, history }:
           </div>
           <div className="ai-contest-info-row">
             <span className="ai-info-label">Cargo:</span> <span>{contestProfile.targetRole}</span>
+          </div>
+          <div className="ai-contest-info-row ai-board-pattern-note">
+            As questões devem seguir o edital atual, o padrão da banca {boardProfile.name} e a referência de provas anteriores, sem copiar questões oficiais.
           </div>
         </div>
       )}
