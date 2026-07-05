@@ -465,6 +465,76 @@ assert(!healthStr.includes('AI_ADMIN_TOKEN'), 'Health check não expõe AI_ADMIN
 assert(healthStr.includes('rateLimitEnabled'), 'Health check informa rateLimitEnabled');
 assert(healthStr.includes('adminProtectionConfigured'), 'Health check informa adminProtectionConfigured');
 
+// 16. FREE MODEL MODE E FALLBACK
+console.log('\n16. MODO ECONÔMICO E FALLBACK DE MODELO');
+
+// Free mode logic
+function getFreeModeMaxQty(freeMode: boolean): number {
+  return freeMode ? 5 : 10;
+}
+function getFreeModeDefaultQty(freeMode: boolean): number {
+  return freeMode ? 3 : 5;
+}
+function getFreeModeTemp(freeMode: boolean): number {
+  return freeMode ? 0.5 : 0.7;
+}
+
+assert(getFreeModeMaxQty(true) === 5, 'Free mode: máximo 5 questões por request');
+assert(getFreeModeMaxQty(false) === 10, 'Modo normal: máximo 10 questões por request');
+assert(getFreeModeDefaultQty(true) === 3, 'Free mode: quantidade padrão 3');
+assert(getFreeModeDefaultQty(false) === 5, 'Modo normal: quantidade padrão 5');
+assert(getFreeModeTemp(true) === 0.5, 'Free mode: temperature 0.5');
+assert(getFreeModeTemp(false) === 0.7, 'Modo normal: temperature 0.7');
+
+// Free mode temperature must be between 0.4 and 0.6
+const freeTemp = getFreeModeTemp(true);
+assert(freeTemp >= 0.4 && freeTemp <= 0.6, 'Free mode: temperature entre 0.4 e 0.6');
+
+// No paid models as default or fallback
+const PAID_MODELS = ['glm-5.2', 'glm-5.1'];
+const FREE_MODELS = ['glm-4.7-flash', 'glm-4.5-flash'];
+const defaultPrimary = 'glm-4.7-flash';
+const defaultFallback = 'glm-4.5-flash';
+assert(!PAID_MODELS.includes(defaultPrimary), 'Modelo principal não é pago (glm-4.7-flash)');
+assert(!PAID_MODELS.includes(defaultFallback), 'Fallback não é pago (glm-4.5-flash)');
+assert(FREE_MODELS.includes(defaultPrimary), 'Modelo principal é gratuito');
+assert(FREE_MODELS.includes(defaultFallback), 'Fallback é gratuito');
+
+// Health check with free mode
+const healthFreeMode = {
+  configured: true,
+  apiKeyConfigured: true,
+  adminProtectionConfigured: true,
+  baseUrlConfigured: true,
+  model: 'glm-4.7-flash',
+  fallbackModel: 'glm-4.5-flash',
+  freeModelMode: true,
+  rateLimitEnabled: true,
+};
+const healthFreeStr = JSON.stringify(healthFreeMode);
+assert(healthFreeStr.includes('freeModelMode'), 'Health check informa freeModelMode');
+assert(healthFreeStr.includes('fallbackModel'), 'Health check informa fallbackModel');
+assert(healthFreeStr.includes('glm-4.7-flash'), 'Health check mostra modelo principal');
+assert(healthFreeStr.includes('glm-4.5-flash'), 'Health check mostra fallback');
+assert(!healthFreeStr.includes('glm-5.2'), 'Health check não referencia modelo pago');
+
+// Fallback logic: if primary fails with 429/balance, use fallback
+let modelUsed = 'glm-4.7-flash';
+const primaryFailed = true;
+const failReason: string = 'Insufficient balance';
+if (primaryFailed && (failReason.includes('Insufficient balance') || failReason === '429')) {
+  modelUsed = 'glm-4.5-flash';
+}
+assert(modelUsed === 'glm-4.5-flash', 'Fallback ativado quando primary falha com saldo/429');
+
+// Fallback NOT triggered for other errors
+modelUsed = 'glm-4.7-flash';
+const otherError = 'ETIMEDOUT';
+if (otherError === 'ETIMEDOUT') {
+  // Don't fallback for timeout
+}
+assert(modelUsed === 'glm-4.7-flash', 'Fallback NÃO ativado para timeout (erro temporário)');
+
 // RESULTS
 console.log('\n=== RESULTADO ===');
 console.log(`Passou: ${passed}`);

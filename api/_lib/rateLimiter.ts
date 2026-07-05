@@ -194,3 +194,40 @@ export function getRateLimitConfig() {
     tokenDaily: LIMITS.TOKEN.perDay,
   };
 }
+
+// === FREE MODEL MODE ===
+
+export function isFreeModelMode(): boolean {
+  return process.env.AI_FREE_MODEL_MODE === 'true';
+}
+
+export function getMaxQuantity(): number {
+  return isFreeModelMode() ? 5 : 10;
+}
+
+export function getDefaultQuantity(): number {
+  return isFreeModelMode() ? 3 : 5;
+}
+
+export function getModelTemperature(): number {
+  return isFreeModelMode() ? 0.5 : 0.7;
+}
+
+export function getPrimaryModel(): string {
+  return process.env.ZAI_MODEL || 'glm-4.7-flash';
+}
+
+export function getFallbackModel(): string {
+  return process.env.ZAI_FALLBACK_MODEL || 'glm-4.5-flash';
+}
+
+export function getModelConfig() {
+  return {
+    model: getPrimaryModel(),
+    fallbackModel: getFallbackModel(),
+    freeModelMode: isFreeModelMode(),
+    maxQuantity: getMaxQuantity(),
+    defaultQuantity: getDefaultQuantity(),
+    temperature: getModelTemperature(),
+  };
+}

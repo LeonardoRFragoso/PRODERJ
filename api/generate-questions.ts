@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import OpenAI from 'openai';
-import { checkAdminToken, checkRateLimit, secureLog } from './_lib/rateLimiter.js';
+import { checkAdminToken, checkRateLimit, secureLog, getPrimaryModel, getFallbackModel, getMaxQuantity, getModelTemperature, isFreeModelMode } from './_lib/rateLimiter.js';
 
 interface GenerateRequestBody {
   contestId: string;
@@ -14,8 +14,7 @@ interface GenerateRequestBody {
   weakTopics?: string[];
 }
 
-const MAX_QUANTITY = 10;
-const PROMPT_VERSION = '1.0.0';
+const PROMPT_VERSION = '1.1.0';
 const API_TIMEOUT_MS = 60000;
 
 const activeSessions = new Map<string, number>();
@@ -39,6 +38,7 @@ function releaseSession(req: VercelRequest): void {
 
 function validateRequest(body: Partial<GenerateRequestBody>): string[] {
   const errors: string[] = [];
+  const maxQty = getMaxQuantity();
 
   if (!body.contestId) errors.push('contestId é obrigatório');
   if (!body.careerId) errors.push('careerId é obrigatório');
@@ -52,8 +52,8 @@ function validateRequest(body: Partial<GenerateRequestBody>): string[] {
     errors.push('quantity é obrigatório e deve ser um número');
   } else if (body.quantity < 1) {
     errors.push('quantity deve ser >= 1');
-  } else if (body.quantity > MAX_QUANTITY) {
-    errors.push(`quantity máximo é ${MAX_QUANTITY}`);
+  } else if (body.quantity > maxQty) {
+    errors.push(`quantity máximo é ${maxQty}${isFreeModelMode() ? ' (modo econômico)' : ''}`);
   }
   if (!body.mode || !['hard', 'weak-topics', 'custom'].includes(body.mode)) {
     errors.push('mode deve ser "hard", "weak-topics" ou "custom"');
@@ -137,25 +137,28 @@ Formato obrigatório de resposta:
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const endpoint = '/api/generate-questions';
-  const model = process.env.ZAI_MODEL || 'glm-4.5-flash';
+  const primaryModel = getPrimaryModel();
+  const fallbackModel = getFallbackModel();
+  const temperature = getModelTemperature();
+  let usedModel = primaryModel;
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed. Use POST.' });
   }
 
   if (!checkAdminToken(req)) {
-    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 401, ipHash: 'unknown', model, success: false, errorType: 'unauthorized' });
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 401, ipHash: 'unknown', model: primaryModel, success: false, errorType: 'unauthorized' });
     return res.status(401).json({ success: false, error: 'Unauthorized' });
   }
 
   const rateLimit = checkRateLimit(req);
   if (!rateLimit.allowed) {
-    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 429, ipHash: rateLimit.ipHash, model, success: false, errorType: 'rate_limited' });
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 429, ipHash: rateLimit.ipHash, model: primaryModel, success: false, errorType: 'rate_limited' });
     return res.status(429).json({ success: false, error: rateLimit.reason || 'Limite de geração atingido. Tente novamente mais tarde.' });
   }
 
   if (!acquireSession(req)) {
-    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 429, ipHash: rateLimit.ipHash, model, success: false, errorType: 'session_busy' });
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 429, ipHash: rateLimit.ipHash, model: primaryModel, success: false, errorType: 'session_busy' });
     return res.status(429).json({ success: false, error: 'Já existe uma geração em andamento. Aguarde.' });
   }
 
@@ -193,15 +196,35 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const prompt = buildDataprevQuestionPrompt(request);
 
   try {
-    const completion = await client.chat.completions.create({
-      model,
-      messages: [
-        { role: 'system', content: 'Você é um elaborador de questões de concurso público especializado. Responda apenas com JSON válido. Não use raciocínio interno.' },
-        { role: 'user', content: prompt },
-      ],
-      temperature: 0.7,
-      response_format: { type: 'json_object' },
-    });
+    let completion;
+    try {
+      completion = await client.chat.completions.create({
+        model: primaryModel,
+        messages: [
+          { role: 'system', content: 'Você é um elaborador de questões de concurso público especializado. Responda apenas com JSON válido. Não use raciocínio interno.' },
+          { role: 'user', content: prompt },
+        ],
+        temperature,
+        response_format: { type: 'json_object' },
+      });
+    } catch (primaryErr: unknown) {
+      const pErr = primaryErr as { status?: number; message?: string };
+      if (pErr.status === 429 || (pErr.message && pErr.message.includes('Insufficient balance'))) {
+        secureLog({ timestamp: new Date().toISOString(), endpoint, status: pErr.status || 429, quantity: request.quantity, ipHash: rateLimit.ipHash, model: primaryModel, success: false, errorType: 'primary_failed_fallback' });
+        usedModel = fallbackModel;
+        completion = await client.chat.completions.create({
+          model: fallbackModel,
+          messages: [
+            { role: 'system', content: 'Você é um elaborador de questões de concurso público especializado. Responda apenas com JSON válido. Não use raciocínio interno.' },
+            { role: 'user', content: prompt },
+          ],
+          temperature,
+          response_format: { type: 'json_object' },
+        });
+      } else {
+        throw primaryErr;
+      }
+    }
 
     releaseSession(req);
 
@@ -239,7 +262,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         aiGenerated: true as const,
         generationMetadata: {
           provider: 'zai' as const,
-          model,
+          model: usedModel,
           generatedAt,
           contestId: request.contestId,
           careerId: request.careerId,
@@ -248,13 +271,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       };
     });
 
-    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 200, quantity: request.quantity, ipHash: rateLimit.ipHash, model, success: true });
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 200, quantity: request.quantity, ipHash: rateLimit.ipHash, model: usedModel, success: true });
     return res.status(200).json({
       success: true,
       questions,
       metadata: {
         provider: 'zai',
-        model,
+        model: usedModel,
         generatedAt,
         count: questions.length,
       },
@@ -263,7 +286,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     releaseSession(req);
     const err = error as { status?: number; message?: string; code?: string };
     const errorType = err.status === 401 ? 'zai_unauthorized' : err.status === 429 ? 'zai_rate_limited' : err.code === 'ETIMEDOUT' ? 'timeout' : 'server_error';
-    secureLog({ timestamp: new Date().toISOString(), endpoint, status: err.status || 500, quantity: request.quantity, ipHash: rateLimit.ipHash, model, success: false, errorType });
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: err.status || 500, quantity: request.quantity, ipHash: rateLimit.ipHash, model: usedModel, success: false, errorType });
 
     if (err.status === 401) {
       return res.status(401).json({
@@ -276,6 +299,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(429).json({
         success: false,
         error: 'Limite de requisições excedido na API Z.ai. Tente novamente em alguns minutos.',
+      });
+    }
+
+    if (err.message && err.message.includes('Insufficient balance')) {
+      return res.status(503).json({
+        success: false,
+        error: 'Saldo insuficiente na API Z.ai. Adicione créditos ou aguarde o reset do free tier.',
       });
     }
 

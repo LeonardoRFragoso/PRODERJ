@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import OpenAI from 'openai';
-import { checkAdminToken, checkRateLimit, secureLog } from './_lib/rateLimiter.js';
+import { checkAdminToken, checkRateLimit, secureLog, getPrimaryModel, getFallbackModel, getModelTemperature } from './_lib/rateLimiter.js';
 
 interface ReviewRequestBody {
   question: {
@@ -15,20 +15,23 @@ interface ReviewRequestBody {
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const endpoint = '/api/review-question';
-  const model = process.env.ZAI_MODEL || 'glm-4.5-flash';
+  const primaryModel = getPrimaryModel();
+  const fallbackModel = getFallbackModel();
+  const temperature = getModelTemperature();
+  let usedModel = primaryModel;
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed. Use POST.' });
   }
 
   if (!checkAdminToken(req)) {
-    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 401, ipHash: 'unknown', model, success: false, errorType: 'unauthorized' });
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 401, ipHash: 'unknown', model: primaryModel, success: false, errorType: 'unauthorized' });
     return res.status(401).json({ success: false, error: 'Unauthorized' });
   }
 
   const rateLimit = checkRateLimit(req);
   if (!rateLimit.allowed) {
-    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 429, ipHash: rateLimit.ipHash, model, success: false, errorType: 'rate_limited' });
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 429, ipHash: rateLimit.ipHash, model: primaryModel, success: false, errorType: 'rate_limited' });
     return res.status(429).json({ success: false, error: rateLimit.reason || 'Limite atingido. Tente novamente mais tarde.' });
   }
 
@@ -84,15 +87,34 @@ Retorne JSON:
 }`;
 
   try {
-    const completion = await client.chat.completions.create({
-      model,
-      messages: [
-        { role: 'system', content: 'Você é um revisador de questões de concurso. Responda apenas com JSON.' },
-        { role: 'user', content: prompt },
-      ],
-      temperature: 0.3,
-      response_format: { type: 'json_object' },
-    });
+    let completion;
+    try {
+      completion = await client.chat.completions.create({
+        model: primaryModel,
+        messages: [
+          { role: 'system', content: 'Você é um revisador de questões de concurso. Responda apenas com JSON.' },
+          { role: 'user', content: prompt },
+        ],
+        temperature,
+        response_format: { type: 'json_object' },
+      });
+    } catch (primaryErr: unknown) {
+      const pErr = primaryErr as { status?: number; message?: string };
+      if (pErr.status === 429 || (pErr.message && pErr.message.includes('Insufficient balance'))) {
+        usedModel = fallbackModel;
+        completion = await client.chat.completions.create({
+          model: fallbackModel,
+          messages: [
+            { role: 'system', content: 'Você é um revisador de questões de concurso. Responda apenas com JSON.' },
+            { role: 'user', content: prompt },
+          ],
+          temperature,
+          response_format: { type: 'json_object' },
+        });
+      } else {
+        throw primaryErr;
+      }
+    }
 
     const content = completion.choices[0]?.message?.content;
     if (!content) {
@@ -100,11 +122,11 @@ Retorne JSON:
     }
 
     const result = JSON.parse(content);
-    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 200, ipHash: rateLimit.ipHash, model, success: true });
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: 200, ipHash: rateLimit.ipHash, model: usedModel, success: true });
     return res.status(200).json({ success: true, review: result });
   } catch (error: unknown) {
     const err = error as { status?: number; message?: string };
-    secureLog({ timestamp: new Date().toISOString(), endpoint, status: err.status || 500, ipHash: rateLimit.ipHash, model, success: false, errorType: 'server_error' });
+    secureLog({ timestamp: new Date().toISOString(), endpoint, status: err.status || 500, ipHash: rateLimit.ipHash, model: usedModel, success: false, errorType: 'server_error' });
     return res.status(500).json({
       success: false,
       error: 'Erro ao revisar questão.',
