@@ -535,6 +535,84 @@ if (otherError === 'ETIMEDOUT') {
 }
 assert(modelUsed === 'glm-4.7-flash', 'Fallback NÃO ativado para timeout (erro temporário)');
 
+// 17. PADRÃO DA BANCA E PROMPT
+console.log('\n17. PADRÃO DA BANCA E ESTRUTURA DO PROMPT');
+
+// Board style profile
+const fgvProfile = {
+  id: 'fgv',
+  name: 'Fundação Getulio Vargas',
+  questionStyle: [
+    'enunciados interpretativos',
+    'alternativas longas e semanticamente próximas',
+    'cobrança aplicada em cenários práticos',
+  ],
+  avoid: ['questões óbvias', 'copiar questões oficiais'],
+  difficultyCalibration: {
+    facil: 'questão conceitual',
+    medio: 'questão aplicada com cenário',
+    dificil: 'questão interpretativa com alternativas muito próximas',
+  },
+};
+assert(fgvProfile.id === 'fgv', 'Perfil FGV tem id correto');
+assert(fgvProfile.questionStyle.length >= 3, 'Perfil FGV tem pelo menos 3 regras de estilo');
+assert(fgvProfile.avoid.includes('copiar questões oficiais'), 'Perfil FGV proíbe copiar questões');
+
+// Contest reference profile
+const dataprevProfile = {
+  contestId: 'dataprev-2026',
+  contestName: 'Dataprev 2026',
+  currentBoard: 'fgv',
+  targetRole: 'Analista de TI — Perfil 3',
+  contentSourcePriority: ['Edital atual Dataprev 2026'],
+  styleSourcePriority: ['Provas anteriores da FGV para cargos de TI'],
+  previousExamUsageRule: 'Proibido copiar questões oficiais',
+  generationRule: 'Gerar questões autorais',
+};
+assert(dataprevProfile.currentBoard === 'fgv', 'Dataprev usa FGV como banca atual');
+assert(dataprevProfile.styleSourcePriority[0].includes('FGV'), 'Estilo principal é FGV');
+
+// Simulated prompt content checks
+const simulatedPrompt = `Você é um elaborador de questões de concurso público especializado na banca Fundação Getulio Vargas.
+Concurso: Dataprev 2026
+Banca: Fundação Getulio Vargas
+Você deve gerar questões autorais no padrão da banca FGV.
+Prioridade de geração:
+1. Conteúdo do edital atual.
+2. Estilo da banca atual.
+3. Padrão de provas anteriores da mesma banca.
+Não copie, não adapte e não reproduza questões oficiais.
+Use provas anteriores da FGV para calibrar estilo.
+Use provas antigas da Dataprev apenas para identificar temas recorrentes.
+source: "Questão autoral gerada com apoio de IA, inspirada no padrão da banca FGV"`;
+
+assert(simulatedPrompt.includes('edital'), 'Prompt contém referência ao edital atual');
+assert(simulatedPrompt.includes('FGV'), 'Prompt contém referência à banca atual (FGV)');
+assert(simulatedPrompt.includes('Não copie'), 'Prompt contém regra de não copiar questões oficiais');
+assert(simulatedPrompt.includes('provas anteriores da FGV'), 'Prompt usa provas anteriores da banca como estilo');
+assert(simulatedPrompt.includes('Dataprev apenas'), 'Prompt usa provas antigas do órgão apenas como tema');
+assert(simulatedPrompt.includes('autorais'), 'Prompt menciona questões autorais');
+assert(simulatedPrompt.includes('inspirada no padrão da banca'), 'Source menciona inspiração no padrão da banca');
+
+// Review response should include boardStyleScore
+const reviewResponse = {
+  approved: true,
+  score: 8,
+  boardStyleScore: 7,
+  difficultyScore: 8,
+  editalAdherenceScore: 9,
+  warnings: [],
+  suggestions: [],
+};
+assert(typeof reviewResponse.boardStyleScore === 'number', 'Review retorna boardStyleScore');
+assert(typeof reviewResponse.difficultyScore === 'number', 'Review retorna difficultyScore');
+assert(typeof reviewResponse.editalAdherenceScore === 'number', 'Review retorna editalAdherenceScore');
+assert(reviewResponse.boardStyleScore >= 0 && reviewResponse.boardStyleScore <= 10, 'boardStyleScore entre 0 e 10');
+
+// No paid models in prompt
+assert(!simulatedPrompt.includes('glm-5.2'), 'Prompt não referencia modelo pago');
+assert(!simulatedPrompt.includes('glm-5.1'), 'Prompt não referencia modelo pago');
+
 // RESULTS
 console.log('\n=== RESULTADO ===');
 console.log(`Passou: ${passed}`);

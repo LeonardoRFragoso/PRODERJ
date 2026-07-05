@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import OpenAI from 'openai';
 import { checkAdminToken, checkRateLimit, secureLog, getPrimaryModel, getFallbackModel, getModelTemperature } from './_lib/rateLimiter.js';
+import { getBoardProfile, getContestReferenceProfile } from './_lib/profiles.js';
 
 interface ReviewRequestBody {
   question: {
@@ -11,6 +12,7 @@ interface ReviewRequestBody {
     subject: string;
     subjectName: string;
   };
+  contestId?: string;
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -61,7 +63,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   });
 
   const q = body.question;
-  const prompt = `Revise a seguinte questão de concurso público e identifique possíveis problemas.
+  const contestId = body.contestId || 'dataprev-2026';
+  const contest = getContestReferenceProfile(contestId);
+  const boardId = contest?.currentBoard || 'fgv';
+  const board = getBoardProfile(boardId);
+  const boardName = board?.name || 'FGV';
+  const contestName = contest?.contestName || 'Dataprev 2026';
+  const styleRules = board
+    ? board.questionStyle.map(s => `- ${s}`).join('\n')
+    : '- enunciados interpretativos\n- alternativas próximas';
+
+  const prompt = `Revise a seguinte questão de concurso público considerando o padrão da banca ${boardName} e o edital ${contestName}.
 
 Questão:
 - Disciplina: ${q.subjectName}
@@ -70,20 +82,30 @@ Questão:
 - Resposta correta: ${q.correctAnswer}
 - Explicação: ${q.explanation}
 
-Verifique:
-1. A resposta correta está tecnicamente correta?
-2. Há ambiguidade entre as alternativas?
-3. A explicação justifica adequadamente?
-4. Há alternativas obviamente erradas?
-5. O nível de dificuldade é apropriado?
-6. Há erros de português ou formatação?
+Estilo esperado da banca ${boardName}:
+${styleRules}
 
-Retorne JSON:
+Verifique obrigatoriamente:
+1. Aderência ao edital ${contestName} — a questão cobre conteúdo do edital?
+2. Aderência ao estilo da banca ${boardName} — segue o padrão de enunciado e alternativas?
+3. A resposta correta está tecnicamente correta?
+4. Há ambiguidade entre as alternativas? Existem duas respostas corretas?
+5. A questão parece genérica demais?
+6. Há alternativa óbvia demais (facilmente descartável)?
+7. A explicação justifica adequadamente a correta e aponta o erro das demais?
+8. Há cópia ou semelhança excessiva com questão já existente?
+9. O nível de dificuldade é apropriado e condizente com a banca?
+10. A questão realmente parece uma questão da ${boardName}?
+
+Retorne JSON obrigatoriamente no formato:
 {
-  "approved": true/false,
-  "issues": ["problema 1", "problema 2"],
-  "suggestions": ["sugestão 1"],
-  "overallQuality": "alta" | "media" | "baixa"
+  "approved": boolean,
+  "score": number (0-10, qualidade geral),
+  "boardStyleScore": number (0-10, aderência ao estilo da banca),
+  "difficultyScore": number (0-10, adequação da dificuldade),
+  "editalAdherenceScore": number (0-10, aderência ao edital),
+  "warnings": ["aviso 1", "aviso 2"],
+  "suggestions": ["sugestão 1", "sugestão 2"]
 }`;
 
   try {
@@ -92,7 +114,7 @@ Retorne JSON:
       completion = await client.chat.completions.create({
         model: primaryModel,
         messages: [
-          { role: 'system', content: 'Você é um revisador de questões de concurso. Responda apenas com JSON.' },
+          { role: 'system', content: `Você é um revisador de questões de concurso especializado na banca ${boardName}. Responda apenas com JSON.` },
           { role: 'user', content: prompt },
         ],
         temperature,
@@ -105,7 +127,7 @@ Retorne JSON:
         completion = await client.chat.completions.create({
           model: fallbackModel,
           messages: [
-            { role: 'system', content: 'Você é um revisador de questões de concurso. Responda apenas com JSON.' },
+            { role: 'system', content: `Você é um revisador de questões de concurso especializado na banca ${boardName}. Responda apenas com JSON.` },
             { role: 'user', content: prompt },
           ],
           temperature,

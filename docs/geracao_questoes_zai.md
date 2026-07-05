@@ -2,7 +2,7 @@
 
 ## Visão Geral
 
-O sistema permite gerar novas questões difíceis usando a API da Z.ai (modelo GLM-5.2), com arquitetura segura que **nunca expõe a chave da API no frontend**.
+O sistema permite gerar novas questões difíceis usando a API da Z.ai (modelo GLM-4.7-flash free tier), com arquitetura segura que **nunca expõe a chave da API no frontend**.
 
 ## Arquitetura de Segurança
 
@@ -136,14 +136,80 @@ Cada request registra apenas:
 ## Fluxo de Geração
 
 1. Usuário acessa o painel "Gerador de Questões IA"
-2. Seleciona disciplina, tópico, dificuldade e quantidade (máx 10)
-3. Clica em "Gerar questões com IA"
-4. Frontend envia POST para `/api/generate-questions`
-5. Serverless function chama Z.ai com prompt restritivo
-6. Questões retornam como **rascunho** (draft)
-7. Usuário revisa cada questão
-8. Usuário **aprova** ou **rejeita** cada questão
-9. Apenas questões aprovadas entram nos simulados difíceis e treinos
+2. Vê informações do concurso, banca e estilo aplicável
+3. Seleciona disciplina, tópico, dificuldade e quantidade (máx 5 em modo econômico)
+4. Clica em "Gerar questões com IA"
+5. Frontend envia POST para `/api/generate-questions`
+6. Serverless function monta prompt usando perfil da banca + perfil do concurso
+7. Z.ai gera questões autorais no padrão da banca
+8. Questões retornam como **rascunho** (draft)
+9. Usuário revisa cada questão com scores de aderência
+10. Usuário **aprova** ou **rejeita** cada questão
+11. Apenas questões aprovadas entram nos simulados difíceis e treinos
+
+## Como a IA segue o padrão da banca
+
+O sistema usa dois arquivos de configuração para garantir que toda questão gerada siga o padrão correto:
+
+### Perfis de banca (`src/data/boardStyleProfiles.ts`)
+
+Cada banca tem um perfil com:
+- **questionStyle**: regras de estilo (enunciados interpretativos, alternativas próximas, etc.)
+- **avoid**: o que evitar (questões óbvias, alternativas absurdas, copiar oficiais)
+- **difficultyCalibration**: como calibrar facil/médio/difícil para aquela banca
+
+### Perfis de concurso (`src/data/contestReferenceProfiles.ts`)
+
+Cada concurso tem um perfil com:
+- **currentBoard**: banca atual (ex: FGV para Dataprev 2026)
+- **contentSourcePriority**: prioridade de conteúdo (edital primeiro)
+- **styleSourcePriority**: prioridade de estilo (provas da banca primeiro)
+- **previousExamUsageRule**: regra de uso de provas anteriores
+
+### Hierarquia de geração
+
+1. **Edital atual** manda no **conteúdo** — a IA só gera questões sobre o que está no edital
+2. **Banca atual** manda no **estilo** — a IA segue o padrão de enunciados e alternativas da banca
+3. **Provas anteriores da banca** calibram **dificuldade** — a IA ajusta o nível para parecer real
+4. **Provas anteriores do órgão** ajudam em **recorrência temática** — temas que caem frequentemente
+5. **Questões oficiais não são copiadas** — toda questão é autoral e inédita
+
+### Para Dataprev 2026
+
+- **Banca atual**: FGV
+- **Estilo principal**: provas anteriores da FGV para TI
+- **Referência secundária**: provas antigas da Dataprev (apenas temas recorrentes)
+- **Conteúdo**: edital Dataprev 2026, Perfil 3 — Desenvolvimento de Software
+
+### Revisão com scores
+
+O endpoint `/api/review-question` agora retorna scores de aderência:
+
+```json
+{
+  "approved": true,
+  "score": 8,
+  "boardStyleScore": 7,
+  "difficultyScore": 8,
+  "editalAdherenceScore": 9,
+  "warnings": [],
+  "suggestions": []
+}
+```
+
+- **boardStyleScore**: quão aderente ao estilo da banca (0-10)
+- **difficultyScore**: quão adequada a dificuldade (0-10)
+- **editalAdherenceScore**: quão aderente ao edital (0-10)
+
+### Painel frontend
+
+O painel de geração mostra:
+- Concurso (ex: Dataprev 2026)
+- Banca (ex: Fundação Getulio Vargas)
+- Estilo usado (ex: enunciados interpretativos, alternativas próximas...)
+- Cargo
+- Tópico e dificuldade selecionados
+- Status: rascunho, aprovada ou rejeitada
 
 ## Validação Automática
 

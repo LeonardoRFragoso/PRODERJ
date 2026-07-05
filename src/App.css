@@ -1406,6 +1406,24 @@ body {
   margin-top: 24px;
 }
 
+.ai-panel-contest-info {
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 0.85rem;
+}
+
+.ai-contest-info-row {
+  margin: 4px 0;
+}
+
+.ai-info-label {
+  color: var(--text-secondary, #888);
+  margin-right: 6px;
+}
+
 .ai-unlock-form {
   display: flex;
   flex-direction: column;

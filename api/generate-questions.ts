@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import OpenAI from 'openai';
 import { checkAdminToken, checkRateLimit, secureLog, getPrimaryModel, getFallbackModel, getMaxQuantity, getModelTemperature, isFreeModelMode } from './_lib/rateLimiter.js';
+import { getBoardProfile, getContestReferenceProfile } from './_lib/profiles.js';
 
 interface GenerateRequestBody {
   contestId: string;
@@ -14,7 +15,7 @@ interface GenerateRequestBody {
   weakTopics?: string[];
 }
 
-const PROMPT_VERSION = '1.1.0';
+const PROMPT_VERSION = '2.0.0';
 const API_TIMEOUT_MS = 60000;
 
 const activeSessions = new Map<string, number>();
@@ -63,50 +64,84 @@ function validateRequest(body: Partial<GenerateRequestBody>): string[] {
 }
 
 function buildDataprevQuestionPrompt(request: GenerateRequestBody): string {
+  const contest = getContestReferenceProfile(request.contestId);
+  const boardId = contest?.currentBoard || 'fgv';
+  const board = getBoardProfile(boardId);
+  const contestName = contest?.contestName || 'Dataprev 2026';
+  const targetRole = contest?.targetRole || 'Analista de Tecnologia da Informação — Perfil 3: Desenvolvimento de Software';
+  const boardName = board?.name || 'Fundação Getulio Vargas';
+  const orgShortName = contestName.split(' ')[0];
+
   const weakTopicsSection = request.weakTopics && request.weakTopics.length > 0
     ? `\n\nTópicos fracos identificados (priorize estes):\n${request.weakTopics.map(t => `- ${t}`).join('\n')}`
     : '';
 
-  const difficultyInstruction = request.difficulty === 'dificil'
-    ? `Dificuldade: DIFÍCIL
-- Use cenários complexos e situações que exigem raciocínio profundo
-- Alternativas devem ser muito próximas, com diferenças sutis
-- Evite questões memorização direta — prefira aplicação prática
-- Inclua pegadinhas conceituais comuns`
-    : `Dificuldade: MÉDIO
-- Use cenários moderados
-- Alternativas plausíveis mas com distinção clara para quem domina o tema`;
+  const difficultyCalibration = board?.difficultyCalibration[request.difficulty] ||
+    'questão aplicada com cenário e alternativas competitivas';
 
-  return `Você é um elaborador de questões de concurso público especializado na banca FGV.
+  const styleRules = board
+    ? board.questionStyle.map(s => `- ${s}`).join('\n')
+    : '- enunciados interpretativos\n- alternativas próximas\n- cenários práticos';
 
-Gere ${request.quantity} questão(ões) autorais para o concurso Dataprev 2026.
+  const avoidRules = board
+    ? board.avoid.map(s => `- ${s}`).join('\n')
+    : '- questões óbvias\n- alternativas absurdas\n- copiar questões oficiais';
 
-Cargo: Analista de Tecnologia da Informação — Perfil 3: Desenvolvimento de Software
+  const difficultyExtra = request.difficulty === 'dificil'
+    ? `\nPara dificuldade difícil:\n- use cenário prático;\n- crie alternativas tecnicamente próximas;\n- inclua pelo menos duas alternativas muito plausíveis;\n- cobre diferença entre conceitos parecidos;\n- evite resposta óbvia;\n- exija aplicação do conhecimento;\n- use explicação técnica robusta.`
+    : '';
 
+  return `Você é um elaborador de questões de concurso público especializado na banca ${boardName}.
+
+Gere ${request.quantity} questão(ões) autorais para:
+Concurso: ${contestName}
+Cargo: ${targetRole}
+Banca: ${boardName}
 Disciplina: ${request.subjectName} (${request.subject})
 Tópico: ${request.topic}
-${difficultyInstruction}
-${weakTopicsSection}
+Dificuldade: ${request.difficulty.toUpperCase()}
+Quantidade: ${request.quantity}
 
-Regras obrigatórias:
+Você deve gerar questões autorais no padrão da banca ${boardName}. Use como referência de estilo as provas anteriores da ${boardName} para cargos de Tecnologia da Informação, Analista de Sistemas, Desenvolvimento de Software e concursos federais de nível superior. Use provas anteriores da ${orgShortName} apenas como referência temática, nunca como modelo principal se a banca anterior for diferente da ${boardName}. Não copie, não adapte e não reproduza questões oficiais. Crie novas questões com conteúdo aderente ao edital ${contestName}.
+
+Prioridade de geração:
+1. Conteúdo do edital atual.
+2. Estilo da banca atual.
+3. Padrão de provas anteriores da mesma banca.
+4. Temas recorrentes de provas anteriores do mesmo órgão.
+5. Questão autoral e inédita.
+
+Regras de conteúdo:
+- Use o edital ${contestName} como fonte principal.
+- Não cobre assuntos fora do conteúdo programático.
+- Para conhecimentos específicos, priorize desenvolvimento de software, arquitetura, APIs, segurança, dados, DevOps, IA, governança e legislação conforme o edital.
+
+Regras de estilo ${boardName}:
+${styleRules}
+
+Evitar:
+${avoidRules}
+
+Calibração de dificuldade:
+${difficultyCalibration}${difficultyExtra}${weakTopicsSection}
+
+Referências:
+- Use provas anteriores da ${boardName} para calibrar estilo e dificuldade.
+- Use provas antigas da ${orgShortName} apenas para identificar temas recorrentes.
 - Não copie questões oficiais.
-- Não reproduza texto de provas anteriores.
-- Crie questões autorais.
-- Use estilo FGV.
-- Use enunciados interpretativos.
-- Use cenários práticos.
-- Use alternativas plausíveis e próximas.
-- Evite questões fáceis demais.
-- Evite alternativas obviamente erradas.
-- Use 5 alternativas: A, B, C, D, E.
-- Apenas uma alternativa correta.
-- A resposta correta deve estar tecnicamente correta e não pode ter ambiguidade.
-- As demais alternativas devem ser plausíveis, mas incorretas por detalhe técnico.
-- A explicação deve justificar a correta e, quando possível, apontar por que as demais estão erradas.
-- O conteúdo deve pertencer ao edital Dataprev 2026.
+- Não reproduza enunciados.
+- Não faça paráfrase de questão existente.
+- Gere questões inéditas.
+
+Formato:
 - Retorne somente JSON válido.
 - Não use Markdown.
-- Não use comentários fora do JSON.
+- Não use texto fora do JSON.
+- Cada questão deve ter 5 alternativas: A, B, C, D, E.
+- Apenas uma alternativa correta.
+- A resposta correta deve estar tecnicamente correta e sem ambiguidade.
+- As demais alternativas devem ser plausíveis, mas incorretas por detalhe técnico.
+- A explicação deve justificar a correta e apontar o erro das demais quando possível.
 
 Formato obrigatório de resposta:
 
@@ -128,8 +163,8 @@ Formato obrigatório de resposta:
       ],
       "correctAnswer": "C",
       "explanation": "Explicação técnica...",
-      "tags": ["dataprev", "fgv", "${request.subject}"],
-      "source": "Questão autoral gerada com apoio de IA, baseada no edital Dataprev 2026 e revisada antes do uso."
+      "tags": ["${orgShortName.toLowerCase()}", "${boardId}", "${request.subject}"],
+      "source": "Questão autoral gerada com apoio de IA, inspirada no padrão da banca ${boardName}, baseada no edital ${contestName} e revisada antes do uso."
     }
   ]
 }`;

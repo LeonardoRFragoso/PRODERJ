@@ -18,6 +18,8 @@ import {
 import GeneratedQuestionsReview from './GeneratedQuestionsReview';
 import WeakTopicsPanel from './WeakTopicsPanel';
 import type { AttemptHistory } from '../services/storageService';
+import { getContestReferenceProfile } from '../data/contestReferenceProfiles';
+import { getBoardProfile } from '../data/boardStyleProfiles';
 
 interface AIQuestionGeneratorPanelProps {
   career: Career;
@@ -32,13 +34,17 @@ export default function AIQuestionGeneratorPanel({ career, contestId, history }:
   const [selectedSubject, setSelectedSubject] = useState(career.subjects[0]?.id || '');
   const [topic, setTopic] = useState('');
   const [difficulty, setDifficulty] = useState<'medio' | 'dificil'>('dificil');
-  const [quantity, setQuantity] = useState(5);
+  const [quantity, setQuantity] = useState(3);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
   const [drafts, setDrafts] = useState<GeneratedQuestionWithStatus[]>([]);
   const [approvedCount, setApprovedCount] = useState(0);
   const [rejectedCount, setRejectedCount] = useState(0);
+
+  const contestProfile = getContestReferenceProfile(contestId);
+  const boardProfile = contestProfile ? getBoardProfile(contestProfile.currentBoard) : undefined;
+  const maxQty = 5;
 
   const refreshData = useCallback(() => {
     setDrafts(getDrafts());
@@ -82,7 +88,7 @@ export default function AIQuestionGeneratorPanel({ career, contestId, history }:
         subjectName: subject.name,
         topic: topic || subject.name,
         difficulty,
-        quantity: Math.min(quantity, 10),
+        quantity: Math.min(quantity, maxQty),
         mode: weakTopics ? 'weak-topics' : 'hard',
         weakTopics,
       };
@@ -165,6 +171,23 @@ export default function AIQuestionGeneratorPanel({ career, contestId, history }:
         <button className="nav-btn secondary small-btn" onClick={handleLock}>🔒 Bloquear</button>
       </div>
 
+      {contestProfile && boardProfile && (
+        <div className="ai-panel-contest-info">
+          <div className="ai-contest-info-row">
+            <span className="ai-info-label">Concurso:</span> <strong>{contestProfile.contestName}</strong>
+          </div>
+          <div className="ai-contest-info-row">
+            <span className="ai-info-label">Banca:</span> <strong>{boardProfile.name}</strong>
+          </div>
+          <div className="ai-contest-info-row">
+            <span className="ai-info-label">Estilo:</span> <span>{boardProfile.questionStyle.slice(0, 3).join(', ')}</span>
+          </div>
+          <div className="ai-contest-info-row">
+            <span className="ai-info-label">Cargo:</span> <span>{contestProfile.targetRole}</span>
+          </div>
+        </div>
+      )}
+
       <div className="ai-panel-stats">
         <div className="ai-stat"><span className="ai-stat-value">{drafts.length}</span><span className="ai-stat-label">Rascunhos</span></div>
         <div className="ai-stat"><span className="ai-stat-value">{approvedCount}</span><span className="ai-stat-label">Aprovadas</span></div>
@@ -197,8 +220,8 @@ export default function AIQuestionGeneratorPanel({ career, contestId, history }:
             </select>
           </label>
           <label>
-            Quantidade (máx 10)
-            <input type="number" min={1} max={10} value={quantity} onChange={e => setQuantity(Math.min(parseInt(e.target.value) || 1, 10))} />
+            Quantidade (máx {maxQty})
+            <input type="number" min={1} max={maxQty} value={quantity} onChange={e => setQuantity(Math.min(parseInt(e.target.value) || 1, maxQty))} />
           </label>
         </div>
         <button className="nav-btn primary" onClick={() => handleGenerate()} disabled={loading}>
